@@ -7,27 +7,36 @@
 }
 
 body {
-  height: 100vh;
+  height: 1240px;
 }
 
 header,
 .headerWrap,
 footer,
+.contentWrap,
+.cardInnerWrap,
+.sectionBottom,
+.sectionTop,
 main {
   border: 1px black solid;
 }
 
+/* 헤더 */
 header {
   display: flex;
-  height: 195px;
+  height: 20%;
   width: 100%;
 }
-.headerWrap {
-  width: 25%;
-  padding: 40px;
+.headerWrapLeft {
+  width: 30%;
+  padding: 30px;
+}
+.headerWrapRight {
+  width: 30%;
+  padding: 30px;
 }
 .headerWrapCenter {
-  width: 50%;
+  width: 40%;
   padding: 40px;
 }
 .headerInnerWrapTop {
@@ -42,13 +51,143 @@ header {
   display: flex;
   flex-direction: row;
   width: 100%;
+  margin-top: 60px;
+}
+.account {
+  display: none;
 }
 
+/* 메인 */
 main {
   width: 100%;
   height: 100%;
 }
 
+.mainContents {
+  width: 100%;
+  height: 70%;
+}
+
+/* 세션 윗 부분*/
+.sectionTop {
+  display: none;
+}
+
+/* 랩 */
+.contentWrap {
+  display: none;
+}
+.contentInnerWrap {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.recommend {
+  display: flex;
+  flex-direction: row;
+  width: 18%;
+  margin: 2% 1%;
+}
+
+.cardWrap {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+}
+.cardInnerWrap {
+  height: 90px;
+  width: 160px;
+  margin: 1% 2%;
+}
+/* 내용 */
+.card {
+  height: 100%;
+  width: 100%;
+}
+.cardTitle {
+  height: 50%;
+}
+.cardPlace {
+  height: 50%;
+}
+
+/* 세션 아랫부분 */
+
+.sectionBottom {
+  display: none;
+}
+
+/* 푸터 */
 footer {
-  height: 175px;
+  height: 10%;
+  background-color: #c0c0c0;
+}
+
+@media (max-width: 1240px) {
+  /* 헤더 */
+  header {
+    justify-content: space-between;
+  }
+  .headerWrapCenter {
+    display: none;
+  }
+  .loginText {
+    display: none;
+  }
+  .account {
+    display: block;
+  }
+
+  /* 메인 */
+  .mainContents {
+    display: none;
+  }
+  body {
+    height: 1100px;
+  }
+  .sectionTop {
+    width: 90%;
+    height: 20%;
+    margin: 0 auto;
+    display: block;
+    display: flex;
+    align-items: center;
+  }
+  .sectionBottom {
+    width: 90%;
+    height: 40%;
+    margin: 0 auto;
+    display: block;
+  }
+  .contentWrap {
+    display: block;
+    height: 110px;
+    width: 100%;
+  }
+  footer {
+    height: 20%;
+  }
+}
+@media (max-width: 830px) {
+  .last {
+    display: none;
+  }
+}
+
+@media (max-width: 580px) {
+  .recommend {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 435px) {
+  .headerWrapLeft {
+    width: 60%;
+  }
+  .headerWrapRight {
+    width: 40%;
+  }
+  .third {
+    display: none;
+  }
 }
