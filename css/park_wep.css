@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: 1px solid black;
+}
+
+/* body {
+  height: 1240px;
+} */
+
+header,
+.headerWrap,
+footer,
+.contentWrap,
+.cardInnerWrap,
+.sectionBottom,
+.sectionTop,
+main {
+  border: 1px black solid;
+}
+
+/* 헤더 */
+header {
+  display: flex;
+  height: 20%;
+  width: 100%;
+}
+
+.loginText .account {
+  position: absolute;
+}
+
+.headerWrapLeft {
+  width: 30%;
+  padding: 30px;
+}
+.headerWrapRight {
+  width: 30%;
+  padding: 30px;
+}
+.headerWrapCenter {
+  width: 40%;
+  padding: 40px;
+}
+.headerInnerWrapTop {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.headerInnerWrap {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 60px;
+}
+.account {
+  display: none;
+}
+
+/* 공원 이름 및 찜하기 */
+.parkTitleWrap {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 79px;
+}
+
+/* 공원 이미지, 공원설명 */
+.parkImpor {
+  /* text-align: center; */
+  /* justify-content: center; */
+  width: 100%;
+}
+
+.parkName {
+  display: flex;
+  justify-content: space-between;
+}
+/* .parkPark {
+  margin: 79px 0px 69px 0px;
+} */
+
+.parkImg {
+  width: 100%;
+}
+
+.parkImporWrap {
+  width: 100%;
+}
+
+.boxContent {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  border-bottom: none;
+  padding-top: 50px;
+}
+
+.boxCount {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+  border-top: none;
+}
+
+.b1 {
+  width: 100px;
+  height: 40px;
+}
+
+/* 공원 난이도 */
+.text {
+  display: flex;
+  justify-content: center;
+}
+
+.text2 {
+  text-align: center;
+}
+
+/* 공원 위치 */
+.parkLocation {
+  text-align: center;
+  padding: 5%;
+  margin: 5% 0px;
+  width: 100%;
+  height: 162px;
+}
+
+/* 공원 지도 */
+.parkMap {
+  text-align: center;
+  padding: 5%;
+  margin: 5% 0px;
+  width: 100%;
+  height: 687px;
+}
+
+/* 반응형 */
+
+@media (max-width: 1239px) {
+  /* 헤더 */
+  header {
+    justify-content: space-between;
+  }
+  .headerWrapCenter {
+    display: none;
+  }
+  .loginText {
+    display: none;
+  }
+  .account {
+    display: block;
+  }
+}
+
+/* flex-wrap: wrap; */
+@media (min-width: 436px) {
+  .parkImpor {
+    display: flex;
+  }
+
+  .parkImg {
+    width: 48%;
+  }
+
+  .parkImporWrap {
+    margin-left: 4%;
+    width: 48%;
+    padding: 5%;
+  }
+
+  .parkLocation {
+    width: 100%;
+    height: 260px;
+  }
+
+  .parkMap {
+    width: 100%;
+    height: 328px;
+  }
+}
+
+/* 모바일 */
+
+@media (max-width: 435px) {
+  .headerWrapLeft {
+    width: 60%;
+  }
+  .headerWrapRight {
+    width: 40%;
+  }
+  .parkImpor {
+    flex-direction: column;
+  }
+
+  .parkImg {
+    width: 100%; /* 필요에 따라 조정 가능 */
+    height: auto; /* 필요에 따라 조정 가능 */
+  }
+
+  .parkImporWrap {
+    width: 100%; /* 필요에 따라 조정 가능 */
+  }
+}
+
+@media (min-width: 1240px) {
+  .mom {
+    padding: 0px 360px !important;
+  }
+}
+
+p::after {
+  content: "\f004";
+  font-family: "Font Awesome 5 Free"; /*폰트어썸 fas, far 글꼴 연결*/
+  font-weight: 600; /*폰트어썸 굵기 Solid Style(fas) 600필수*/
+  color: pink;
+  font-size: 30px;
+}

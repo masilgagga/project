@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  height: 1240px;
+}
+
+header,
+.headerWrap,
+footer,
+.contentWrap,
+.cardInnerWrap,
+.sectionBottom,
+.sectionTop,
+main {
+  border: 1px black solid;
+}
+
+/* 헤더 */
+header {
+  display: flex;
+  height: 20%;
+  width: 100%;
+}
+
+.main {
+  position: relative;
+}
+
+.loginText .account {
+  position: absolute;
+}
+
+.headerWrapLeft {
+  width: 30%;
+  padding: 30px;
+}
+.headerWrapRight {
+  width: 30%;
+  padding: 30px;
+}
+.headerWrapCenter {
+  width: 40%;
+  padding: 40px;
+}
+.headerInnerWrapTop {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.headerInnerWrap {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 60px;
+}
+.account {
+  display: none;
+}
+
+/* 간편로그인 */
+
+.login {
+  text-align: center;
+  margin-top: 200px;
+}
+
+.button {
+  width: 300px; /* 버튼 너비 */
+  height: 70px; /* 버튼 높이 */
+  font-size: 20px; /* 글자 크기 */
+  padding: 10px; /* 안쪽 여백 */
+  margin: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+.kakao {
+  background-color: #ffe300;
+}
+
+.naver {
+  background-color: #03c75a;
+}
+
+/* 테블릿 */
+
+@media (max-width: 1240px) {
+  /* 헤더 */
+  header {
+    justify-content: space-between;
+  }
+  .headerWrapCenter {
+    display: none;
+  }
+  .loginText {
+    display: none;
+  }
+  .account {
+    display: block;
+  }
+}
+
+/* 모바일 */
+
+@media (max-width: 435px) {
+  .headerWrapLeft {
+    width: 60%;
+  }
+  .headerWrapRight {
+    width: 40%;
+  }
+}
