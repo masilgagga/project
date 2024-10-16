@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #ecf0eb;
+}
+
+/* 타이틀 배경 */
+.title_bg {
+  max-width: 1200px;
+  background-color: #60b3ef;
+  margin: auto;
+}
+
+.title {
+  display: inline-block;
+  background-color: #1677bd;
+  padding: 25px 90px;
+  font-size: 25px;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 0 50px 50px 0;
+}
+
+/* 셀렉트 검색 */
+.search_box {
+  max-width: 1200px;
+  padding: 70px;
+  margin: auto;
+  border-bottom: 1px solid #1677bd;
+  background-color: #ffffff;
+}
+
+.select {
+  display: flex;
+  font-size: 13px;
+  color: #003b66;
+  font-weight: bold;
+  background-color: #ffffff;
+}
+
+.select div {
+  margin-right: 10px;
+  background-color: #ffffff;
+}
+
+.select_title {
+  padding-bottom: 5px;
+}
+
+.select select {
+  width: 130px;
+  height: 40px;
+  border: 1px solid #003b66;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+.find_btn {
+  display: flex;
+  align-items: end;
+}
+
+.find_btn button {
+  width: 130px;
+  padding: 7px;
+  background-color: #003b66;
+  color: #ffffff;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+/* 목록 페이지 번호 */
+.page_num {
+  max-width: 600px;
+  margin: auto;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.page_num span {
+  padding: 0 10px;
+  align-items: center;
+}
+
+/* 산책길 리스트 */
