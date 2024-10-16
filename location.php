@@ -39,7 +39,7 @@
       </header>
       <section class="locationSectionTop">
         <div class="searchFormContentWrap">
-          <div class="block">1</div>
+          <div class="block"></div>
           <div class="searchPlaceWrap">
             <div class="searchPlace">
               <div class="searchTitle">
@@ -58,15 +58,15 @@
         </select>
         <label for="options2">포장유무</label>
         <select id="options2" name="options2">
-            <option value="option5">포장</option>
-            <option value="option6">복합</option>
+            <option value="pave1">포장</option>
+            <option value="pave2">복합</option>
         </select>
 
         <label for="options3">구간 난이도</label>
         <select id="options3" name="options3">
-            <option value="option9">상</option>
-            <option value="option10">중</option>
-            <option value="option11">하</option>
+            <option value="difficulty1">상</option>
+            <option value="difficulty2">중</option>
+            <option value="difficulty3">하</option>
           
         </select>
         <button type="submit">찾기</button>
@@ -90,7 +90,7 @@ if ($conn->connect_error) {
 }
 
 // 페이지 번호 설정
-$items_per_page = 8; // 한 페이지에 보여줄 항목 수
+$items_per_page = 6; // 한 페이지에 보여줄 항목 수
 $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $offset = ($current_page - 1) * $items_per_page;
 
@@ -122,6 +122,9 @@ $result = $conn->query($sql);
 # echo '</div>'  ?>
 <!-- 페이지 -->
 <div class="pagination">
+<a href="">
+        <img src="" alt="#">
+      </a>
     <?php
     $total_pages = ceil($total_items / $items_per_page); // 총 페이지 수
 
@@ -147,6 +150,9 @@ $result = $conn->query($sql);
     }
 
     ?>
+      <a href="">
+        <img src="" alt="#">
+      </a>
 </div>
 
       <!-- 모바일(숫자 5개씩) -->
