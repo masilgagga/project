@@ -68,9 +68,17 @@ header {
 
 /* 간편로그인 */
 
+.body {
+  background: #ecf0eb;
+  border: 1px solid black;
+}
+
 .login {
   text-align: center;
-  margin-top: 200px;
+  margin: 248px 18px;
+  border: 1px solid black;
+  padding: 30px;
+  background: white;
 }
 
 .button {
@@ -81,6 +89,7 @@ header {
   margin: 10px;
   border-radius: 10px;
   border: none;
+  text-align: center;
 }
 
 .kakao {
@@ -91,9 +100,9 @@ header {
   background-color: #03c75a;
 }
 
-/* 테블릿 */
+/* 모바일*/
 
-@media (max-width: 1240px) {
+@media (max-width: 436px) {
   /* 헤더 */
   header {
     justify-content: space-between;
@@ -107,15 +116,23 @@ header {
   .account {
     display: block;
   }
-}
 
-/* 모바일 */
-
-@media (max-width: 435px) {
   .headerWrapLeft {
     width: 60%;
   }
   .headerWrapRight {
     width: 40%;
+    /* .login {
+    width: 436px;
+    height: 296px;
+  } */
   }
 }
+
+/* 푸터 */
+footer {
+  height: 10%;
+  background-color: #c0c0c0;
+}
+
+/* 테블릿 (최대 너비 768px 이하일 때 적용) */

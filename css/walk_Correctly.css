@@ -74,6 +74,36 @@ header {
   border: 1px solid black;
 }
 
+/* healthWalk */
+
+.healthWalk {
+  border: 1px solid #28d3aa;
+  border-radius: 10px;
+  padding: 25px 35px 25px 0px;
+  margin: 54px 13px;
+}
+
+.healthWalkTitle {
+  border: none;
+  /* margin: 45px 300px 45px 0px;
+  padding: 45px; */
+  border-radius: 0px 50px 50px 0px;
+  background-color: #28d3aa;
+  /* font-size: 18px; */
+  height: 47px;
+  width: 60%;
+  padding: 10px 0px;
+}
+
+.textMagin {
+  margin-left: 18px;
+}
+
+.healthWalkDetail {
+  padding-top: 25px;
+  margin: 13px;
+}
+
 /* 푸터 */
 footer {
   height: 10%;
@@ -108,7 +138,11 @@ footer {
   }
 }
 
-@media (min-width: 550px) {
+@media (min-width: 436px) {
+  .healthWalk {
+    width: 100%;
+  }
+
   .detail {
     display: none;
   }
