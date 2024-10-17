@@ -4,37 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./css/park_wep.css" />
+    <link rel="stylesheet" href="./css/walk_info.css" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
       rel="stylesheet"
     />
   </head>
   <body>
-    <header class="main">
-      <div class="headerWrapLeft">
-        <div class="headerInnerWrap">
-          <a href="#">
-            <div class="title">마실가까</div>
-          </a>
-        </div>
-      </div>
-
-      <div class="headerWrapCenter">
-        <div class="headerInnerWrapTop">
-          <div><a href="#">산책은?</a></div>
-          <div><a href="#">산책길 찾기</a></div>
-          <div><a href="#">내 산책로</a></div>
-        </div>
-      </div>
-
-      <div class="headerWrapRight">
-        <div class="headerInnerWrapTop">
-          <a class="loginText" href="#"><div>로그인</div></a>
-          <a class="account" href="#"><div>아이콘</div></a>
-        </div>
-      </div>
-    </header>
+  <?php include "header.php";?>
 
     <!-- section 오타 수정 -->
     <section class="mom">
@@ -115,6 +92,6 @@
       </section>
     </section>
 
-    <footer></footer>
+    <?php include "footer.php";?>
   </body>
 </html>

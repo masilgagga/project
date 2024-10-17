@@ -7,31 +7,7 @@
     <link rel="stylesheet" href="./css/walk_Correctly.css" />
   </head>
   <body>
-    <header>
-      <div class="headerWrapLeft">
-        <div class="headerInnerWrap">
-          <a href="#">
-            <div>마실가까</div>
-          </a>
-        </div>
-      </div>
-
-      <div class="headerWrapCenter">
-        <div class="headerInnerWrapTop">
-          <div><a href="#">산책은?</a></div>
-          <div><a href="#">산책길 찾기</a></div>
-          <div><a href="#">내 산책로</a></div>
-        </div>
-      </div>
-
-      <div class="headerWrapRight">
-        <div class="headerInnerWrapTop">
-          <a class="loginText" href="#"><div>로그인</div></a>
-
-          <a class="account" href="#"><div>아이콘</div></a>
-        </div>
-      </div>
-    </header>
+  <?php include "header.php";?>
     <section class="allBody">
       <section class="mom">
         <section class="momMagin">
@@ -103,5 +79,6 @@
         </section>
       </section>
     </section>
+    <?php include "footer.php";?>
   </body>
 </html>
