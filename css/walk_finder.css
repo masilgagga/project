@@ -1,0 +1,234 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #ecf0eb;
+}
+
+/* 상단 여백 */
+.top_padding {
+  padding-top: 40px;
+}
+
+/* 타이틀 배경 */
+.title_bg {
+  background-color: #60b3ef;
+}
+
+.title {
+  display: inline-block;
+  background-color: #1677bd;
+  padding: 25px 55px 25px 45px;
+  font-size: 30px;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 0 50px 50px 0;
+}
+
+/* 셀렉트 검색 */
+.search_box {
+  max-width: 1200px;
+  padding: 10px;
+  margin: auto;
+  border-bottom: 1px solid #1677bd;
+}
+
+.search_box,
+.search_box * {
+  background-color: #ffffff;
+}
+
+.select {
+  font-size: 15px;
+  color: #003b66;
+  font-weight: bold;
+}
+
+.select_box {
+  display: flex;
+}
+
+/* 셀렉트 박스 오른쪽 여백 */
+.select div {
+  margin-right: 5px;
+}
+
+.select_title {
+  padding-bottom: 5px;
+}
+
+.select select {
+  width: 130px;
+  height: 40px;
+  border: 1px solid #003b66;
+  border-radius: 5px;
+}
+
+.find_btn {
+  padding-top: 10px;
+}
+
+.find_btn button {
+  width: 410px;
+  padding: 7px;
+  background-color: #003b66;
+  color: #ffffff;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+/* 목록 페이지 번호 */
+.page_num {
+  max-width: 500px;
+  margin: auto;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page_num span {
+  padding: 0 5px;
+  align-items: center;
+}
+
+/* 산책길 리스트 */
+.walk_list {
+  max-width: 290px;
+  margin: auto;
+  padding-bottom: 30px;
+}
+
+.walk_post {
+  padding-bottom: 25px;
+}
+
+.walk_img {
+  width: 290px;
+  height: 160px;
+  background: url("../image/walk_finder/walk_img_01.jpg") center no-repeat;
+  background-size: cover; /* div 크기에 맞게 이미지 크기 조정 */
+  border-radius: 5px 5px 0 0;
+}
+
+.walk_info,
+.walk_info * {
+  background-color: #ffffff;
+}
+
+.walk_info {
+  width: 290px;
+  border-radius: 0 0 5px 5px;
+  padding: 10px 20px;
+}
+
+.walk_info_like {
+  text-align: right;
+  color: #ff217e;
+  font-size: 20px;
+}
+
+.walk_info_name {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 10px 0 20px 0;
+}
+
+.walk_info_name span {
+  font-size: 20px;
+  font-weight: normal;
+  color: #7e7e7e;
+}
+
+.walk_info_link {
+  padding-bottom: 10px;
+}
+
+/* 태블릿 모드 */
+@media screen and (min-width: 435px) {
+  /* 상단 여백 */
+  .top_padding {
+    padding-top: 80px;
+  }
+
+  .title {
+    padding: 25px 100px 25px 90px;
+  }
+}
+
+/* 태블릿모드에서 700 px 이상일때만 셀렉트 박스를 pc 모드 사이즈로 보여줌 */
+@media screen and (min-width: 700px) {
+  .select {
+    display: flex;
+    align-items: end;
+    padding: 50px;
+  }
+
+  /* 셀렉트 박스 오른쪽 여백 */
+  .select div {
+    margin-right: 10px;
+  }
+
+  .find_btn button {
+    width: 130px;
+  }
+
+  /* 산책길 리스트 */
+  .walk_list {
+    max-width: 605px;
+    display: grid; /* Grid 사용 */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px; /* 포스트 간의 간격 */
+  }
+
+  .walk_post {
+    padding-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 955px) {
+  /* 산책길 리스트 */
+  .walk_list {
+    max-width: 920px;
+    display: grid; /* Grid 사용 */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px; /* 포스트 간의 간격 */
+  }
+}
+
+/* pc 모드 */
+@media screen and (min-width: 1120px) {
+  /* 타이틀 배경 */
+  .title_bg {
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  /* 산책길 리스트 */
+  .walk_list {
+    max-width: 1100px;
+    margin: auto;
+    display: grid; /* Grid 사용 */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px; /* 포스트 간의 간격 */
+    margin: auto;
+    padding-top: 30px;
+  }
+
+  .walk_post {
+    width: 530px;
+    display: flex;
+  }
+
+  .walk_img {
+    width: 250px;
+    height: 190px;
+    background: url("../image/walk_finder/walk_img_01.jpg") center no-repeat;
+    background-size: cover; /* div 크기에 맞게 이미지 크기 조정 */
+    border-radius: 5px 0 0 5px;
+  }
+
+  .walk_info {
+    border-radius: 0 5px 5px 0;
+  }
+}
