@@ -1,5 +1,5 @@
 <?php
-include "./config/const.php";
+// include "./config/const.php";
 
 // 데이터베이스 정보
 $host = '192.168.0.68';
@@ -42,7 +42,7 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/footer.css" />
-    <link rel="stylesheet" href="./css/side_bar.css" />
+    <link rel="stylesheet" href="./css/index_side_bar.css" />
 
     <!-- js -->
     <script src="./js/jquery-3.7.1.min.js"></script>
