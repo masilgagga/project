@@ -1,60 +1,90 @@
+header,
+.head_wrap,
+.head_wrap * {
+  background-color: #ffffff;
+}
+
+@font-face {
+  font-family: "BMJUA";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff") format("woff");
+  font-weight: lighter;
+  font-style: normal;
+}
+
+header {
+  border-bottom: 1px solid #a7ae9e;
+}
+
 /* 헤더 전체 감싸는 div */
 .head_wrap {
-  padding: 50px;
+  padding: 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: auto;
 }
 
 /* 로고 */
 .logo img {
-  width: 230px;
-  height: 100px;
+  width: 122px;
+  height: auto;
 }
 
-/* gnb 메뉴 div */
 .gnb {
-  display: flex;
-  justify-content: center;
-  margin-right: 50px;
-  font-weight: bold;
+  font-family: "BMJUA";
 }
 
-.gnb div {
-  padding: 30px;
-  font-size: 23px;
-}
-
-.gnb div a {
-  color: #4e4e4e;
-  text-decoration: none;
-}
-
-.gnb div a:hover {
-  color: #1677bd;
-}
-
-/* 로그인 div */
+.gnb,
 .login {
-  font-size: 20px;
-}
-
-/* pc 모드에서 메뉴 버튼 숨기기 */
-.menu {
   display: none;
 }
 
-/* 테블릿 모드 */
-@media screen and (max-width: 1024px) {
-  .gnb,
-  .login {
-    display: none;
-  }
+/* 태블릿 모드 */
+@media screen and (min-width: 435px) {
   .menu {
     display: block;
   }
 }
 
-/* 모바일 모드 */
-@media screen and (max-width: 435px) {
+/* pc 모드 */
+@media screen and (min-width: 1025px) {
+  .head_wrap {
+    max-width: 1700px;
+  }
+
+  /* gnb 메뉴 div */
+  .gnb,
+  .login {
+    display: block;
+  }
+
+  .gnb {
+    display: flex;
+    justify-content: center;
+    margin-right: 50px;
+    font-weight: bold;
+  }
+
+  .gnb div {
+    padding: 30px;
+    font-size: 23px;
+  }
+
+  .gnb div a {
+    color: #4e4e4e;
+    text-decoration: none;
+  }
+
+  .gnb div a:hover {
+    color: #1677bd;
+  }
+
+  /* 로그인 div */
+  .login {
+    font-size: 20px;
+  }
+
+  .menu {
+    display: none;
+  }
 }

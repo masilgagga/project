@@ -1,0 +1,16 @@
+footer,
+footer * {
+  background-color: #b4c69c;
+}
+
+.footer_wrap {
+  height: 200px;
+}
+
+/* 태블릿 모드 */
+@media screen and (min-width: 435px) {
+}
+
+/* pc 모드 */
+@media screen and (min-width: 1025px) {
+}
