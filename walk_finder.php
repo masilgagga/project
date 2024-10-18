@@ -5,13 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/walk_finder.css" />
-    <title>산책길 찾기</title>
+    <title>마실가까</title>
     <script src="https://kit.fontawesome.com/d035e75539.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <?php include "header.php";?>
-    <div class="content">
+    <div class="content wrap">
         <!-- 산책길 찾기 타이틀 & 셀렉트 검색 -->
         <section>
             <!-- 타이틀 -->
@@ -83,7 +83,7 @@
                         <div class="walk_info_like"><i class="fa-regular fa-heart"></i> 20</div>
                         <!-- <i class="fa-solid fa-heart"></i> 찜한 하트 -->
                         <div class="walk_info_name">두류공원 <span>성당동</span></div>
-                        <div class="walk_info_link">위치 확인하기 >></div>
+                        <div class="walk_info_link"><a href="./walk_info.php">위치 확인하기 >></a></div>
                     </div>
                 </div>
                 <!-- 각각 산책로 div -->

@@ -5,18 +5,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/walk_my.css" />
-    <title>내 산책로</title>
+    <title>마실가까</title>
     <script src="https://kit.fontawesome.com/d035e75539.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <?php include "header.php";?>
-    <div class="content">
+    <div class="content wrap">
         <!-- 산책길 찾기 타이틀 & 셀렉트 검색 -->
         <section>
             <!-- 타이틀 -->
             <div class="title_bg">
-                <div class="title">내 산책길</div>
+                <div class="title">My 산책길</div>
             </div>
         </section>
         <!-- 목록 페이지 번호 -->

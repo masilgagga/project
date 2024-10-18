@@ -1,15 +1,6 @@
-* {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  box-sizing: border-box;
-  text-decoration: none;
-}
-
 /* 간편로그인 */
-.content {
+.login_content {
   display: flex;
-  background: #ecf0eb;
   padding: 50px;
   height: 70vh;
   align-items: center;
@@ -20,10 +11,14 @@
   text-align: center;
   color: #5c5c5c;
   font-size: 16px;
-  background: white;
   border-radius: 10px;
   padding: 40px 20px;
   margin: auto;
+}
+
+.social_login,
+.social_login * {
+  background: #ffffff;
 }
 
 .social_title {

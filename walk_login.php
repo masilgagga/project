@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>마실가까</title>
     <link rel="stylesheet" href="./css/walk_login.css" />
 </head>
 
 <body>
     <?php include "header.php";?>
 
-    <div class="content">
+    <div class="content login_content">
         <div class="social_login">
             <div class="social_title">간편로그인</div>
             <img src="./image/walk_login/kakao_login.png" alt="카카오 로그인">
@@ -19,7 +19,6 @@
             <img src="./image/walk_login/naver_login.png" alt="네이버 로그인">
         </div>
     </div>
-    <section class="sectionBottom"></section>
     <?php include "footer.php";?>
 </body>
 

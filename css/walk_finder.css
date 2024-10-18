@@ -1,20 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: #ecf0eb;
-}
-
-/* 컨텐츠 폰트 */
-@font-face {
-  font-family: "NoonnuBasicGothicRegular";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noon-2410@1.0/NoonnuBasicGothicRegular.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
-}
-
-.content {
-  font-family: "NoonnuBasicGothicRegular";
+.wrap {
   padding: 40px 0;
 }
 
@@ -31,6 +15,7 @@
   color: #ffffff;
   font-weight: bold;
   border-radius: 0 50px 50px 0;
+  font-family: "BMJUA" !important;
 }
 
 /* 셀렉트 검색 */
@@ -171,7 +156,7 @@
 
 /* 태블릿모드에서 700 px 이상일때만 셀렉트 박스를 pc 모드 사이즈로 보여줌 */
 @media screen and (min-width: 700px) {
-  .content {
+  .wrap {
     padding: 80px 0;
   }
 
