@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="./css/header.css" />
 <link rel="stylesheet" href="./css/index_side_bar.css" />
+<script src="./js/jquery-3.7.1.min.js"></script>
 <script>
     console.log("js")
         $(function () {
