@@ -213,6 +213,12 @@ main {
 
     margin: 53px auto;
   }
+  .contentWrap {
+    height: 110px;
+  }
+  .cardInnerWrap {
+    height: 90px;
+  }
   .cardTitle {
     font-size: 23px;
   }
@@ -252,13 +258,6 @@ main {
 @media (min-width: 640px) {
   .recommend {
     flex-direction: row;
-  }
-
-  .contentWrap {
-    height: 110px;
-  }
-  .cardInnerWrap {
-    height: 90px;
   }
 }
 @media (min-width: 725px) {

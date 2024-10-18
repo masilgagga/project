@@ -111,8 +111,7 @@ $result = $conn->query($sql);
                         <div class="info">
                         <div class="infoImg"><img src="./image/index/walk1.png" alt=""></div>
                             <div class="infoText">
-                                <div>바르게</div>
-                                <div>걷기</div>
+                                <div>바르게 걷기</div>
                             </div>
                         </div>
                     </a>
@@ -120,8 +119,7 @@ $result = $conn->query($sql);
                         <div class="info">
                         <div class="infoImg"><img src="./image/index/walk2.png" alt=""></div>
                             <div class="infoText">
-                                <div>산책길</div>
-                                <div>찾기</div>
+                                <div>산책길 찾기</div>
                             </div>
                         </div>
                     </a>
@@ -129,8 +127,7 @@ $result = $conn->query($sql);
                         <div class="info">
                             <div class="infoImg"><img src="./image/index/walk3.png" alt=""></div>
                             <div class="infoText">
-                                <div>My</div>
-                                <div>산책길</div>
+                                <div>My 산책길</div>
                             </div>
                         </div>
                     </a>
