@@ -61,9 +61,7 @@ main {
   color: #ffffff;
   text-shadow: 2px 1px 0.9px rgba(0, 0, 0, 25%);
 }
-.check {
-  display: none;
-}
+
 .cardWrap {
   width: 80%;
   display: flex;
@@ -98,22 +96,18 @@ main {
 
 .cardTitle {
   height: 50%;
-  font-size: 23px;
-  font-weight: 600;
+
+  font-size: 17px;
+  font-weight: 400;
   text-align: center;
-  padding-top: 5px;
+  padding-top: 12px;
 }
 .cardPlace {
   height: 50%;
-  font-size: 15px;
-  font-weight: 300;
+
+  font-size: 12px;
+  font-weight: 400;
   text-align: center;
-}
-.sectionLine {
-  width: 90%;
-  height: 1px;
-  background-color: #adbba8;
-  margin: 53px auto;
 }
 
 /* 줄 */
@@ -121,23 +115,20 @@ main {
   width: 90%;
   height: 1px;
   background-color: #adbba8;
-  margin: 53px auto;
+  margin: 34px auto 27px auto;
 }
 /* 하단 */
 .sectionBottomWrap {
   width: 100%;
   height: 100%;
   display: flex;
-
   gap: 1%;
-
   justify-content: center;
-
   margin-bottom: 74px;
 }
 .sectionBottom {
   width: 90%;
-  height: 40%;
+  /* height: 40%; */
 }
 .sectionBottomInnerWrap {
   width: 100%;
@@ -157,11 +148,35 @@ main {
 .infoWrap:nth-of-type(3) {
   width: 95%;
 }
+.infoWrap:nth-of-type(3) .info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: end;
+}
+.infoWrap:nth-of-type(3) .infoImg {
+  margin: 0;
+  margin-right: 17px;
+}
+.infoImg {
+  margin: 0 auto 11px auto;
+
+  min-width: 55px;
+  min-height: 55px;
+  height: auto;
+  height: calc(0.23 * 32vw);
+  width: calc(0.23 * 32vw);
+}
+
+.infoImg img {
+  width: 100%;
+  height: 100%;
+}
 .infoText {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 700;
   color: #ffffff;
   text-shadow: 0 0 4px rgba(0, 0, 0, 25%);
@@ -176,6 +191,7 @@ main {
 .infoWrap:nth-of-type(3) {
   background-color: #90d322;
   margin-top: 20px;
+  padding-bottom: 20px;
 }
 
 .contentWrap {
@@ -191,17 +207,53 @@ main {
   }
 }
 @media (min-width: 580px) {
+  .sectionLine {
+    width: 90%;
+    height: 1px;
+
+    margin: 53px auto;
+  }
+  .cardTitle {
+    font-size: 23px;
+  }
+  .cardPlace {
+    font-size: 15px;
+  }
+
+  .infoWrap {
+    margin: 0 auto;
+    align-content: center;
+    border-radius: 5px;
+    width: 32%;
+    height: calc(0.83 * 32vw);
+    min-height: 170px;
+  }
+  .infoWrap:nth-of-type(3) {
+    width: 32%;
+    margin: 0;
+    padding-bottom: 0px;
+  }
+  .infoWrap:nth-of-type(3) .info {
+    display: block;
+  }
+  .infoWrap:nth-of-type(3) .infoImg {
+    margin: 0 auto 17px auto;
+  }
+  .infoImg {
+    margin: 0 auto 17px auto;
+  }
+  .infoText {
+    font-size: 25px;
+  }
   .sectionBottomInnerWrap {
-    flex-wrap: wrap;
+    margin-bottom: 0;
   }
 }
 @media (min-width: 640px) {
   .recommend {
     flex-direction: row;
   }
-  .check {
-    display: block;
-  }
+
   .contentWrap {
     height: 110px;
   }
@@ -230,5 +282,8 @@ main {
   }
   .mainContentsWrap {
     display: block;
+  }
+  .infoText {
+    font-size: 25px;
   }
 }

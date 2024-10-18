@@ -1,6 +1,4 @@
 $(function () {
-  $(".cardWrap").eq(1).addClass("adad"); // 인덱스는 0부터 시작하므로 2는 세 번째 요소
-
   // 사이드바
   $(".account").click(function () {
     $(".sidebar").toggleClass("toggle");

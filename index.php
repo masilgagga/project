@@ -39,20 +39,14 @@ $result = $conn->query($sql);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- css -->
-    <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/index.css" />
-    <link rel="stylesheet" href="./css/footer.css" />
-    <link rel="stylesheet" href="./css/index_side_bar.css" />
-
     <!-- js -->
     <script src="./js/jquery-3.7.1.min.js"></script>
     <script src="./js/script.js"></script>
     <!-- 프로젝트 명 -->
     <title>마실가까</title>
 </head>
-
 <body>
-    <div class="overlay"></div>
     <main>
         <?php include "header.php";?>
         <!-- PC모드 메인 -->
@@ -65,7 +59,7 @@ $result = $conn->query($sql);
                 <!-- 산책로 나열 -->
                 <div class="contentInnerWrap">
                     <div class="recommend">
-                        <div class="check">svg</div>
+                        
                         <div>추천</div>
                         <div>산책로</div>
                     </div>
@@ -115,6 +109,7 @@ $result = $conn->query($sql);
                 <div class="sectionBottomInnerWrap">
                     <a href="" class="infoWrap">
                         <div class="info">
+                        <div class="infoImg"><img src="./image/index/walk1.png" alt=""></div>
                             <div class="infoText">
                                 <div>바르게</div>
                                 <div>걷기</div>
@@ -123,6 +118,7 @@ $result = $conn->query($sql);
                     </a>
                     <a href="" class="infoWrap">
                         <div class="info">
+                        <div class="infoImg"><img src="./image/index/walk2.png" alt=""></div>
                             <div class="infoText">
                                 <div>산책길</div>
                                 <div>찾기</div>
@@ -131,6 +127,7 @@ $result = $conn->query($sql);
                     </a>
                     <a href="" class="infoWrap">
                         <div class="info">
+                            <div class="infoImg"><img src="./image/index/walk3.png" alt=""></div>
                             <div class="infoText">
                                 <div>My</div>
                                 <div>산책길</div>
@@ -140,36 +137,9 @@ $result = $conn->query($sql);
                 </div>
             </div>
         </section>
-        <footer>foot</footer>
-    </main>
-    <!-- 사이드바 -->
 
-    <div class="sidebar">
-        <div class="userInfoWrap">
-            <div class="userInfo">
-                <div class="userIcon">
-                    <img src="" alt="아이콘" />
-                </div>
-                <div class="userText">
-                    <div class="userName">test Id</div>
-                    <a href="" class="logout">
-                        <div>로그아웃</div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <ul>
-            <a href="">
-                <li>바르게 걷기</li>
-            </a>
-            <a href="">
-                <li>산책길 찾기</li>
-            </a>
-            <a href="">
-                <li>My 산책길</li>
-            </a>
-        </ul>
-    </div>
+    </main>
+    
     <?php include "footer.php" ?>
 </body>
 
