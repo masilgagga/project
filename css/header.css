@@ -1,14 +1,35 @@
-header,
-.head_wrap,
-.head_wrap * {
-  background-color: #ffffff;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #ecf0eb;
+  text-decoration: none;
 }
 
+/* gnb, 타이틀 폰트 */
 @font-face {
   font-family: "BMJUA";
   src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff") format("woff");
   font-weight: bold;
   font-style: normal;
+}
+
+/* 컨텐츠 폰트 */
+@font-face {
+  font-family: "NoonnuBasicGothicRegular";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noon-2410@1.0/NoonnuBasicGothicRegular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.content {
+  font-family: "NoonnuBasicGothicRegular";
+}
+
+header,
+.head_wrap,
+.head_wrap * {
+  background-color: #ffffff;
 }
 
 header {
@@ -31,12 +52,16 @@ header {
 }
 
 .gnb {
-  font-family: "BMJUA";
+  font-family: "BMJUA" !important;
 }
 
 .gnb,
 .login {
   display: none;
+}
+
+.menu img {
+  cursor: pointer;
 }
 
 /* 태블릿 모드 */
@@ -47,7 +72,7 @@ header {
 }
 
 /* pc 모드 */
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1024px) {
   .head_wrap {
     max-width: 1700px;
   }
