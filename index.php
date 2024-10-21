@@ -46,6 +46,7 @@ $result = $conn->query($sql);
     <!-- 프로젝트 명 -->
     <title>마실가까</title>
 </head>
+
 <body>
     <main>
         <?php include "header.php";?>
@@ -59,7 +60,7 @@ $result = $conn->query($sql);
                 <!-- 산책로 나열 -->
                 <div class="contentInnerWrap">
                     <div class="recommend">
-                        
+
                         <div>추천</div>
                         <div>산책로</div>
                     </div>
@@ -107,23 +108,23 @@ $result = $conn->query($sql);
         <section class="sectionBottomWrap">
             <div class="sectionBottom">
                 <div class="sectionBottomInnerWrap">
-                    <a href="" class="infoWrap">
+                    <a href="./walk_correctly.php" class="infoWrap">
                         <div class="info">
-                        <div class="infoImg"><img src="./image/index/walk1.png" alt=""></div>
+                            <div class="infoImg"><img src="./image/index/walk1.png" alt=""></div>
                             <div class="infoText">
                                 <div>바르게 걷기</div>
                             </div>
                         </div>
                     </a>
-                    <a href="" class="infoWrap">
+                    <a href="./walk_finder.php" class="infoWrap">
                         <div class="info">
-                        <div class="infoImg"><img src="./image/index/walk2.png" alt=""></div>
+                            <div class="infoImg"><img src="./image/index/walk2.png" alt=""></div>
                             <div class="infoText">
                                 <div>산책길 찾기</div>
                             </div>
                         </div>
                     </a>
-                    <a href="" class="infoWrap">
+                    <a href="./walk_my.php" class="infoWrap">
                         <div class="info">
                             <div class="infoImg"><img src="./image/index/walk3.png" alt=""></div>
                             <div class="infoText">
@@ -136,7 +137,7 @@ $result = $conn->query($sql);
         </section>
 
     </main>
-    
+
     <?php include "footer.php" ?>
 </body>
 

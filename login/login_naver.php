@@ -66,7 +66,7 @@ if($row){
     $_SESSION['memberNum'] = $row['member_num'];
 
     echo "<script>";
-    echo "window.location.href='../config/main.php';";
+    echo "window.location.href='../index.php';";
     echo "</script>";
     exit;
 // 소셜 가입된 이력이 없음
@@ -109,7 +109,7 @@ if($row){
 
     echo "<script>";
     echo "alert('회원가입이 완료되었습니다');";
-    echo "window.location.href='../config/main.php';";
+    echo "window.location.href='../index.php';";
     echo "</script>";
 }
 

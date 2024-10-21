@@ -1,9 +1,13 @@
 * {
   margin: 0;
   padding: 0;
+  list-style: none;
   box-sizing: border-box;
-  background-color: #ecf0eb;
   text-decoration: none;
+}
+
+body {
+  background: #ecf0eb;
 }
 
 /* gnb, 타이틀 폰트 */
@@ -97,12 +101,14 @@ header {
     font-size: 23px;
   }
 
-  .gnb div a {
+  .gnb div a,
+  .login a {
     color: #4e4e4e;
     text-decoration: none;
   }
 
-  .gnb div a:hover {
+  .gnb div a:hover,
+  .login a:hover {
     color: #1677bd;
   }
 
