@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+// 비로그인 상태
+$login = "<a href='./walk_login.php'>로그인</a>";
+
+// 로그인 상태
+if(isset($_SESSION['memberNum']) && $_SESSION['memberNum']){
+    $login = "<a href='./login/logout.php'>로그아웃</a>";
+}
+?>
+
 <link rel="stylesheet" href="./css/header.css" />
 <link rel="stylesheet" href="./css/index_side_bar.css" />
 <script src="./js/jquery-3.7.1.min.js"></script>
@@ -31,7 +43,7 @@ $(function() {
             <div><a href="./walk_finder.php">산책길 찾기</a></div>
             <div><a href="./walk_my.php">My 산책길</a></div>
         </div>
-        <div class="login"><a href="./walk_login.php">로그인</a></div>
+        <div class="login"><?=$login?></div>
         <div class="menu"><img src="./image/menu.png" alt="메뉴"></div>
     </div>
     <!-- 사이드바 -->
