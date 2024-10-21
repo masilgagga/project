@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="./css/header.css" />
 <link rel="stylesheet" href="./css/index_side_bar.css" />
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="./js/jquery-3.7.1.min.js"></script>
 <script>
 $(function() {
     // 사이드바
