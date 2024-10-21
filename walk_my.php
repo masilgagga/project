@@ -50,6 +50,17 @@
 
     // 내 산책로 리스트 정보을 담을 배열
     $likeWalk = [];
+    ?>
+    <div class="content wrap">
+        <!-- 산책길 찾기 타이틀 -->
+        <section>
+            <!-- 타이틀 -->
+            <div class="title_bg">
+                <div class="title">My 산책길</div>
+            </div>
+        </section>
+        <!-- 목록 페이지 번호 -->
+        <?php
 
     // 회원이 선택한 내 산책로 리스트가 있다면 실행
     if($likeList){
@@ -63,119 +74,98 @@
         while($row = mysqli_fetch_array($result)){
             array_push($likeWalk, $row);
         }
-    }
         
-    // 내 산책로 내용 출력 string
-    $myWalkList = "<div class='walk_post'>
-                        <div class='walk_img'></div>
-                        <div class='walk_info'>
-                            <div class='walk_info_like'><i class='fa-regular fa-heart'></i> 20</div>
-                            <!-- <i class='fa-solid fa-heart'></i> 찜한 하트 -->
-                            <div class='walk_info_name'>".$locationName." <span>".$dong."</span></div>
-                            <div class='walk_info_link'>위치 확인하기 >></div>
-                        </div>
-                    </div>";
-    // 내 산책로 정보를 담은 배열에서 산책로 이름을 출력
-    if($likeWalk){
-        foreach ($likeWalk as $num) {
-            $locationName = $num['location_name'];
-            $manageNum = $num['manage_num'];
-            $dong = $num['dong'];
-            echo "<li>$locationName 
-                    <form method='POST' style='display:inline;' action='my_walk_delete.php'>
-                        <input type='hidden' name='member_id' value='$memberId'>
-                        <input type='hidden' name='manage_num' value='$manageNum'>
-                        <button type='submit' onclick='return confirm(\"정말 삭제하시겠습니까?\")'>삭제</button>
-                    </form>
-                </li>";
+        // 페이지 번호 설정
+        $items_per_page = 6; // 한 페이지에 보여줄 항목 수
+        $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $offset = ($current_page - 1) * $items_per_page;
+    
+        // 총 데이터 수 가져오기
+        $total_query = "SELECT COUNT(*) as total FROM data WHERE manage_num IN ($likeList)"; // 테이블 이름 확인
+        $total_result = mysqli_query(DBCON, $total_query);
+        $total_row = $total_result->fetch_assoc();
+        $total_items = $total_row['total'];
+        $total_pages = ceil($total_items / $items_per_page); // 총 페이지 수
+
+        echo ("
+        <section>
+            <div class='page_num'>");
+
+                // 페이지 링크 범위 설정
+                $start_page = max(1, $current_page - 2); // 현재 페이지를 기준으로 2개 앞
+                $end_page = min($total_pages, $current_page + 2); // 현재 페이지를 기준으로 2개 뒤
+
+                // 시작 페이지 조정
+                if ($end_page - $start_page < 4) {
+                    if ($start_page === 1) {
+                        $end_page = min(5, $total_pages); // 시작 페이지가 1이면 최대 5개 페이지 표시
+                    } else {
+                        $start_page = max(1, $end_page - 4); // 끝 페이지가 5보다 크면 시작 페이지 조정
+                    }
+                }
+
+                // 이전 페이지 링크 (5씩 감소)
+                if ($current_page > 5) {
+                    echo "<a href='?page=" . ($current_page - 5) . "'><span><img src='./image/walk_my/my_arrow_l.png' alt='앞 페이지' /></span></a>";
+                }else {
+                    echo "<a href='?page=" . ($current_page = 1) . "'><span><img src='./image/walk_my/my_arrow_l.png' alt='앞 페이지' /></span></a>";
+                }
+
+                echo "<div>";
+
+                // 현재 페이지 주변의 페이지 링크 출력
+                for ($page = $start_page; $page <= $end_page; $page++) {
+                    if ($page == $current_page) {
+                        echo "<span class='active'>$page</span> "; // 현재 페이지 강조
+                    } else {
+                        echo "<a href='?page=$page'><span>$page</span></a> "; // 페이지 링크
+                    }
+                }
+
+                echo "</div>";
+
+            // 다음 페이지 링크 (5씩 증가)
+            if ($current_page + 5 > $total_pages) {
+            // 현재 페이지에서 5를 더한 값이 총 페이지 수를 초과하는 경우
+                echo "<a href='?page=" . $total_pages . "'><span><img src='./image/walk_my/my_arrow_r.png' alt='마지막 페이지로 이동' /></span></a>";
+            } else {
+            // 다음 페이지로 이동
+                echo "<a href='?page=" . ($current_page + 5) . "'><span><img src='./image/walk_my/my_arrow_r.png' alt='다음 페이지' /></span></a>";
+            }
+            echo ("</div>
+        </section>");
         }
-    }
-    ?>
-    <div class="content wrap">
-        <!-- 산책길 찾기 타이틀 & 셀렉트 검색 -->
-        <section>
-            <!-- 타이틀 -->
-            <div class="title_bg">
-                <div class="title">My 산책길</div>
-            </div>
-        </section>
-        <!-- 목록 페이지 번호 -->
-        <section>
-            <div class="page_num">
-                <span><img src="./image/walk_my/my_arrow_l.png" alt="앞 페이지" /></span>
-                <div>
-                    <span>1</span>
-                    <span>2</span>
-                    <span>3</span>
-                    <span>4</span>
-                    <span>5</span>
-                </div>
-                <span><img src="./image/walk_my/my_arrow_r.png" alt="뒷 페이지" /></span>
-            </div>
-        </section>
+                ?>
         <!-- 산책로 목록 -->
         <section>
             <div class="walk_list">
+                <?php
+                if (count($likeWalk) > 0) {
+                    foreach ($likeWalk as $num) {
+                        $locationName = $num['location_name'];
+                        $dong = $num['dong'];
+                ?>
                 <!-- 각각 산책로 div -->
                 <div class="walk_post">
                     <div class="walk_img"></div>
                     <div class="walk_info">
                         <div class="walk_info_like"><i class="fa-regular fa-heart"></i> 20</div>
                         <!-- <i class="fa-solid fa-heart"></i> 찜한 하트 -->
-                        <div class="walk_info_name">두류공원 <span>성당동</span></div>
+                        <div class="walk_info_name"><?=$locationName?> <span><?=$dong?></span></div>
                         <div class="walk_info_link">위치 확인하기 >></div>
+                        <div><br>
+                            <form method='POST' style='display:inline;' action='walk_my_delete.php'>
+                                <input type='hidden' name='member_id' value='$memberId'>
+                                <input type='hidden' name='manage_num' value='$manageNum'>
+                                <button type='submit' onclick='return confirm("정말 삭제하시겠습니까?")'>My 산책로에서 삭제</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-                <!-- 각각 산책로 div -->
-                <div class="walk_post">
-                    <div class="walk_img"></div>
-                    <div class="walk_info">
-                        <div class="walk_info_like"><i class="fa-regular fa-heart"></i> 20</div>
-                        <!-- <i class="fa-solid fa-heart"></i> 찜한 하트 -->
-                        <div class="walk_info_name">두류공원 <span>성당동</span></div>
-                        <div class="walk_info_link">위치 확인하기 >></div>
-                    </div>
-                </div>
-                <!-- 각각 산책로 div -->
-                <div class="walk_post">
-                    <div class="walk_img"></div>
-                    <div class="walk_info">
-                        <div class="walk_info_like"><i class="fa-regular fa-heart"></i> 20</div>
-                        <!-- <i class="fa-solid fa-heart"></i> 찜한 하트 -->
-                        <div class="walk_info_name">두류공원 <span>성당동</span></div>
-                        <div class="walk_info_link">위치 확인하기 >></div>
-                    </div>
-                </div>
-                <!-- 각각 산책로 div -->
-                <div class="walk_post">
-                    <div class="walk_img"></div>
-                    <div class="walk_info">
-                        <div class="walk_info_like"><i class="fa-regular fa-heart"></i> 20</div>
-                        <!-- <i class="fa-solid fa-heart"></i> 찜한 하트 -->
-                        <div class="walk_info_name">두류공원 <span>성당동</span></div>
-                        <div class="walk_info_link">위치 확인하기 >></div>
-                    </div>
-                </div>
-                <!-- 각각 산책로 div -->
-                <div class="walk_post">
-                    <div class="walk_img"></div>
-                    <div class="walk_info">
-                        <div class="walk_info_like"><i class="fa-regular fa-heart"></i> 20</div>
-                        <!-- <i class="fa-solid fa-heart"></i> 찜한 하트 -->
-                        <div class="walk_info_name">두류공원 <span>성당동</span></div>
-                        <div class="walk_info_link">위치 확인하기 >></div>
-                    </div>
-                </div>
-                <!-- 각각 산책로 div -->
-                <div class="walk_post">
-                    <div class="walk_img"></div>
-                    <div class="walk_info">
-                        <div class="walk_info_like"><i class="fa-regular fa-heart"></i> 20</div>
-                        <!-- <i class="fa-solid fa-heart"></i> 찜한 하트 -->
-                        <div class="walk_info_name">두류공원 <span>성당동</span></div>
-                        <div class="walk_info_link">위치 확인하기 >></div>
-                    </div>
-                </div>
+                <?php
+                    }
+                }else{echo "담아놓은 My 산책로가 없습니다.";}
+                ?>
             </div>
         </section>
     </div>
