@@ -213,6 +213,7 @@
                 <!-- 각각 산책로 div -->
                 <form id="walkInfo" action="walk_info.php" method="post">
                     <input type="hidden" value="<?= $row['manage_num'] ?>" name="manage_num">
+          
                     <button type="button" onclick="document.getElementById('walkInfo').submit()">
                         <div class="walk_post">
                             <div class="walk_img"></div>
