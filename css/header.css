@@ -55,6 +55,7 @@ header {
   height: auto;
 }
 
+/* 메뉴 */
 .gnb {
   font-family: "BMJUA" !important;
 }
@@ -66,6 +67,25 @@ header {
 
 .menu img {
   cursor: pointer;
+}
+
+.userText a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.userText a:hover {
+  text-decoration: underline;
+}
+
+.userName {
+  font-weight: bold;
+  padding-right: 20px;
+}
+
+.userText {
+  font-size: 16px;
+  padding-top: 5px;
 }
 
 /* 태블릿 모드 */
@@ -99,20 +119,28 @@ header {
     font-size: 23px;
   }
 
-  .gnb div a,
-  .login a {
+  .gnb div a {
     color: #4e4e4e;
     text-decoration: none;
   }
 
-  .gnb div a:hover,
-  .login a:hover {
-    color: #1677bd;
+  .gnb div a:hover {
+    color: #4a7800;
   }
 
   /* 로그인 div */
+
   .login {
     font-size: 20px;
+  }
+
+  .login a {
+    color: #000000;
+    text-decoration: none;
+  }
+
+  .login a:hover {
+    text-decoration: underline;
   }
 
   .menu {

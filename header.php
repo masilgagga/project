@@ -1,12 +1,26 @@
 <?php
 session_start();
 
+include "./config/const.php";
+
 // 비로그인 상태
-$login = "<a href='./walk_login.php'>로그인</a>";
+$mvLogin = "<div class='userName'>로그인 해주세요</div><div><a href='./walk_login.php'>로그인</a></div>";
+$pcLogin = "<a href='./walk_login.php'>로그인</a>";
 
 // 로그인 상태
 if(isset($_SESSION['memberNum']) && $_SESSION['memberNum']){
-    $login = "<a href='./login/logout.php'>로그아웃</a>";
+    // 세션에 저장된 회원번호로 해당하는 회원정보 쿼리 질의
+    $memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
+    // 회원정보 쿼리 질의를 실행
+    $result = mysqli_query(DBCON, $memberInfoQuery);
+    // 실행한 결과값을 $member변수 값에 저장
+    $member = mysqli_fetch_array($result);
+    // 회원의 아이디
+    $memberId = $member['id'];
+    $memberName = $member['name'];
+
+    $mvLogin = "<div class='userName'>$memberName 님</div><div><a href='./login/logout.php'>로그아웃</a></div>";
+    $pcLogin = "<div class='userName'>$memberName 님</div><div><a href='./login/logout.php'>로그아웃</a></div>";
 }
 ?>
 
@@ -43,7 +57,7 @@ $(function() {
             <div><a href="./walk_finder.php">산책길 찾기</a></div>
             <div><a href="./walk_my.php">My 산책길</a></div>
         </div>
-        <div class="login"><?=$login?></div>
+        <div class="login"><?=$pcLogin?></div>
         <div class="menu"><img src="./image/menu.png" alt="메뉴"></div>
     </div>
     <!-- 사이드바 -->
@@ -51,15 +65,8 @@ $(function() {
     <div class="sidebar">
         <div class="userInfoWrap">
             <div class="userInfo">
-                <div class="userIcon">
-                    <img src="./image/usericon.png" alt="아이콘" />
-                </div>
-                <div class="userText">
-                    <div class="userName">test Id 님</div>
-                    <a href="" class="logout">
-                        <div>로그아웃</div>
-                    </a>
-                </div>
+                <div class="userIcon"><img src="./image/usericon.png" alt="아이콘" /></div>
+                <div class="userText"><?=$mvLogin?></div>
             </div>
         </div>
         <ul>

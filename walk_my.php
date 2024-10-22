@@ -11,8 +11,6 @@
 
 <body>
     <?php include "header.php";
-    // 상수 선언
-    include "./config/const.php";
     // 로그인 여부 체크
     include "./login/login_check.php";
     
@@ -21,22 +19,17 @@
 
     // 세션에 저장된 회원번호로 해당하는 회원정보 쿼리 질의
     $memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
-
     // 회원정보 쿼리 질의를 실행
     $result = mysqli_query(DBCON, $memberInfoQuery);
-
     // 실행한 결과값을 $member변수 값에 저장
     $member = mysqli_fetch_array($result);
-
     // 회원의 아이디
     $memberId = $member['id'];
 
     // 내 산책로 리스트를 가져올 쿼리
     $listQuery = "SELECT * FROM like_list WHERE id = '{$memberId}'";
-
     // 내 산책로 쿼리 질의를 실행
     $result = mysqli_query(DBCON, $listQuery);
-
     // 내 산책로 관리번호를 담을 배열
     $likeWalkNum = [];
 
@@ -143,6 +136,7 @@
                 if (count($likeWalk) > 0) {
                     foreach ($likeWalk as $num) {
                         $locationName = $num['location_name'];
+                        $manageNum = $num['manage_num'];
                         $dong = $num['dong'];
                 ?>
                 <!-- 각각 산책로 div -->
@@ -155,8 +149,8 @@
                         <div class="walk_info_link">위치 확인하기 >></div>
                         <div><br>
                             <form method='POST' style='display:inline;' action='walk_my_delete.php'>
-                                <input type='hidden' name='member_id' value='$memberId'>
-                                <input type='hidden' name='manage_num' value='$manageNum'>
+                                <input type='hidden' name='member_id' value='<?=$memberId?>'>
+                                <input type='hidden' name='manage_num' value='<?=$manageNum?>'>
                                 <button type='submit' onclick='return confirm("정말 삭제하시겠습니까?")'>My 산책로에서 삭제</button>
                             </form>
                         </div>
