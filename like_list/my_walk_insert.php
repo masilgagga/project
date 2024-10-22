@@ -14,7 +14,7 @@ $selectNum = '27290-00179-03-003';
 $memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
 
 // 회원정보 쿼리 질의를 실행
-$result = mysqli_query(DBCON, $memberInfoQuery);
+$result = mysqli_query($DBCON, $memberInfoQuery);
 
 // 실행한 결과값을 $member변수 값에 저장
 $member = mysqli_fetch_array($result);
@@ -26,7 +26,7 @@ $memberId = $member['id'];
 $listQuery = "SELECT * FROM like_list WHERE id = '{$memberId}'";
 
 // 내 산책로 쿼리 질의를 실행
-$result = mysqli_query(DBCON, $listQuery);
+$result = mysqli_query($DBCON, $listQuery);
 
 // 내 산책로 관리번호를 담을 배열
 $likeWalkNum = [];
@@ -55,7 +55,7 @@ if ($likeWalkNum) {
         )";
 
         // 지정된 쿼리문 실행
-        $result = mysqli_query(DBCON, $listInsertQuery);
+        $result = mysqli_query($DBCON, $listInsertQuery);
 
         if ($result) {
             echo "산책로가 찜 목록에 추가되었습니다!";
@@ -77,7 +77,7 @@ if ($likeWalkNum) {
     )";
 
     // 지정된 쿼리문 실행
-    $result = mysqli_query(DBCON, $listInsertQuery);
+    $result = mysqli_query($DBCON, $listInsertQuery);
 
     if ($result) {
         echo "산책로가 찜 목록에 추가되었습니다!";

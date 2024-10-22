@@ -23,7 +23,7 @@ function deleteLike($member_id, $manage_num){
    $deleteQuery = "DELETE FROM like_list WHERE id = '{$member_id}' AND manage_num = '{$manage_num}';";
 
    // 내 산책로 쿼리 질의를 실행
-   $result = mysqli_query(DBCON, $deleteQuery);
+   $result = mysqli_query($DBCON, $deleteQuery);
 
    echo "<script>";
    // 쿼리 실행

@@ -29,7 +29,7 @@
         $memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
     
         // 회원정보 쿼리 질의를 실행
-        $result = mysqli_query(DBCON, $memberInfoQuery);
+        $result = mysqli_query($DBCON, $memberInfoQuery);
         // 실행한 결과값을 $member변수 값에 저장
         $member = mysqli_fetch_array($result);
         // 회원의 아이디
@@ -37,7 +37,7 @@
         
         // 내 산책로에 정보가 있는지 확인
         $selectQuery = "SELECT * FROM like_list WHERE id = '{$member_id}' AND manage_num = '{$manage_num}'";
-        $result = mysqli_query(DBCON, $selectQuery);
+        $result = mysqli_query($DBCON, $selectQuery);
         $row = mysqli_fetch_assoc($result);
 
         // 내 산책로에 있다면
