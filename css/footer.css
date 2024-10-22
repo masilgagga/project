@@ -1,10 +1,32 @@
+@font-face {
+  font-family: "HakgyoansimDunggeunmisoTTF-B";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimDunggeunmisoTTF-B.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
 footer,
 footer * {
-  background-color: #b4c69c;
+  background-color: #a2a99b;
 }
 
 .footer_wrap {
   height: 200px;
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer_wrap .footer_logo {
+  font-family: "HakgyoansimDunggeunmisoTTF-B";
+  font-size: 2em;
+  padding-bottom: 15px;
+  width: 120px;
+  border-bottom: 1px solid #c1c9b7;
+  color: #d3d6ce;
+  text-shadow: calc(3px * 1) 0 0 #567069, calc(3px * 0.9239) calc(3px * 0.3827) 0 #567069, calc(3px * 0.7071) calc(3px * 0.7071) 0 #567069, calc(3px * 0.3827) calc(3px * 0.9239) 0 #567069, 0 calc(3px * 1) 0 #567069, calc(3px * -0.3827) calc(3px * 0.9239) 0 #567069,
+    calc(3px * -0.7071) calc(3px * 0.7071) 0 #567069, calc(3px * -0.9239) calc(3px * 0.3827) 0 #567069, calc(3px * -1) 0 0 #567069, calc(3px * -0.9239) calc(3px * -0.3827) 0 #567069, calc(3px * -0.7071) calc(3px * -0.7071) 0 #567069, calc(3px * -0.3827) calc(3px * -0.9239) 0 #567069,
+    0 calc(3px * -1) 0 #567069, calc(3px * 0.3827) calc(3px * -0.9239) 0 #567069, calc(3px * 0.7071) calc(3px * -0.7071) 0 #567069, calc(3px * 0.9239) calc(3px * -0.3827) 0 #567069;
 }
 
 /* 태블릿 모드 */
