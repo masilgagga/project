@@ -91,10 +91,12 @@ $total_pages = ceil($total_items / $items_per_page); // 총 페이지 수
 $sql = "SELECT * FROM data LIMIT $items_per_page OFFSET $offset"; // 테이블 이름 확인
 $result = $conn->query($sql);
 ?>
-<!-- 결과 체크 및 출력 -->
-<section>
-    <div class="page_num">
-        <?php
+
+        <!-- 결과 체크 및 출력 -->
+        <section>
+            <div class="page_num">
+                <?php
+
         // 페이지 링크 범위 설정
         $start_page = max(1, $current_page - 2); // 현재 페이지를 기준으로 2개 앞
         $end_page = min($total_pages, $current_page + 2); // 현재 페이지를 기준으로 2개 뒤
@@ -137,29 +139,40 @@ $result = $conn->query($sql);
         echo "<a href='?page=" . ($current_page + 5) . "'><span><img src='./image/walk_finder/list_arrow_r.png' alt='다음 페이지' /></span></a>";
     }
         ?>
-    </div>
-</section>
 
-<!-- 산책로 목록 -->
-<section>
-    <div class="walk_list">
-        <?php
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-        ?>
+            </div>
+        </section>
+
+        <!-- 산책로 목록 -->
+        <section>
+            <div class="walk_list">
+                <?php
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                ?>
                 <!-- 각각 산책로 div -->
-                <div class="walk_post">
-                    <div class="walk_img"></div>
-                    <div class="walk_info">
-                        <div class="walk_info_like"><i class="fa-regular fa-heart"></i> 20</div>
-                        <div class='walk_info_name'><?= $row['location_name'] ?> <span><?= $row['dong'] ?></span></div>
-                        <div class="walk_info_link">위치 확인하기 >></div>
-                    </div>
-                </div>
-        <?php
-            }
-        }
-        ?>
+                <form id="walkInfo" action="walk_info.php" method="post">
+                    <input type="hidden" value="<?=$row['manage_num']?>" name="manage_num">
+                    <button type="button" onclick="document.getElementById('walkInfo').submit()">
+                        <div class="walk_post">
+                            <div class="walk_img"></div>
+                            <div class="walk_info">
+                                <div class="walk_info_like"><i class="fa-regular fa-heart"></i> 20</div>
+                                <div class='walk_info_name'><?= $row['location_name'] ?>
+                                    <span><?= $row['dong'] ?></span>
+                                </div>
+                                <div class="walk_info_link">위치 확인하기 >></div>
+                            </div>
+                        </div>
+                    </button>
+                </form>
+                <?php
+                    }
+                }
+                ?>
+            </div>
+        </section>
+
     </div>
 </section>
 </div>

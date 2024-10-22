@@ -101,6 +101,13 @@
   padding-bottom: 30px;
 }
 
+.walk_list button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
 .walk_post {
   padding-bottom: 25px;
   cursor: pointer;

@@ -33,6 +33,10 @@
   align-items: center;
 }
 
+.page_num .active {
+  font-weight: 800;
+}
+
 /* 산책길 리스트 */
 .walk_list {
   max-width: 290px;
@@ -53,7 +57,7 @@
 }
 
 .walk_info,
-.walk_info * {
+.walk_info button {
   background-color: #ffffff;
 }
 
@@ -83,6 +87,11 @@
 
 .walk_info_link {
   padding-bottom: 10px;
+}
+
+.walk_info button {
+  border: 0;
+  cursor: pointer;
 }
 
 /* 태블릿 모드 */

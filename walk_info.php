@@ -11,7 +11,47 @@
 </head>
 
 <body>
-    <?php include "header.php";?>
+    <?php 
+    include "./header.php";
+    
+    $manage_num = $_POST['manage_num'];
+    
+    $like = "";
+    
+    // 비로그인 상태
+    if(!isset($_SESSION['memberNum'])){
+        $like = "<i class='fa-regular fa-heart' onclick='alert('로그인이 필요합니다.');window.location.href='./walk_login.php';'></i>";
+        exit;
+    }else{ // 로그인 상태
+        // 회원번호
+        $_SESSION['memberNum'];
+        
+        // 세션에 저장된 회원번호로 해당하는 회원정보 쿼리 질의
+        $memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
+    
+        // 회원정보 쿼리 질의를 실행
+        $result = mysqli_query(DBCON, $memberInfoQuery);
+        // 실행한 결과값을 $member변수 값에 저장
+        $member = mysqli_fetch_array($result);
+        // 회원의 아이디
+        $memberId = $member['id'];
+        
+        // 내 산책로에 정보가 있는지 확인
+        $selectQuery = "SELECT * FROM like_list WHERE id = '{$member_id}' AND manage_num = '{$manage_num}'";
+        $result = mysqli_query(DBCON, $selectQuery);
+        $row = mysqli_fetch_assoc($result);
+
+        // 내 산책로에 있다면
+        if($row){
+            $like = "<i class='fa-solid fa-heart'></i>";
+        }else{ //내 산책로에 없다면
+            $like = "<i class='fa-regular fa-heart' onclick='walk_my_insert.php?manage_num=$manage_num'></i>";
+        }
+
+    }
+
+
+    ?>
     <div class="content wrap">
         <!-- 산책길 정보 -->
         <section>
@@ -33,7 +73,7 @@
                             <div><img src="./image/walk_info/title_icon.png" alt="나무 아이콘"></div>
                             <div>두류공원</div>
                         </div>
-                        <div><i class="fa-regular fa-heart"></i></div>
+                        <div><?=$like?></div>
                     </div>
                     <div class="info_txt">상서고등학교 건너 두류공원 입구에서 두류 제1여울길 합류지점</div>
                     <div class="info_table">
