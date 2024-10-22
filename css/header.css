@@ -13,7 +13,8 @@ body {
 /* gnb, 타이틀 폰트 */
 @font-face {
   font-family: "BMJUA";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff") format("woff");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff")
+    format("woff");
   font-weight: bold;
   font-style: normal;
 }
@@ -21,7 +22,8 @@ body {
 /* 컨텐츠 폰트 */
 @font-face {
   font-family: "NoonnuBasicGothicRegular";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noon-2410@1.0/NoonnuBasicGothicRegular.woff2") format("woff2");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noon-2410@1.0/NoonnuBasicGothicRegular.woff2")
+    format("woff2");
   font-weight: normal;
   font-style: normal;
 }

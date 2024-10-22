@@ -91,10 +91,12 @@ $total_pages = ceil($total_items / $items_per_page); // 총 페이지 수
 $sql = "SELECT * FROM data LIMIT $items_per_page OFFSET $offset"; // 테이블 이름 확인
 $result = $conn->query($sql);
 ?>
+
         <!-- 결과 체크 및 출력 -->
         <section>
             <div class="page_num">
                 <?php
+
         // 페이지 링크 범위 설정
         $start_page = max(1, $current_page - 2); // 현재 페이지를 기준으로 2개 앞
         $end_page = min($total_pages, $current_page + 2); // 현재 페이지를 기준으로 2개 뒤
@@ -137,6 +139,7 @@ $result = $conn->query($sql);
         echo "<a href='?page=" . ($current_page + 5) . "'><span><img src='./image/walk_finder/list_arrow_r.png' alt='다음 페이지' /></span></a>";
     }
         ?>
+
             </div>
         </section>
 
@@ -169,7 +172,10 @@ $result = $conn->query($sql);
                 ?>
             </div>
         </section>
+
     </div>
+</section>
+</div>
     <?php include "footer.php" ?>
 </body>
 
