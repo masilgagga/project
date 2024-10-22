@@ -14,8 +14,8 @@
     <?php 
     include "./header.php";
     
-    $manage_num = $_POST['manage_num'];
-
+    $manage_num = $_GET['manage_num'];
+    
     // 산책로 정보 가져오기
     $walkSelectQuery = "SELECT * FROM data WHERE manage_num = '$manage_num'";
     $walkResult = mysqli_query($DBCON, $walkSelectQuery);
@@ -26,7 +26,7 @@
     
     // 비로그인 상태
     if(!isset($_SESSION['memberNum'])){
-        $like = "<i class='fa-regular fa-heart' onclick='alert('로그인이 필요합니다.');window.location.href='./walk_login.php';'></i>";
+        $like = "<i class='fa-regular fa-heart' onclick='login()'></i>";
     }else{ // 로그인 상태
         // 회원번호
         $_SESSION['memberNum'];
@@ -39,7 +39,7 @@
         // 실행한 결과값을 $member변수 값에 저장
         $member = mysqli_fetch_array($result);
         // 회원의 아이디
-        $memberId = $member['id'];
+        $member_id = $member['id'];
         
         // 내 산책로에 정보가 있는지 확인
         $likeSelectQuery = "SELECT * FROM like_list WHERE id = '{$member_id}' AND manage_num = '{$manage_num}'";
@@ -50,7 +50,7 @@
         if($row){
             $like = "<i class='fa-solid fa-heart'></i>";
         }else{ //내 산책로에 없다면
-            $like = "<i class='fa-regular fa-heart' onclick='walk_my_insert.php?manage_num=$manage_num'></i>";
+            $like = "<i class='fa-regular fa-heart' onclick='insert()'></i>";
         }
     }
     ?>
@@ -125,6 +125,16 @@
             </div>
         </section>
     </div>
+    <script>
+    function login() {
+        alert('로그인이 필요합니다.');
+        window.location.href = './walk_login.php';
+    }
+
+    function insert() {
+        window.location.href = 'walk_my_insert.php?manage_num=<?=$manage_num?>';
+    }
+    </script>
     <?php include "footer.php";?>
 </body>
 

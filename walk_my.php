@@ -158,7 +158,7 @@
                 </div>
                 <?php
                     }
-                }else{echo "담아놓은 My 산책로가 없습니다.";}
+                }else{echo "<div class='wrap'>담아놓은 My 산책로가 없습니다.</div>";}
                 ?>
             </div>
         </section>

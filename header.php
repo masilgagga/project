@@ -6,6 +6,7 @@ include "./config/const.php";
 // 비로그인 상태
 $mvLogin = "<div class='userName'>로그인 해주세요</div><div><a href='./walk_login.php'>로그인</a></div>";
 $pcLogin = "<a href='./walk_login.php'>로그인</a>";
+$memberPhoto = "./image/usericon.png";
 
 // 로그인 상태
 if(isset($_SESSION['memberNum']) && $_SESSION['memberNum']){
@@ -18,9 +19,10 @@ if(isset($_SESSION['memberNum']) && $_SESSION['memberNum']){
     // 회원의 아이디
     $memberId = $member['id'];
     $memberName = $member['name'];
+    $memberPhoto = $member['photo'];
 
     $mvLogin = "<div class='userName'>$memberName 님</div><div><a href='./login/logout.php'>로그아웃</a></div>";
-    $pcLogin = "<div class='userName'>$memberName 님</div><div><a href='./login/logout.php'>로그아웃</a></div>";
+    $pcLogin = "<span class='userName'>$memberName 님</span><span><a href='./login/logout.php'>로그아웃</a></span>";
 }
 ?>
 
@@ -65,7 +67,7 @@ $(function() {
     <div class="sidebar">
         <div class="userInfoWrap">
             <div class="userInfo">
-                <div class="userIcon"><img src="./image/usericon.png" alt="아이콘" /></div>
+                <div class="userIcon"><img src=<?=$memberPhoto?> alt="프로필사진" /></div>
                 <div class="userText"><?=$mvLogin?></div>
             </div>
         </div>
