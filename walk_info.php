@@ -21,7 +21,6 @@
     // 비로그인 상태
     if(!isset($_SESSION['memberNum'])){
         $like = "<i class='fa-regular fa-heart' onclick='alert('로그인이 필요합니다.');window.location.href='./walk_login.php';'></i>";
-        exit;
     }else{ // 로그인 상태
         // 회원번호
         $_SESSION['memberNum'];
@@ -47,10 +46,7 @@
         }else{ //내 산책로에 없다면
             $like = "<i class='fa-regular fa-heart' onclick='walk_my_insert.php?manage_num=$manage_num'></i>";
         }
-
     }
-
-
     ?>
     <div class="content wrap">
         <!-- 산책길 정보 -->
