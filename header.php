@@ -12,7 +12,7 @@ if(isset($_SESSION['memberNum']) && $_SESSION['memberNum']){
     // 세션에 저장된 회원번호로 해당하는 회원정보 쿼리 질의
     $memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
     // 회원정보 쿼리 질의를 실행
-    $result = mysqli_query(DBCON, $memberInfoQuery);
+    $result = mysqli_query($DBCON, $memberInfoQuery);
     // 실행한 결과값을 $member변수 값에 저장
     $member = mysqli_fetch_array($result);
     // 회원의 아이디
