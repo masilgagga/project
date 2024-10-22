@@ -15,13 +15,18 @@
     include "./header.php";
     
     $manage_num = $_POST['manage_num'];
+
+    // 산책로 정보 가져오기
+    $walkSelectQuery = "SELECT * FROM data WHERE manage_num = '$manage_num'";
+    $walkResult = mysqli_query($DBCON, $walkSelectQuery);
+    $walkRow = mysqli_fetch_assoc($walkResult);
     
+    // 내 산책로 아이콘 변수
     $like = "";
     
     // 비로그인 상태
     if(!isset($_SESSION['memberNum'])){
         $like = "<i class='fa-regular fa-heart' onclick='alert('로그인이 필요합니다.');window.location.href='./walk_login.php';'></i>";
-        exit;
     }else{ // 로그인 상태
         // 회원번호
         $_SESSION['memberNum'];
@@ -37,8 +42,8 @@
         $memberId = $member['id'];
         
         // 내 산책로에 정보가 있는지 확인
-        $selectQuery = "SELECT * FROM like_list WHERE id = '{$member_id}' AND manage_num = '{$manage_num}'";
-        $result = mysqli_query($DBCON, $selectQuery);
+        $likeSelectQuery = "SELECT * FROM like_list WHERE id = '{$member_id}' AND manage_num = '{$manage_num}'";
+        $result = mysqli_query($DBCON, $likeSelectQuery);
         $row = mysqli_fetch_assoc($result);
 
         // 내 산책로에 있다면
@@ -47,17 +52,14 @@
         }else{ //내 산책로에 없다면
             $like = "<i class='fa-regular fa-heart' onclick='walk_my_insert.php?manage_num=$manage_num'></i>";
         }
-
     }
-
-
     ?>
     <div class="content wrap">
         <!-- 산책길 정보 -->
         <section>
             <!-- 타이틀 -->
             <div class="title_bg">
-                <div class="title">두류 공원</div>
+                <div class="title"><?=$walkRow['location_name']?></div>
             </div>
         </section>
         <!-- 이미지 & 공원 정보 & 산책길 위치 안내 -->
@@ -71,11 +73,11 @@
                     <div class="info_name">
                         <div class="info_name_txt">
                             <div><img src="./image/walk_info/title_icon.png" alt="나무 아이콘"></div>
-                            <div>두류공원</div>
+                            <div><?=$walkRow['location_name']?></div>
                         </div>
                         <div><?=$like?></div>
                     </div>
-                    <div class="info_txt">상서고등학교 건너 두류공원 입구에서 두류 제1여울길 합류지점</div>
+                    <div class="info_txt"><?=$walkRow['explanation']?></div>
                     <div class="info_table">
                         <div class="boxContent">
                             <div class="b1">편의 시설</div>
@@ -84,21 +86,22 @@
                             <div class="b1">휴양 시설</div>
                         </div>
                         <div class="boxCount">
-                            <div class="b2">0</div>
-                            <div class="b2">0</div>
-                            <div class="b2">14</div>
-                            <div class="b2">0</div>
+                            <div class="b2"><?=$walkRow['comfort']?></div>
+                            <div class="b2"><?=$walkRow['sports']?></div>
+                            <div class="b2"><?=$walkRow['manage_equip']?></div>
+                            <div class="b2"><?=$walkRow['recreation']?></div>
                         </div>
                     </div>
                     <!-- 산책길 난이도, 포장, 관리기관 정보 -->
                     <div class="info_info">
                         <div class="info_info_box">
                             <div class="info_green">구간 난이도</div>
-                            <div class="info_info_txt">하</div>
+                            <div class="info_info_txt"><?=$walkRow['level']?></div>
                             <div class="info_green">산책로 포장</div>
-                            <div class="info_info_txt">복합</div>
+                            <div class="info_info_txt"><?=$walkRow['pave']?></div>
                         </div>
-                        <div><span class="info_green">관리기관</span> 두류공원관리사무소(053-803-7480)</div>
+                        <div><span class="info_green">관리기관</span> &nbsp; <?=$walkRow['manage_name']?>
+                            (<?=$walkRow['manage_call']?>)</div>
                     </div>
                 </div>
             </div>
@@ -106,11 +109,11 @@
             <div class="walk_location">
                 <div class="walk_location_txt">
                     <div class="info_green">산책 시작 위치</div>
-                    <div>시민 광장 입구</div>
+                    <div><?=$walkRow['start']?></div>
                 </div>
                 <div class="walk_location_txt">
                     <div class="info_green">산책 종점 위치</div>
-                    <div>상서고등학교 맞은편 두류공원 오르막 입구에서 두류 제1여울길 합류 지점</div>
+                    <div><?=$walkRow['end']?></div>
                 </div>
             </div>
         </section>

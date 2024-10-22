@@ -21,6 +21,8 @@ if (isset($member_id) && isset($manage_num)) {
 
 // like_list 테이블에서 아이디와 관리번호를 모두 만족하는 row를 찾아서 삭제
 function deleteLike($member_id, $manage_num){
+    global $DBCON;
+    
     // 내 산책로에 정보가 있는지 확인
     $selectQuery = "SELECT * FROM like_list WHERE id = '{$member_id}' AND manage_num = '{$manage_num}'";
     $result = mysqli_query($DBCON, $selectQuery);
