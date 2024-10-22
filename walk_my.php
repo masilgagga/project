@@ -20,7 +20,7 @@
     // 세션에 저장된 회원번호로 해당하는 회원정보 쿼리 질의
     $memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
     // 회원정보 쿼리 질의를 실행
-    $result = mysqli_query(DBCON, $memberInfoQuery);
+    $result = mysqli_query($DBCON, $memberInfoQuery);
     // 실행한 결과값을 $member변수 값에 저장
     $member = mysqli_fetch_array($result);
     // 회원의 아이디
@@ -29,7 +29,7 @@
     // 내 산책로 리스트를 가져올 쿼리
     $listQuery = "SELECT * FROM like_list WHERE id = '{$memberId}'";
     // 내 산책로 쿼리 질의를 실행
-    $result = mysqli_query(DBCON, $listQuery);
+    $result = mysqli_query($DBCON, $listQuery);
     // 내 산책로 관리번호를 담을 배열
     $likeWalkNum = [];
 
@@ -61,7 +61,7 @@
         $walkQuery = "SELECT * FROM data WHERE manage_num IN ($likeList)";
         
         // 산책로 쿼리 질의를 실행
-        $result = mysqli_query(DBCON, $walkQuery);
+        $result = mysqli_query($DBCON, $walkQuery);
 
         // 내 산책로 숫자만큼 반복하여 배열에 저장
         while($row = mysqli_fetch_array($result)){
@@ -75,7 +75,7 @@
     
         // 총 데이터 수 가져오기
         $total_query = "SELECT COUNT(*) as total FROM data WHERE manage_num IN ($likeList)"; // 테이블 이름 확인
-        $total_result = mysqli_query(DBCON, $total_query);
+        $total_result = mysqli_query($DBCON, $total_query);
         $total_row = $total_result->fetch_assoc();
         $total_items = $total_row['total'];
         $total_pages = ceil($total_items / $items_per_page); // 총 페이지 수
