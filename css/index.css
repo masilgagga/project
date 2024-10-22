@@ -6,11 +6,11 @@ main {
 .mainContentsWrap {
   display: none;
   width: 100%;
-  height: 876px;
+  /* height: 876px; */
 }
 .mainContents {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   background-image: url(../../img/shot.png);
   background-size: cover;
   background-repeat: round;
@@ -243,11 +243,13 @@ main {
     margin-bottom: 0;
   }
 }
+
 @media (min-width: 640px) {
   .recommend {
     flex-direction: row;
   }
 }
+
 @media (min-width: 725px) {
   .recommend {
     font-size: 18px;
@@ -269,8 +271,190 @@ main {
   }
   .mainContentsWrap {
     display: block;
+    width: 100%;
   }
+  .mainContentsWrap .mainContetnsBtn {
+    position: relative;
+  }
+  .mainContentsWrap .mainContetnsBtn a {
+    position: absolute;
+  }
+  .mainContentsWrap .mainContetnsBtn a:hover {
+    transition: transform 0.5s ease;
+    transform: translateY(-20px) scale(1.1);
+  }
+
+  /*두류*/
+  .mainContentsWrap .mainContetnsBtn a:nth-of-type(1) {
+    top: 210px;
+    left: 280px;
+  }
+
+  /*범어*/
+  .mainContentsWrap .mainContetnsBtn a:nth-of-type(2) {
+    top: 350px;
+    left: 450px;
+  }
+
+  /*앞산*/
+  .mainContentsWrap .mainContetnsBtn a:nth-of-type(3) {
+    top: 215px;
+    left: 565px;
+  }
+
+  /*신암*/
+  .mainContentsWrap .mainContetnsBtn a:nth-of-type(4) {
+    top: 280px;
+    left: 800px;
+  }
+
+  /*침산*/
+  .mainContentsWrap .mainContetnsBtn a:nth-of-type(5) {
+    top: 185px;
+    left: 900px;
+  }
+
+  .mainContentsWrap .mainContetnsBtn a img {
+    width: 60px;
+  }
+  .mainContentsWrap .mainContents img {
+    margin-top: 10px;
+    width: 1200px;
+  }
+
   .infoText {
     font-size: 25px;
+  }
+}
+@media (min-width: 1300px) {
+  /*두류*/
+  .mainContentsWrap .mainContetnsBtn a:nth-of-type(1) {
+    top: 250px;
+    left: 325px;
+  }
+
+  /*범어*/
+  .mainContentsWrap .mainContetnsBtn a:nth-of-type(2) {
+    top: 400px;
+    left: 520px;
+  }
+
+  /*앞산*/
+  .mainContentsWrap .mainContetnsBtn a:nth-of-type(3) {
+    top: 250px;
+    left: 660px;
+  }
+
+  /*신암*/
+  .mainContentsWrap .mainContetnsBtn a:nth-of-type(4) {
+    top: 320px;
+    left: 935px;
+  }
+
+  /*침산*/
+  .mainContentsWrap .mainContetnsBtn a:nth-of-type(5) {
+    top: 220px;
+    left: 1055px;
+  }
+
+  .mainContentsWrap .mainContetnsBtn a img {
+    width: 68px;
+  }
+  .mainContentsWrap .mainContents img {
+    width: 1400px;
+  }
+}
+
+@media (min-width: 1500px) {
+  /*두류*/
+  .mainContentsWrap .mainContetnsBtn a:nth-of-type(1) {
+    top: 270px;
+    left: 370px;
+  }
+
+  /*범어*/
+  .mainContentsWrap .mainContetnsBtn a:nth-of-type(2) {
+    top: 470px;
+    left: 600px;
+  }
+
+  /*앞산*/
+  .mainContentsWrap .mainContetnsBtn a:nth-of-type(3) {
+    top: 290px;
+    left: 760px;
+  }
+
+  /*신암*/
+  .mainContentsWrap .mainContetnsBtn a:nth-of-type(4) {
+    top: 370px;
+    left: 1070px;
+  }
+
+  /*침산*/
+  .mainContentsWrap .mainContetnsBtn a:nth-of-type(5) {
+    top: 245px;
+    left: 1205px;
+  }
+
+  .mainContentsWrap .mainContetnsBtn a img {
+    width: 78px;
+  }
+  .mainContentsWrap .mainContents img {
+    width: 1600px;
+  }
+}
+
+@media (min-width: 1700px) {
+  .mainContentsWrap {
+    display: block;
+    width: 100%;
+  }
+  .mainContentsWrap .mainContetnsBtn {
+    position: relative;
+  }
+  .mainContentsWrap .mainContetnsBtn a {
+    position: absolute;
+  }
+  .mainContentsWrap .mainContetnsBtn a:hover {
+    transition: transform 0.5s ease;
+    transform: translateY(-20px) scale(1.1);
+  }
+
+  /*두류*/
+  .mainContentsWrap .mainContetnsBtn a:nth-of-type(1) {
+    top: 330px;
+    left: 440px;
+  }
+
+  /*범어*/
+  .mainContentsWrap .mainContetnsBtn a:nth-of-type(2) {
+    top: 550px;
+    left: 700px;
+  }
+
+  /*앞산*/
+  .mainContentsWrap .mainContetnsBtn a:nth-of-type(3) {
+    top: 330px;
+    left: 900px;
+  }
+
+  /*신암*/
+  .mainContentsWrap .mainContetnsBtn a:nth-of-type(4) {
+    top: 440px;
+    left: 1270px;
+  }
+
+  /*침산*/
+  .mainContentsWrap .mainContetnsBtn a:nth-of-type(5) {
+    top: 300px;
+    left: 1430px;
+  }
+
+  .mainContentsWrap .mainContetnsBtn a img {
+    width: 88px;
+  }
+  .mainContentsWrap .mainContents img {
+    margin-top: 10px;
+    width: 1900px;
   }
 }
