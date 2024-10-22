@@ -208,13 +208,13 @@
             <div class="walk_list">
                 <?php
                 if ($result->num_rows > 0) {
+                    $index = 0;
                     while ($row = $result->fetch_assoc()) {
                 ?>
                 <!-- 각각 산책로 div -->
-                <form id="walkInfo" action="walk_info.php" method="post">
+                <form id="walkInfo<?=$index?>" action="walk_info.php" method="get">
                     <input type="hidden" value="<?= $row['manage_num'] ?>" name="manage_num">
-          
-                    <button type="button" onclick="document.getElementById('walkInfo').submit()">
+                    <button type="button" onclick="document.getElementById('walkInfo<?=$index?>').submit()">
                         <div class="walk_post">
                             <div class="walk_img"></div>
                             <div class="walk_info">
@@ -228,6 +228,7 @@
                     </button>
                 </form>
                 <?php
+                    $index++;
                     }
                 } else {
                     echo "<div>검색 결과가 없습니다.</div>";
