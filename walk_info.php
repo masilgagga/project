@@ -120,7 +120,7 @@
         <!-- 산책길 위치 지도 -->
         <section>
             <div class="walk_map">
-                <div class="walk_map_address"><i class="fa-solid fa-location-dot"></i><?=$walkRow['address']?></div>
+                <div class="walk_map_address"><i class="fa-solid fa-location-dot locationIcon"></i><?=$walkRow['address']?> </div>
                 <!-- 지도 -->
                 <div class="walk_map_api" id="map">
         

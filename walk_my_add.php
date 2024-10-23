@@ -61,29 +61,26 @@
         $walkQuery = "SELECT * FROM data WHERE manage_num IN ($likeList)";
         
         // 산책로 쿼리 질의를 실행
-        
+        $result = mysqli_query($DBCON, $walkQuery);
+
+        // 내 산책로 숫자만큼 반복하여 배열에 저장
+        while($row = mysqli_fetch_array($result)){
+            array_push($likeWalk, $row);
+        }
         
         // 페이지 번호 설정
         $items_per_page = 6; // 한 페이지에 보여줄 항목 수
         $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
         $offset = ($current_page - 1) * $items_per_page;
-        
+    
         // 총 데이터 수 가져오기
         $total_query = "SELECT COUNT(*) as total FROM data WHERE manage_num IN ($likeList)"; // 테이블 이름 확인
         $total_result = mysqli_query($DBCON, $total_query);
         $total_row = $total_result->fetch_assoc();
         $total_items = $total_row['total'];
         $total_pages = ceil($total_items / $items_per_page); // 총 페이지 수
-        
 
-        $walkQuery .= "   LIMIT $items_per_page OFFSET $offset"; // 테이블 이름 확인
-        $result = mysqli_query($DBCON, $walkQuery);
-        
-        // 내 산책로 숫자만큼 반복하여 배열에 저장
-        while($row = mysqli_fetch_array($result)){
-            array_push($likeWalk, $row);
-        }
-        
+
         echo ("
         <section>
             <div class='page_num'>");
@@ -105,7 +102,7 @@
                 if ($current_page > 5) {
                     echo "<a href='?page=" . ($current_page - 5) . "'><span><img src='./image/walk_my/my_arrow_l.png' alt='앞 페이지' /></span></a>";
                 }else {
-                    echo "<a href='?page=1'><span><img src='./image/walk_my/my_arrow_l.png' alt='앞 페이지' /></span></a>";
+                    echo "<a href='?page=" . ($current_page = 1) . "'><span><img src='./image/walk_my/my_arrow_l.png' alt='앞 페이지' /></span></a>";
                 }
 
                 echo "<div>";
@@ -144,11 +141,16 @@
                         $dong = $num['dong'];
                 ?>
                 <!-- 각각 산책로 div -->
+                <!-- 확인 필요 코드(하트에 클릭 이벤트 추가) -->
                 <div class="walk_post">
                     <div class="walk_img"></div>
                     <div class="walk_info">
-                        <div class="walk_info_like"><i class="fa-regular fa-heart"></i> 20</div>
-                        <!-- <i class="fa-solid fa-heart"></i> 찜한 하트 -->
+                    <form method='POST' style='display:inline;' action='walk_my_delete.php' name="delete_form">
+                                <input type='hidden' name='member_id' value='<?=$memberId?>'>
+                                <input type='hidden' name='manage_num' value='<?=$manageNum?>'>
+                                <div class="walk_info_like"><span onclick="deleteFunction()" ><i class="fa-regular fa-heart"></i> 20</span></div>
+                            </form>
+                        
                         <div class="walk_info_name">
                             <div>
                                 <?=$locationName?> 
@@ -158,16 +160,9 @@
                             </span>
                         </div>
                             <div><br>
-                            <form method='POST' style='display:inline;' action='walk_my_delete.php'>
-                                <input type='hidden' name='member_id' value='<?=$memberId?>'>
-                                <input type='hidden' name='manage_num' value='<?=$manageNum?>'>
-                                <button type='submit' onclick='return confirm("정말 삭제하시겠습니까?")'>My 산책로에서 삭제</button>
-                            </form>
                         </div>
                     </div>
                 </div>
-               
-                
                 <?php
                     }
                 }else{echo "<div class='wrap'>담아놓은 My 산책로가 없습니다.</div>";}
@@ -176,7 +171,13 @@
         </section>
     </div>
     <?php include "footer.php" ?>
-
+    <script>
+      function deleteFunction() {
+        if (confirm("정말 삭제하시겠습니까?")) {
+            document.forms['delete_form'].submit(); // 변경된 부분
+        }
+    }
+      </script>
 </body>
 
 </html>
