@@ -128,7 +128,7 @@
             echo ("</div>
         </section>");
         }
-                ?>
+        ?>
         <!-- 산책로 목록 -->
         <section>
             <div class="walk_list">

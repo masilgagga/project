@@ -36,18 +36,15 @@ if ($likeRow) {
         </script>");
 } else {
     // 인서트 쿼리 작성
-    $listInsertQuery = "INSERT INTO like_list(
-    `id`,
-    `manage_num`
-    ) VALUES (
-    '{$memberId}',
-    '{$manage_num}'
-    )";
+    $listInsertQuery = "INSERT INTO like_list(`id`, `manage_num`) VALUES ('{$memberId}', '{$manage_num}')";
+    // 인서트 쿼리문 실행
+    $insertResult = mysqli_query($DBCON, $listInsertQuery);
+    
+    // 산책로 정보 테이블에서 해당 관리번호의 찜 갯수 +1 하는 쿼리
+    $updateCountQuery = "UPDATE data SET like_count = like_count + 1 WHERE manage_num = '{$manage_num}'";
+    mysqli_query($DBCON, $updateCountQuery);
 
-    // 지정된 쿼리문 실행
-    $result = mysqli_query($DBCON, $listInsertQuery);
-
-    if ($result) {
+    if ($insertResult) {
         echo ("<script>
         alert('산책로가 찜 목록에 추가되었습니다!');
         window.location.href = './walk_info.php?manage_num=$manage_num';
