@@ -14,33 +14,22 @@
     <?php include "header.php"; ?>
 
     <?php
-    // 데이터베이스 정보
-    $host = '192.168.0.68';
-    $db = 'zinee'; // 실제 데이터베이스 이름으로 변경
-    $user = 'zinee'; // 사용자 이름
-    $pass = 'tmakxmdnpqdoq5!'; // 비밀번호
-
-    // 데이터베이스 연결
-    $conn = new mysqli($host, $user, $pass, $db);
-
-    // 연결 체크
-    if ($conn->connect_error) {
-        die("연결 실패: " . $conn->connect_error);
-    }
-
+    // DB 연결을 상수 파일에 넣은 변수로 한 상태
     // 필터링을 위한 GET 변수 설정
-    $dongFilter = isset($_GET['dong']) ? mysqli_real_escape_string($conn, $_GET['dong']) : '';
-    $surfaceFilter = isset($_GET['surface']) ? mysqli_real_escape_string($conn, $_GET['surface']) : '';
-    $difficultyFilter = isset($_GET['difficulty']) ? mysqli_real_escape_string($conn, $_GET['difficulty']) : '';
+    $dongFilter = isset($_GET['dong']) ? mysqli_real_escape_string($DBCON, $_GET['dong']) : '';
+    $surfaceFilter = isset($_GET['surface']) ? mysqli_real_escape_string($DBCON, $_GET['surface']) : '';
+    $difficultyFilter = isset($_GET['difficulty']) ? mysqli_real_escape_string($DBCON, $_GET['difficulty']) : '';
+    $gongFilter = isset($_GET['location_name']) ? mysqli_real_escape_string($DBCON, $_GET['location_name']) : '';
 
     // 콤보박스에 넣을 데이터
-    $valuesSql = "SELECT DISTINCT dong, pave, level FROM data";
-    $valuesResult = mysqli_query($conn, $valuesSql);
+    $valuesSql = "SELECT DISTINCT dong, pave, level, location_name FROM data";
+    $valuesResult = mysqli_query($DBCON, $valuesSql);
 
     // 데이터를 넣을 배열 선언
     $dongSet = [];
     $surfaceSet = [];
     $difficultySet = [];
+   
 
     // 중복되는 데이터를 필터링
     while ($row = mysqli_fetch_assoc($valuesResult)) {
@@ -53,12 +42,9 @@
         if (!in_array($row['level'], $difficultySet)) {
             $difficultySet[] = $row['level'];
         }
+       
     }
 
-    // 페이지 번호 설정
-    $items_per_page = 6; // 한 페이지에 보여줄 항목 수
-    $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-    $offset = ($current_page - 1) * $items_per_page;
 
     // 총 데이터 수 가져오기
     $total_query = "SELECT COUNT(*) as total FROM data WHERE 1=1";
@@ -71,24 +57,34 @@
     if ($difficultyFilter) {
         $total_query .= " AND level = '$difficultyFilter'";
     }
-    $total_result = $conn->query($total_query);
+   
+       // SQL 쿼리 (OFFSET 사용)
+       $sql = "SELECT * FROM data WHERE 1=1";
+       if ($dongFilter) {
+           $sql .= " AND dong = '$dongFilter'";
+       }
+       if ($surfaceFilter) {
+           $sql .= " AND pave = '$surfaceFilter'";
+       }
+       if ($difficultyFilter) {
+           $sql .= " AND level = '$difficultyFilter'";
+       }
+
+    
+    // 페이지 번호 설정
+    $items_per_page = 6; // 한 페이지에 보여줄 항목 수
+    $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+    $offset = ($current_page - 1) * $items_per_page;   
+
+    $total_result = $DBCON->query($total_query);
     $total_row = $total_result->fetch_assoc();
     $total_items = $total_row['total'];
     $total_pages = ceil($total_items / $items_per_page); // 총 페이지 수
 
-    // SQL 쿼리 (OFFSET 사용)
-    $sql = "SELECT * FROM data WHERE 1=1";
-    if ($dongFilter) {
-        $sql .= " AND dong = '$dongFilter'";
-    }
-    if ($surfaceFilter) {
-        $sql .= " AND pave = '$surfaceFilter'";
-    }
-    if ($difficultyFilter) {
-        $sql .= " AND level = '$difficultyFilter'";
-    }
+ 
+  
     $sql .= "   LIMIT $items_per_page OFFSET $offset"; // 테이블 이름 확인
-    $result = $conn->query($sql);
+    $result = $DBCON->query($sql);
     ?>
 
     <div class="content wrap">
@@ -143,6 +139,7 @@
                                 </select>
                             </div>
                         </div>
+                    
                     </div>
                     <div>
                         <!-- 찾기 버튼 -->
@@ -219,10 +216,11 @@
                             <div class="walk_img"></div>
                             <div class="walk_info">
                                 <div class="walk_info_like"><i class="fa-regular fa-heart"></i> 20</div>
-                                <div class='walk_info_name'><?= htmlspecialchars($row['location_name']) ?>
+                                <div class='walk_info_name'>
+                                    <div><?= htmlspecialchars($row['location_name']) ?></div>
                                     <span><?= htmlspecialchars($row['dong']) ?></span>
                                 </div>
-                                <div class="walk_info_link">위치 확인하기 >></div>
+                                <div class="walk_info_link">더 알아보기</div>
                             </div>
                         </div>
                     </button>
