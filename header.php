@@ -1,12 +1,13 @@
 <?php
 session_start();
 
-include "./config/const.php";
+include_once "./config/const.php";
 
 // 비로그인 상태
 $mvLogin = "<div class='userName'>로그인 해주세요</div><div><a href='./walk_login.php'>로그인</a></div>";
 $pcLogin = "<a href='./walk_login.php'>로그인</a>";
 $memberPhoto = "./image/usericon.png";
+$memberName = "";
 
 // 로그인 상태
 if(isset($_SESSION['memberNum']) && $_SESSION['memberNum']){

@@ -16,6 +16,7 @@
     
     // 회원번호
     $_SESSION['memberNum'];
+    $likeIcon = "";
 
     // 세션에 저장된 회원번호로 해당하는 회원정보 쿼리 질의
     $memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
@@ -24,10 +25,10 @@
     // 실행한 결과값을 $member변수 값에 저장
     $member = mysqli_fetch_array($result);
     // 회원의 아이디
-    $memberId = $member['id'];
+    $member_id = $member['id'];
 
     // 내 산책로 리스트를 가져올 쿼리
-    $listQuery = "SELECT * FROM like_list WHERE id = '{$memberId}'";
+    $listQuery = "SELECT * FROM like_list WHERE id = '{$member_id}'";
     // 내 산책로 쿼리 질의를 실행
     $result = mysqli_query($DBCON, $listQuery);
     // 내 산책로 관리번호를 담을 배열
@@ -59,10 +60,7 @@
     if($likeList){
         // 선택한 산책로 리스트를 모두 불러올 쿼리
         $walkQuery = "SELECT * FROM data WHERE manage_num IN ($likeList)";
-        
-        // 산책로 쿼리 질의를 실행
-        
-        
+            
         // 페이지 번호 설정
         $items_per_page = 6; // 한 페이지에 보여줄 항목 수
         $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
@@ -138,37 +136,66 @@
             <div class="walk_list">
                 <?php
                 if (count($likeWalk) > 0) {
+                    $index = 0;
+                    
                     foreach ($likeWalk as $num) {
                         $locationName = $num['location_name'];
-                        $manageNum = $num['manage_num'];
                         $dong = $num['dong'];
+                        $like_count = $num['like_count'];
+                        $manage_num = $num['manage_num'];
+                        
+                        // 비로그인 상태
+                        if(!isset($_SESSION['memberNum'])){
+                            $likeIcon = "<i class='fa-regular fa-heart' onclick='login()'></i>";
+                        }else{ // 로그인 상태
+                            // 회원번호
+                            $_SESSION['memberNum'];
+                            
+                            // 세션에 저장된 회원번호로 해당하는 회원정보 쿼리 질의
+                            $memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
+                    
+                            // 회원정보 쿼리 질의를 실행
+                            $memberResult = mysqli_query($DBCON, $memberInfoQuery);
+                            // 실행한 결과값을 $member변수 값에 저장
+                            $member = mysqli_fetch_array($memberResult);
+                            // 회원의 아이디
+                            $member_id = $member['id'];
+                            
+                            // 내 산책로에 정보가 있는지 확인
+                            $likeSelectQuery = "SELECT * FROM like_list WHERE id = '{$member_id}' AND manage_num = '{$manage_num}'";
+                            $likeResult = mysqli_query($DBCON, $likeSelectQuery);
+                            $likeRow = mysqli_fetch_assoc($likeResult);
+                    
+                            // 내 산책로에 있다면
+                            if($likeRow){
+                                $likeIcon = "<i class='fa-solid fa-heart' onclick='likeDelete(\"$manage_num\")'></i>";
+                            }else{ //내 산책로에 없다면
+                                $likeIcon = "<i class='fa-regular fa-heart' onclick='likeInsert(\"$manage_num\")'></i>";
+                            }
+                        }
                 ?>
                 <!-- 각각 산책로 div -->
+
                 <div class="walk_post">
-                    <div class="walk_img"></div>
+                    <div class="walk_img"
+                        style="background: url('./image/park_photo/<?=$num['park_manage_num']?>.jpg') center no-repeat; background-size: cover;">
+                    </div>
                     <div class="walk_info">
-                        <div class="walk_info_like"><i class="fa-regular fa-heart"></i> 20</div>
-                        <!-- <i class="fa-solid fa-heart"></i> 찜한 하트 -->
-                        <div class="walk_info_name">
-                            <div>
-                                <?=$locationName?> 
-                            </div>    
-                            <span>
-                                <?=$dong?>
-                            </span>
-                        </div>
-                            <div><br>
-                            <form method='POST' style='display:inline;' action='walk_my_delete.php'>
-                                <input type='hidden' name='member_id' value='<?=$memberId?>'>
-                                <input type='hidden' name='manage_num' value='<?=$manageNum?>'>
-                                <button type='submit' onclick='return confirm("정말 삭제하시겠습니까?")'>My 산책로에서 삭제</button>
-                            </form>
-                        </div>
+                        <div class="walk_info_like"><?=$likeIcon?> <?=$like_count?></div>
+                        <form id="walkInfo<?=$index?>" action="./walk_info.php" method="get">
+                            <input type="hidden" value="<?= $manage_num ?>" name="manage_num">
+                            <button type="button" onclick="document.getElementById('walkInfo<?=$index?>').submit()">
+                                <div class="walk_info_name">
+                                    <div><?=$locationName?></div>
+                                    <span><?=$dong?></span>
+                                </div>
+                                <div class="walk_info_link">더 알아보기</div>
+                            </button>
+                        </form>
                     </div>
                 </div>
-               
-                
                 <?php
+                    $index++;
                     }
                 }else{echo "<div class='wrap'>담아놓은 My 산책로가 없습니다.</div>";}
                 ?>
@@ -176,6 +203,20 @@
         </section>
     </div>
     <?php include "footer.php" ?>
+    <script>
+    function login() {
+        alert('로그인이 필요합니다.');
+        window.location.href = './walk_login.php';
+    }
+
+    function likeInsert(manage_num) {
+        window.location.href = "./walk_my_insert.php?manage_num=" + manage_num;
+    }
+
+    function likeDelete(manage_num) {
+        window.location.href = "./walk_my_delete.php?manage_num=" + manage_num;
+    }
+    </script>
 
 </body>
 

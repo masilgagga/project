@@ -7,13 +7,16 @@
     <link rel="stylesheet" href="./css/walk_finder.css" />
     <title>마실가까</title>
     <script src="https://kit.fontawesome.com/d035e75539.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="./js/script.js"></script>
 </head>
 
 <body>
-    <?php include "header.php"; ?>
+    <?php include "./header.php";
 
-    <?php
+    // 내 산책길 아이콘 변수
+    $likeIcon = "";
+    
     // DB 연결을 상수 파일에 넣은 변수로 한 상태
     // 필터링을 위한 GET 변수 설정
     $dongFilter = isset($_GET['dong']) ? mysqli_real_escape_string($DBCON, $_GET['dong']) : '';
@@ -80,10 +83,8 @@
     $total_row = $total_result->fetch_assoc();
     $total_items = $total_row['total'];
     $total_pages = ceil($total_items / $items_per_page); // 총 페이지 수
-
- 
   
-    $sql .= "   LIMIT $items_per_page OFFSET $offset"; // 테이블 이름 확인
+    $sql .= " LIMIT $items_per_page OFFSET $offset"; // 테이블 이름 확인
     $result = $DBCON->query($sql);
     ?>
 
@@ -139,7 +140,7 @@
                                 </select>
                             </div>
                         </div>
-                    
+
                     </div>
                     <div>
                         <!-- 찾기 버튼 -->
@@ -207,36 +208,81 @@
                 if ($result->num_rows > 0) {
                     $index = 0;
                     while ($row = $result->fetch_assoc()) {
-                ?>
+                        $manage_num = $row['manage_num'];
+                        
+                        // 비로그인 상태
+                        if(!isset($_SESSION['memberNum'])){
+                            $likeIcon = "<i class='fa-regular fa-heart' onclick='login()'></i>";
+                        }else{ // 로그인 상태
+                            // 회원번호
+                            $_SESSION['memberNum'];
+                            
+                            // 세션에 저장된 회원번호로 해당하는 회원정보 쿼리 질의
+                            $memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
+                    
+                            // 회원정보 쿼리 질의를 실행
+                            $memberResult = mysqli_query($DBCON, $memberInfoQuery);
+                            // 실행한 결과값을 $member변수 값에 저장
+                            $member = mysqli_fetch_array($memberResult);
+                            // 회원의 아이디
+                            $member_id = $member['id'];
+                            
+                            // 내 산책로에 정보가 있는지 확인
+                            $likeSelectQuery = "SELECT * FROM like_list WHERE id = '{$member_id}' AND manage_num = '{$manage_num}'";
+                            $likeResult = mysqli_query($DBCON, $likeSelectQuery);
+                            $likeRow = mysqli_fetch_assoc($likeResult);
+                    
+                            // 내 산책로에 있다면
+                            if($likeRow){
+                                $likeIcon = "<i class='fa-solid fa-heart' onclick='likeDelete(\"$manage_num\")'></i>";
+                            }else{ //내 산책로에 없다면
+                                $likeIcon = "<i class='fa-regular fa-heart' onclick='likeInsert(\"$manage_num\")'></i>";
+                            }
+                        }
+                    ?>
                 <!-- 각각 산책로 div -->
-                <form id="walkInfo<?=$index?>" action="walk_info.php" method="get">
-                    <input type="hidden" value="<?= $row['manage_num'] ?>" name="manage_num">
-                    <button type="button" onclick="document.getElementById('walkInfo<?=$index?>').submit()">
-                        <div class="walk_post">
-                            <div class="walk_img"></div>
-                            <div class="walk_info">
-                                <div class="walk_info_like"><i class="fa-regular fa-heart"></i> 20</div>
+                <div class="walk_post">
+                    <div class="walk_img"
+                        style="background: url('./image/park_photo/<?=$row['park_manage_num']?>.jpg') center no-repeat; background-size: cover;">
+                    </div>
+                    <div class="walk_info">
+                        <div class="walk_info_like"><?=$likeIcon?> <?= htmlspecialchars($row['like_count']) ?></div>
+                        <form id="walkInfo<?=$index?>" action="./walk_info.php" method="get">
+                            <input type="hidden" value="<?= $manage_num ?>" name="manage_num">
+                            <button type="button" onclick="document.getElementById('walkInfo<?=$index?>').submit()">
                                 <div class='walk_info_name'>
                                     <div><?= htmlspecialchars($row['location_name']) ?></div>
                                     <span><?= htmlspecialchars($row['dong']) ?></span>
                                 </div>
                                 <div class="walk_info_link">더 알아보기</div>
-                            </div>
-                        </div>
-                    </button>
-                </form>
+                            </button>
+                        </form>
+                    </div>
+                </div>
                 <?php
                     $index++;
                     }
-                } else {
-                    echo "<div>검색 결과가 없습니다.</div>";
-                }
+                } else { echo "<div>검색 결과가 없습니다.</div>";}
                 ?>
             </div>
         </section>
 
     </div>
     <?php include "footer.php" ?>
+    <script>
+    function login() {
+        alert('로그인이 필요합니다.');
+        window.location.href = './walk_login.php';
+    }
+
+    function likeInsert(manage_num) {
+        window.location.href = "./walk_my_insert.php?manage_num=" + manage_num;
+    }
+
+    function likeDelete(manage_num) {
+        window.location.href = "./walk_my_delete.php?manage_num=" + manage_num;
+    }
+    </script>
 </body>
 
 </html>

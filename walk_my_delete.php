@@ -6,9 +6,21 @@ include "./config/const.php";
 // 로그인 여부 체크
 include "./login/login_check.php";
 
-// id와 관리번호 받아옴
-$member_id = $_POST['member_id'];
-$manage_num = $_POST['manage_num'];
+// 회원번호
+$_SESSION['memberNum'];
+
+// 세션에 저장된 회원번호로 해당하는 회원정보 쿼리 질의
+$memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
+
+// 회원정보 쿼리 질의를 실행
+$result = mysqli_query($DBCON, $memberInfoQuery);
+// 실행한 결과값을 $member변수 값에 저장
+$member = mysqli_fetch_array($result);
+// 회원의 아이디
+$member_id = $member['id'];
+
+// 회원이 선택한 산책로 관리번호
+$manage_num = $_GET['manage_num'];
 
 // 삭제 요청 처리
 if (isset($member_id) && isset($manage_num)) {
@@ -32,7 +44,7 @@ function deleteLike($member_id, $manage_num){
    // 쿼리 실행
     if ($row) {
         // 해당 산책로의 찜 갯수를 불러오는 쿼리
-        $selectCountQuery = "SELECT  like_count FROM data WHERE manage_num = '{$manage_num}'";
+        $selectCountQuery = "SELECT like_count FROM data WHERE manage_num = '{$manage_num}'";
         $countResult = mysqli_query($DBCON, $selectCountQuery);
         $countRow = mysqli_fetch_assoc($countResult);
         
