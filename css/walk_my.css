@@ -44,6 +44,15 @@
   margin: auto;
   padding-bottom: 30px;
 }
+.walk_list button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+
+
 
 .walk_post {
   padding-bottom: 25px;
@@ -67,7 +76,9 @@
   border-radius: 0 0 5px 5px;
   padding: 10px 20px 28px 34px;
 }
-
+.walk_info i {
+  cursor: pointer;
+}
 .walk_info_like {
   text-align: right;
   color: #ff217e;
