@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+body {
+  background-color: #ecf0eb;
+}
+
+.e_conteiner {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+.e_conteiner .e_tap {
+  padding: 20px;
+}
+.e_conteiner .e_tap a {
+  margin-right: 10px;
+}
+
+/*==================================*/
+/*==================================*/
+/*==================================*/
+
+.e_conteiner .e_banner_conteiner {
+  /* border: 1px solid black; */
+  padding: 20px;
+  width: 100%;
+}
+@media (max-width: 550px) {
+  .e_conteiner .e_banner_conteiner a img {
+    width: 100%;
+  }
+}
