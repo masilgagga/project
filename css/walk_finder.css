@@ -110,11 +110,13 @@
 
 .walk_post {
   padding-bottom: 25px;
+  cursor: pointer;
 }
 
 .walk_img {
   width: 290px;
   height: 160px;
+  background: url("../image/walk_finder/walk_img_01.jpg") center no-repeat;
   background-size: cover; /* div 크기에 맞게 이미지 크기 조정 */
   border-radius: 5px 5px 0 0;
 }
@@ -130,15 +132,10 @@
   padding: 10px 20px 28px 34px;
 }
 
-.walk_info i {
-  cursor: pointer;
-}
-
 .walk_info_like {
   text-align: right;
   color: #ff217e;
   font-size: 20px;
-  z-index: 99;
 }
 
 .walk_info_name {
@@ -244,6 +241,8 @@
   .walk_img {
     width: 250px;
     height: 190px;
+    background: url("../image/walk_finder/walk_img_01.jpg") center no-repeat;
+    background-size: cover; /* div 크기에 맞게 이미지 크기 조정 */
     border-radius: 5px 0 0 5px;
   }
 

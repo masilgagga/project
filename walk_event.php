@@ -4,16 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./walk_event.css" />
+    <link rel="stylesheet" href="./css/walk_event.css" />
   </head>
   <body>
+  <?php include "header.php"; ?>
     <div class="e_conteiner">
       <div class="e_tap">
-        <a href="walk_event.html">진행중인 이벤트</a>
+        <a href="./walk_event.html">진행중인 이벤트</a>
         <a href="">종료된 이벤트</a>
       </div>
       <div class="e_banner_conteiner">
-        <a href="walk_event_detail.html"><img src="./작업물/이벤트배너.jpg" alt="" /></a>
+        <a href="./walk_event_detail.html"
+          ><img src="./image/walk_event/event_banner.jpg" alt=""
+        /></a>
       </div>
     </div>
   </body>
