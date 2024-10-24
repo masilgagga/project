@@ -8,6 +8,8 @@ $mvLogin = "<div class='userName'>로그인 해주세요</div><div><a href='./wa
 $pcLogin = "<a href='./walk_login.php'>로그인</a>";
 $memberPhoto = "./image/usericon.png";
 $memberName = "";
+$memberGrade = 0;
+$admin = "";
 
 // 로그인 상태
 if(isset($_SESSION['memberNum']) && $_SESSION['memberNum']){
@@ -21,9 +23,14 @@ if(isset($_SESSION['memberNum']) && $_SESSION['memberNum']){
     $memberId = $member['id'];
     $memberName = $member['name'];
     $memberPhoto = $member['photo'];
+    $memberGrade = $member['member_grade'];
 
-    $mvLogin = "<div class='userName'>$memberName 님</div><div><a href='./login/logout.php'>로그아웃</a></div>";
-    $pcLogin = "<span class='userName'>$memberName 님</span><span><a href='./login/logout.php'>로그아웃</a></span>";
+    if($memberGrade == 1){
+        $admin = "<a href='./walk_admin.php'>관리자페이지</a>";
+    }
+
+    $mvLogin = "<div class='userName'>$memberName 님</div><div>$admin <a href='./login/logout.php'>로그아웃</a></div>";
+    $pcLogin = "<span class='userName'>$memberName 님</span><span>$admin <a href='./login/logout.php'>로그아웃</a></span>";
 }
 ?>
 
@@ -58,6 +65,7 @@ $(function() {
         <div class="gnb">
             <div><a href="./walk_correctly.php">바르게 걷기</a></div>
             <div><a href="./walk_finder.php">산책길 찾기</a></div>
+            <div><a href="./walk_event.php">산책길 Event</a></div>
             <div><a href="./walk_my.php">My 산책길</a></div>
         </div>
         <div class="login"><?=$pcLogin?></div>
@@ -78,6 +86,9 @@ $(function() {
             </a>
             <a href="./walk_finder.php">
                 <li>산책길 찾기</li>
+            </a>
+            <a href="./walk_event.php">
+                <li>산책길 Event</li>
             </a>
             <a href="./walk_my.php">
                 <li>My 산책길</li>
