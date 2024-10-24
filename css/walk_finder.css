@@ -131,6 +131,9 @@
   border-radius: 0 0 5px 5px;
   padding: 10px 20px 28px 34px;
 }
+.walk_info i {
+  cursor: pointer;
+}
 
 .walk_info_like {
   text-align: right;
