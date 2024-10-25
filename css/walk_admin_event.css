@@ -26,34 +26,51 @@
 .content .e_tap {
   padding: 50px;
 }
-.content .e_tap a {
-  margin-right: 20px;
-  color: #000000;
+
+.event_form,
+.event_list {
+  padding: 30px;
 }
 
-/*==================================*/
+.event_form span {
+  display: inline-block;
+  width: 180px;
+  padding: 5px;
+}
 
-.content .e_banner_container {
+.event_form button {
+  margin: 10px;
+  padding: 5px;
+}
+
+.event_list {
   display: flex;
-  flex-wrap: wrap;
-  padding: 20px;
-  width: 100%;
-  justify-content: center;
 }
 
-.content .e_banner_container div {
-  padding: 0 20px;
+.event_content {
+  width: 50%;
+  color: #555555;
 }
 
-.content .e_banner_container img {
-  width: 500px;
+.event_content span {
+  color: #222222;
+}
+
+.event_check {
+  color: peru;
+}
+
+.event_content div {
+  border: 1px solid #999999;
+  padding: 3px;
+}
+
+.event_delete {
+  align-content: center;
+  padding: 30px;
 }
 
 @media (max-width: 550px) {
-  .content .e_banner_container img {
-    width: 100%;
-  }
-
   .wrap {
     padding: 40px 0;
   }

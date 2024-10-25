@@ -1,25 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>마실가까</title>
     <link rel="stylesheet" href="./css/walk_event_detail.css" />
-  </head>
-  <body>
-  <?php include "header.php"; ?>
-    <div class="e_conteiner">
-      <div class="e_tap">
-        <a href="./walk_event.php">진행중인 이벤트</a>
-        <a href="">종료된 이벤트</a>
-      </div>
-      <div class="e_detail_conteiner">
-        <div class="e_detail">
-          <img src="./image/walk_event/event_contents1.jpg" alt="" />
-          <img src="./image/walk_event/event_contents2.jpg" alt="" />
+</head>
+
+<body>
+    <?php
+        include "header.php";
+    
+        $event_num = "";
+        $event_name = "";
+        $detail_1 = "";
+        $detail_2 = "";
+
+        if(isset($_GET['event_num']) && $_GET['event_num'] != null){
+            $event_num = $_GET['event_num'];
+
+            $eventQuery = "SELECT * FROM event WHERE event_num = $event_num";
+            $eventResult = mysqli_query($DBCON, $eventQuery);            
+            $eventRow = mysqli_fetch_assoc($eventResult);
+
+            if($eventRow){
+                $event_name = $eventRow['event_name'];
+                $detail_1 = $eventRow['detail_1'];
+                $detail_2 = $eventRow['detail_2'];
+    ?>
+    <div class="content wrap">
+        <section>
+            <!-- 타이틀 -->
+            <div class="title_bg">
+                <div class="title">Event</div>
+            </div>
+        </section>
+        <div class="e_detail_conteiner">
+            <div class="e_detail">
+                <img src="./image/walk_event/<?=$detail_1?>" alt="<?=$event_name?> 이미지1" />
+                <img src="./image/walk_event/<?=$detail_2?>" alt="<?=$event_name?> 이미지2" />
+            </div>
         </div>
-      </div>
-      <!-- DB 데이터 받아오기 -->
+         <!-- DB 데이터 받아오기 -->
     <?php 
            $Sql = "SELECT a.content,a.regist_day,a.comment_num, b.name,b.photo,b.member_num
            FROM comment a
@@ -95,8 +118,26 @@
                 echo "댓글이 없습니다.";
                 }
                 ?>
+            </div>
         </div>
-      </div>
     </div>
-  </body>
+    <?php
+            mysqli_close($DBCON);
+            
+            }else{
+                echo ("<script>
+                alert('잘못된 경로입니다.');
+                window.history.back();
+                </script>");
+                exit;
+            }
+        }else{
+            echo ("<script>
+                alert('잘못된 경로입니다.');
+                window.history.back();
+                </script>");
+        }
+    ?>
+</body>
+
 </html>
