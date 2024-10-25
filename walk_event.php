@@ -10,11 +10,11 @@
   <?php include "header.php"; ?>
     <div class="e_conteiner">
       <div class="e_tap">
-        <a href="./walk_event.html">진행중인 이벤트</a>
+        <a href="./walk_event.php">진행중인 이벤트</a>
         <a href="">종료된 이벤트</a>
       </div>
       <div class="e_banner_conteiner">
-        <a href="./walk_event_detail.html"
+        <a href="./walk_event_detail.php"
           ><img src="./image/walk_event/event_banner.jpg" alt=""
         /></a>
       </div>

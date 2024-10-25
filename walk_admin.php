@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/walk_admin.css" />
     <link rel="stylesheet" href="./css/walk_my.css" />
     <title>마실가까</title>
     <script src="https://kit.fontawesome.com/d035e75539.js" crossorigin="anonymous"></script>
@@ -36,26 +37,90 @@
                 <div class="title">관리자 페이지</div>
             </div>
         </section>
-        <section>
+        <main class="manage">
+        <section class="memberList" >
             회원 관리
             <?php
-            // $memberListQuery = "SELECT * FROM member";
-            $memberListQuery = "SELECT m.name, m.created_at, m.member_grade, c.content FROM member m LEFT JOIN comment c on m.member_num = c.member_num";
+          
+            
+            $memberListQuery = "SELECT * FROM member ";
             $mListResult = mysqli_query($DBCON, $memberListQuery);
                                 
             // 회원 숫자만큼 반복하여 배열에 저장
             while($mListRow = $mListResult->fetch_assoc()){
-                ?>
-            <div><?=$mListRow['name']?></div>
-            <div><?=$mListRow['created_at']?></div>
-            <div><?=$mListRow['content']?></div>
-            <div><?=$mListRow['member_grade']?></div>
-
+                ?><form method="post">
+                <button style="display: flex; border:none;">
+                    <input type="hidden" name="member_num" value="<?=$mListRow['member_num']?>">
+                    <input type="hidden" name="member_grade" value="<?=$mListRow['member_grade']?>">
+                    <input type="hidden" name="member_name" value="<?=$mListRow['name']?>">
+                    <input type="hidden" name="member_create" value="<?=$mListRow['created_at']?>">
+                    <input type="hidden" name="member_photo" value="<?=$mListRow['photo']?>">
+                <div style="margin-right: 10px;"><?=$mListRow['member_num']?></div> 
+                <div><?=$mListRow['name']?></div>
+                </button>
+                </form>
             <?php
             }
             ?>
         </section>
-        <?php
+        <section class="manageContents">
+        <section class="memberDelete">
+
+    <!-- 유저 삭제기능 -->
+    <form action="./walk_admin_user_delete.php" method="post">
+            <img src="<?=$_POST['member_photo']?>" alt="">
+            <input type="hidden" name="userNum" value="<?=$_POST['member_num']?>">
+    <?php if($member_grade == 1 && $member_grade != $_POST['member_grade'] ){ ?>
+            <button type="submit" onclick='return confirm("정말 <?=$_POST["member_name"]?>님의 정보를 삭제하시겠습니까?") && confirm("정말로 이 작업을 진행하시겠습니까?")'>회원 삭제</button>
+        </form>
+    <?php } ?>
+  
+</section>
+        <?php 
+        // post으로 member_num이 설정되어 있는지 확인
+        if (isset($_POST["member_num"])) {
+            $member_num = intval($_POST["member_num"]); // 입력값을 안전하게 처리하기 위해 intval 사용
+            
+            $memberCommentQuery = 
+            " SELECT m.name, m.created_at, m.member_grade,m.photo,
+                     c.content,c.comment_num,c.regist_day
+            FROM member m 
+            LEFT JOIN comment c
+            ON m.member_num = c.member_num 
+            WHERE m.member_num = $member_num "; // WHERE 절 추가
+
+            $mCommentResult = mysqli_query($DBCON, $memberCommentQuery);
+           
+
+            while ($commentRow = $mCommentResult->fetch_assoc()) {
+                if($commentRow['content']){
+                ?>
+                <!-- 댓글 확인 및 삭제 기능 -->
+                
+                <form action="./walk_comment_delete.php" method="post">
+                <div>댓글 번호 <?=$commentRow['comment_num']?></div> <div>댓글 내용 <br><?=$commentRow['content']?> <br> 작성일자 : <?=$commentRow['regist_day'] ?> </div>
+                    <input name="comment_num" type="hidden" value="<?=$commentRow['comment_num']?>">
+                   
+                    <button type="submit" onclick='return confirm("정말 댓글을 삭제하시겠습니까?")'>삭제</button>
+            </form>
+            <?php
+         }else{
+            echo "<div>{$commentRow['name']} <br>가입년도 : ({$commentRow['created_at']})</div>";
+            echo "<img src='{$commentRow['photo']}'></img>";
+         }
+
+            }
+
+            ?>
+
+</section>
+
+
+    <?php
+    } 
+    ?>
+        </main>
+    <?php
     }
     else{
         echo ("<script>
