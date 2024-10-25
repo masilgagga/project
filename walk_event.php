@@ -15,10 +15,11 @@
         $event_ing = "ing";
         $event_num = "";
         $thumbnail = "";
-        $query_str = "";
+        $query_str = ">=";
+
+        if(isset($_GET['event_ing']) && $_GET['event_ing'] == 'end') $event_ing = 'end';
         
-        if(isset($_GET['event_ing']) && $_GET['event_ing'] == 'ing') $query_str = ">="; // 진행중인 이벤트
-        else $query_str = "<"; // 종료된 이벤트    
+        if($event_ing == 'end') $query_str = "<"; // 종료된 이벤트    
     ?>
     <div class="content wrap">
         <section>
