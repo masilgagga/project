@@ -1,101 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>마실가까</title>
     <link rel="stylesheet" href="./css/walk_event_detail.css" />
-  </head>
-  <body>
-  <?php include "header.php"; ?>
-    <div class="e_conteiner">
-      <div class="e_tap">
-        <a href="./walk_event.html">진행중인 이벤트</a>
-        <a href="">종료된 이벤트</a>
-      </div>
-      <div class="e_detail_conteiner">
-        <div class="e_detail">
-          <img src="./image/walk_event/event_contents1.jpg" alt="" />
-          <img src="./image/walk_event/event_contents2.jpg" alt="" />
-        </div>
-      </div>
-      <!-- DB 데이터 받아오기 -->
-    <?php 
-           $Sql = "SELECT a.content,a.regist_day,a.comment_num, b.name,b.photo
-           FROM comment a
-           INNER JOIN member b
-           ON a.member_num = b.member_num;";
+</head>
 
-          $conSql = "SELECT count(*)  FROM comment WHERE type='instar'";
-           $con = mysqli_query($DBCON, $Sql);
-        
-           $contentSet = mysqli_query($DBCON, $conSql);
-          $contents= mysqli_fetch_row($contentSet);
+<body>
+    <?php
+        include "header.php";
+    
+        $event_num = "";
+        $event_name = "";
+        $detail_1 = "";
+        $detail_2 = "";
+
+        if(isset($_GET['event_num']) && $_GET['event_num'] != null){
+            $event_num = $_GET['event_num'];
+
+            $eventQuery = "SELECT * FROM event WHERE event_num = $event_num";
+            $eventResult = mysqli_query($DBCON, $eventQuery);            
+            $eventRow = mysqli_fetch_assoc($eventResult);
+
+            if($eventRow){
+                $event_name = $eventRow['event_name'];
+                $detail_1 = $eventRow['detail_1'];
+                $detail_2 = $eventRow['detail_2'];
+    ?>
+    <div class="content wrap">
+        <section>
+            <!-- 타이틀 -->
+            <div class="title_bg">
+                <div class="title">Event</div>
+            </div>
+        </section>
+        <div class="e_detail_conteiner">
+            <div class="e_detail">
+                <img src="./image/walk_event/<?=$detail_1?>" alt="<?=$event_name?> 이미지1" />
+                <img src="./image/walk_event/<?=$detail_2?>" alt="<?=$event_name?> 이미지2" />
+            </div>
+        </div>
+        <!-- DB 데이터 받아오기 -->
+        <?php 
+            $Sql = "SELECT a.content,a.regist_day,a.comment_num, b.name,b.photo
+            FROM comment a
+            INNER JOIN member b
+            ON a.member_num = b.member_num;";
+
+            $conSql = "SELECT count(*)  FROM comment WHERE type='instar'";
+            $con = mysqli_query($DBCON, $Sql);
+
+            $contentSet = mysqli_query($DBCON, $conSql);
+            $contents= mysqli_fetch_row($contentSet);
           
     ?>
 
-      <div class="comment_conteiner">
-       <!-- 댓글 작성 영역  -->
-       <form action="./walk_comment_insert.php" method="post">
-       <div>댓글 총 <span style="color: red"><?=$contents[0]?></span>개</div>
-       <?php 
-        // 로그인 상태 확인
-        if (isset($_SESSION['memberNum']) && $_SESSION['memberNum']) {
-        ?>
-        <div class="comment_write">
-        <textarea name="content"  placeholder="댓글을 작성하세요."></textarea>
-        <input type="hidden" name="memberNum" value="<?=$_SESSION['memberNum']?>">
-        <button type="submit">제출</button>
-        </div>
-        <?php 
-        } else { 
-        ?><div class="comment_write">
-       <textarea name="content"  placeholder="댓글을 작성하세요." disabled></textarea>
-       <button type="button" disabled>제출</button>
-       </div>     
-        <?php 
-        } 
-        ?>
-        </form>
-            <!-- 댓글 영역 -->
-        <div class="comments">
-          <?php
-          if ($con && $con->num_rows > 0){
-            while ($row = $con->fetch_assoc()) {
-          ?>
-          <form class="comment"  action="./walk_comment_delete.php" method="post">
-            <div class="user_img">
-              <img src="<?=$row['photo'];?>" alt="userImg" />
-            </div>
-            <div class="comment_text">
-              <div class="user_name">
-                <span class="user_id"><b><?=$row['name'];?></b></span>
-                <span class="write_day"><?=$row['regist_day'];?></span>
-                <input type="hidden" name="comment_num" value="<?=$row['comment_num'];?>">
-              </div>
-              <div class="comment_detail">
-                <p>
-                <?=$row['content'];?>
-                </p>
-              </div>
-              <?php
-                if(isset($_SESSION['memberNum']) && $row['name']==$_SESSION['memberNum']){
-                echo "<button type='submit'>삭제</button>";}
-                else{
-                echo "";  }
+        <div class="comment_conteiner">
+            <!-- 댓글 작성 영역  -->
+            <form action="./walk_comment_insert.php" method="post">
+                <div>댓글 총 <span style="color: red"><?=$contents[0]?></span>개</div>
+                <div class="comment_write">
+                    <?php 
+                // 로그인 상태 확인
+                if (isset($_SESSION['memberNum']) && $_SESSION['memberNum']) {
                 ?>
-            </div>
-            <div class="comment_delete">
-              <button>삭제</button>
-            </div>
-          </form>
-          <?php
+                    <textarea name="content" placeholder="댓글을 작성하세요."></textarea>
+                    <input type="hidden" name="memberNum" value="<?=$_SESSION['memberNum']?>">
+                    <button type="submit">제출</button>
+                    <?php 
+                } else { 
+                ?>
+                    <textarea name="content" placeholder="댓글을 작성하세요." disabled></textarea>
+                    <button type="button" disabled>제출</button>
+                    <?php 
+                } 
+                ?>
+                </div>
+            </form>
+            <!-- 댓글 영역 -->
+            <div class="comments">
+                <?php
+                if ($con && $con->num_rows > 0){
+                  while ($row = $con->fetch_assoc()) {
+                ?>
+                <form class="comment" action="./walk_comment_delete.php" method="post">
+                    <div class="user_img">
+                        <img src="<?=$row['photo'];?>" alt="userImg" />
+                    </div>
+                    <div class="comment_text">
+                        <div class="user_name">
+                            <span class="user_id"><b><?=$row['name'];?></b></span>
+                            <span class="write_day"><?=$row['regist_day'];?></span>
+                            <input type="hidden" name="comment_num" value="<?=$row['comment_num'];?>">
+                        </div>
+                        <div class="comment_detail">
+                            <p>
+                                <?=$row['content'];?>
+                            </p>
+                        </div>
+                        <?php
+                        if(isset($_SESSION['memberNum']) && $row['name']==$_SESSION['memberNum']){
+                        echo "<button type='submit'>삭제</button>";}
+                        else{
+                        echo "";  }
+                        ?>
+                    </div>
+                    <div class="comment_delete">
+                        <button>삭제</button>
+                    </div>
+                </form>
+                <?php
                 }} else {
                 echo "댓글이 없습니다.";
                 }
                 ?>
+            </div>
         </div>
-      </div>
     </div>
-  </body>
+    <?php
+            mysqli_close($DBCON);
+            
+            }else{
+                echo ("<script>
+                alert('잘못된 경로입니다.');
+                window.history.back();
+                </script>");
+                exit;
+            }
+        }else{
+            echo ("<script>
+                alert('잘못된 경로입니다.');
+                window.history.back();
+                </script>");
+        }
+    ?>
+</body>
+
 </html>
