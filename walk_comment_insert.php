@@ -5,7 +5,7 @@ include "./config/const.php";
 
 $memberNum = $_POST["memberNum"];
 $content = $_POST["content"];
-$regist_day = date("Y-m-d (H:i)");
+$regist_day = date("Y-m-d (H:i:s)");
 
 
 
@@ -17,7 +17,7 @@ mysqli_close($DBCON);
 
 echo "
 	      <script>
-		  		alert('완료');
+		  		alert('댓글이 작성되었습니다.');
 	          location.href = './walk_event_detail.php';
 	      </script>
 	  ";

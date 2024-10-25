@@ -10,7 +10,7 @@
   <?php include "header.php"; ?>
     <div class="e_conteiner">
       <div class="e_tap">
-        <a href="./walk_event.html">진행중인 이벤트</a>
+        <a href="./walk_event.php">진행중인 이벤트</a>
         <a href="">종료된 이벤트</a>
       </div>
       <div class="e_detail_conteiner">
@@ -21,14 +21,14 @@
       </div>
       <!-- DB 데이터 받아오기 -->
     <?php 
-           $Sql = "SELECT a.content,a.regist_day,a.comment_num, b.name,b.photo
+           $Sql = "SELECT a.content,a.regist_day,a.comment_num, b.name,b.photo,b.member_num
            FROM comment a
            INNER JOIN member b
            ON a.member_num = b.member_num;";
 
-          $conSql = "SELECT count(*)  FROM comment WHERE type='instar'";
-           $con = mysqli_query($DBCON, $Sql);
-        
+            $con = mysqli_query($DBCON, $Sql);
+            $conSql = "SELECT count(*)  FROM comment WHERE type='instar'";
+
            $contentSet = mysqli_query($DBCON, $conSql);
           $contents= mysqli_fetch_row($contentSet);
           
@@ -43,14 +43,14 @@
         if (isset($_SESSION['memberNum']) && $_SESSION['memberNum']) {
         ?>
         <div class="comment_write">
-        <textarea name="content"  placeholder="댓글을 작성하세요."></textarea>
+        <textarea name="content"  placeholder="댓글을 작성하세요." ></textarea>
         <input type="hidden" name="memberNum" value="<?=$_SESSION['memberNum']?>">
         <button type="submit">제출</button>
         </div>
         <?php 
         } else { 
         ?><div class="comment_write">
-       <textarea name="content"  placeholder="댓글을 작성하세요." disabled></textarea>
+       <textarea name="content"  placeholder="로그인이 필요합니다." disabled></textarea>
        <button type="button" disabled>제출</button>
        </div>     
         <?php 
@@ -75,19 +75,20 @@
               </div>
               <div class="comment_detail">
                 <p>
-                <?=$row['content'];?>
+                <?=nl2br($row['content']);?>
                 </p>
               </div>
-              <?php
-                if(isset($_SESSION['memberNum']) && $row['name']==$_SESSION['memberNum']){
-                echo "<button type='submit'>삭제</button>";}
-                else{
-                echo "";  }
+            </div>
+            <?php
+                if (isset($_SESSION['memberNum']) && $_SESSION['memberNum'] == $row['member_num']) {
+                     echo ("<div class='comment_delete'>
+                              <button type='submit' onclick='return confirm(\"정말 삭제하시겠습니까?\")'>삭제</button>
+                           </div>");
+                } else {
+                echo "";
+                }
                 ?>
-            </div>
-            <div class="comment_delete">
-              <button>삭제</button>
-            </div>
+
           </form>
           <?php
                 }} else {

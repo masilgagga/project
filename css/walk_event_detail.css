@@ -65,6 +65,7 @@ body {
   height: 90px;
   resize: none;
   border: 1px solid #a7ae9e;
+  padding: 10px;
 }
 .comment_write button {
   height: 90px;
@@ -74,6 +75,7 @@ body {
   color: white;
   font-size: 1.3em;
   border: none;
+  cursor: pointer;
 }
 
 /*==================================*/
@@ -127,4 +129,5 @@ body {
   background: none;
   border: none;
   color: red;
+  cursor: pointer;
 }
