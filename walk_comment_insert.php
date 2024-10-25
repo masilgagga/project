@@ -3,7 +3,7 @@ include "./config/const.php";
 
 $memberNum = $_POST["memberNum"];
 $content = $_POST["content"];
-$regist_day = date("Y-m-d (H:i)");
+$regist_day = date("Y-m-d (H:i:s)");
 
 $insertSql = "insert into comment( member_num, content, regist_day,type) "; 
 $insertSql .= "values( '$memberNum ', '$content', '$regist_day' , 'instar')";
@@ -17,5 +17,6 @@ echo ("
 		location.href = './walk_event_detail.php';
 	</script>
 	");
+
 
 ?>
