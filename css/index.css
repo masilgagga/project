@@ -261,7 +261,8 @@ main {
     display: block;
   }
 }
-@media (min-width: 1024px) {
+
+@media (min-width: 1025px) {
   .sectionLine,
   .sectionTop,
   .sectionBottom,

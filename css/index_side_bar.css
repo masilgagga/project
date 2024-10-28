@@ -3,8 +3,8 @@
   top: 0;
   bottom: 0;
   right: 0;
-  margin-right: -57%;
-  width: 57%;
+  margin-right: -60%;
+  width: 60%;
   overflow-y: auto;
   transition: margin-right 0.5s ease, opacity 0.5s ease, visibility 0.5s ease; /* 애니메이션 효과 */
   opacity: 0; /* 초기 상태에서 불투명도 0 */
@@ -26,7 +26,8 @@
 .userInfoWrap {
   margin-bottom: 20px; /* 아래 여백 추가 */
   /* padding: 48px 55px 40px 15px; */
-  padding: 48px 31% 40px 14%;
+  /* padding: 48px 31% 40px 14%; */
+  padding: 48px 0 40px 30px;
 }
 
 .userInfo {
@@ -88,7 +89,7 @@ ul a li:hover {
   .userInfoWrap {
     margin-bottom: 20px; /* 아래 여백 추가 */
     /* padding: 48px 55px 40px 15px; */
-    padding: 48px 24% 40px 14%;
+    /* padding: 48px 24% 40px 14%; */
   }
 }
 
