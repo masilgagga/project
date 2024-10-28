@@ -14,7 +14,8 @@
     <?php 
     include "./header.php";
     
-    $manage_num = $_GET['manage_num'];
+    $manage_num = '27260-00072-03-001';
+    if(isset($_GET['manage_num'])) $manage_num = $_GET['manage_num']; 
         
     // 산책로 정보 가져오기
     $walkSelectQuery = "SELECT * FROM data WHERE manage_num = '$manage_num'";

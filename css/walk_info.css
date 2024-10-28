@@ -130,7 +130,14 @@
 
 .info_info_box div {
   line-height: 30px;
-  width: 25%;
+}
+
+.info_info_box .info_green {
+  width: 22%;
+}
+
+.info_info_box .info_info_txt {
+  width: 28%;
 }
 
 .info_green {
