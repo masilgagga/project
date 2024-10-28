@@ -36,7 +36,8 @@
                 <div class="title">이벤트 관리자 페이지</div>
             </div>
         </section>
-        <section>
+        <section><br>
+            <a href="./walk_admin.php" style="font-size:20px;color:#555555;font-weight:bold">회원 관리</a>
             <form id="event_insert" action="./walk_a_event_insert.php" method="post">
                 <div class="content e_tap">
                     <h3>이벤트 등록</h3>

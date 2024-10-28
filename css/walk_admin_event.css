@@ -1,20 +1,20 @@
-.content {
-  margin: 0 auto;
-  max-width: 1200px;
-}
-
 .wrap {
   padding: 80px 0;
 }
 
+section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 /* 타이틀 배경 */
 .title_bg {
-  background-color: #b2bbaf;
+  background-color: #90d322;
 }
 
 .title {
   display: inline-block;
-  background-color: #454f41;
+  background-color: #4a7800;
   padding: 25px 100px 25px 90px;
   font-size: 30px;
   color: #ffffff;
