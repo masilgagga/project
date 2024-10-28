@@ -33,7 +33,7 @@
         <section>
             <!-- 타이틀 -->
             <div class="title_bg">
-                <div class="title">Event</div>
+                <div class="title">산책길 Event</div>
             </div>
         </section>
         <div class="e_detail_conteiner">
@@ -47,7 +47,7 @@
             $Sql = "SELECT a.content,a.regist_day,a.comment_num, b.name,b.photo,b.member_num
             FROM comment a
             INNER JOIN member b
-            ON a.member_num = b.member_num;";
+            ON a.member_num = b.member_num WHERE event_num='$event_num'";
 
             $con = mysqli_query($DBCON, $Sql);
             $conSql = "SELECT count(*)  FROM comment WHERE event_num='$event_num'";
