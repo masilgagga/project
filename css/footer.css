@@ -1,7 +1,6 @@
 @font-face {
   font-family: "HakgyoansimDunggeunmisoTTF-B";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimDunggeunmisoTTF-B.woff2")
-    format("woff2");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimDunggeunmisoTTF-B.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
 }
@@ -12,8 +11,8 @@ footer * {
 }
 
 .footer_wrap {
-  height: 311px;
-  padding: 36px 45px;
+  height: 310px;
+  padding: 35px 45px;
   display: flex;
   flex-direction: column;
 }
@@ -28,26 +27,19 @@ footer * {
   align-items: center;
   border-bottom: 1px solid #c1c9b7;
   color: #d3d6ce;
-  text-shadow: calc(3px * 1) 0 0 #567069,
-    calc(3px * 0.9239) calc(3px * 0.3827) 0 #567069,
-    calc(3px * 0.7071) calc(3px * 0.7071) 0 #567069,
-    calc(3px * 0.3827) calc(3px * 0.9239) 0 #567069, 0 calc(3px * 1) 0 #567069,
-    calc(3px * -0.3827) calc(3px * 0.9239) 0 #567069,
-    calc(3px * -0.7071) calc(3px * 0.7071) 0 #567069,
-    calc(3px * -0.9239) calc(3px * 0.3827) 0 #567069, calc(3px * -1) 0 0 #567069,
-    calc(3px * -0.9239) calc(3px * -0.3827) 0 #567069,
-    calc(3px * -0.7071) calc(3px * -0.7071) 0 #567069,
-    calc(3px * -0.3827) calc(3px * -0.9239) 0 #567069,
-    0 calc(3px * -1) 0 #567069, calc(3px * 0.3827) calc(3px * -0.9239) 0 #567069,
-    calc(3px * 0.7071) calc(3px * -0.7071) 0 #567069,
-    calc(3px * 0.9239) calc(3px * -0.3827) 0 #567069;
+  text-shadow: calc(3px * 1) 0 0 #567069, calc(3px * 0.9239) calc(3px * 0.3827) 0 #567069, calc(3px * 0.7071) calc(3px * 0.7071) 0 #567069, calc(3px * 0.3827) calc(3px * 0.9239) 0 #567069, 0 calc(3px * 1) 0 #567069, calc(3px * -0.3827) calc(3px * 0.9239) 0 #567069,
+    calc(3px * -0.7071) calc(3px * 0.7071) 0 #567069, calc(3px * -0.9239) calc(3px * 0.3827) 0 #567069, calc(3px * -1) 0 0 #567069, calc(3px * -0.9239) calc(3px * -0.3827) 0 #567069, calc(3px * -0.7071) calc(3px * -0.7071) 0 #567069, calc(3px * -0.3827) calc(3px * -0.9239) 0 #567069,
+    0 calc(3px * -1) 0 #567069, calc(3px * 0.3827) calc(3px * -0.9239) 0 #567069, calc(3px * 0.7071) calc(3px * -0.7071) 0 #567069, calc(3px * 0.9239) calc(3px * -0.3827) 0 #567069;
 }
+
 .footer_text {
   margin-top: 30px;
   font-size: 17px;
   color: #ffffff;
-  font-family: "NoonnuBasicGothicRegular";
+  opacity: 0.7;
+  line-height: 23px;
 }
+
 /* 태블릿 모드 */
 @media screen and (min-width: 830px) {
   .footer_wrap {
@@ -61,36 +53,20 @@ footer * {
   .footer_wrap .footer_logo {
     border-bottom: 0;
     padding-bottom: 0;
-    width: 309px;
-    border-right: 1px solid #c1c9b7;
+    width: 310px;
   }
   .footer_text {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 60px;
+    padding-left: 60px;
     margin-top: 0;
+    border-left: 1px solid #c1c9b7;
   }
 }
 @media screen and (min-width: 980px) {
   .footer_wrap {
-    height: 220px;
-    padding: 59px 146px;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  .footer_wrap .footer_logo {
-    border-bottom: 0;
-    padding-bottom: 0;
-    width: 309px;
-    border-right: 1px solid #c1c9b7;
-  }
-  .footer_text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 60px;
-    margin-top: 0;
+    padding: 60px 150px;
   }
 }
 

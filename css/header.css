@@ -20,10 +20,9 @@ body {
 
 /* 컨텐츠 폰트 */
 @font-face {
-  font-family: "NoonnuBasicGothicRegular";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noon-2410@1.0/NoonnuBasicGothicRegular.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
+  font-family: "Pretendard-Light";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  font-weight: 300;
 }
 
 .content {
@@ -135,11 +134,6 @@ header {
   }
 
   /* 로그인 div */
-  .login,
-  .login span {
-    font-size: 20px;
-  }
-
   .login a {
     color: #000000;
     text-decoration: none;
