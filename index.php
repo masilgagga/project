@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,9 +35,7 @@
                     <img src="./image/index/main_chimsan.png" alt="침산">
                 </a>
             </div>
-            <div class="mainContents">
-                <img src="./image/index/main_back.png" alt="">
-            </div>
+            <div class="mainContents"><img src="./image/index/main_back.png" alt=""></div>
         </div>
         <!-- 상단 추천 산책로 섹션  -->
         <section class="sectionTop">

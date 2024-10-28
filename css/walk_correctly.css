@@ -30,7 +30,7 @@
 /* walkText*/
 
 .walkText {
-  padding-top: 40px;
+  padding: 40px 20px;
   max-width: 500px;
   margin: 0 auto;
 }
@@ -43,14 +43,13 @@
 }
 
 .detailContents {
-  font-size: 13px;
-  font-weight: 400;
   display: block;
-  width: 68.5%;
+  width: 80%;
 }
+
 .detailTitle {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: bold;
   color: #189074;
   margin-bottom: 9px;
   display: flex;
@@ -62,9 +61,8 @@
 }
 
 .detailImg {
-  margin-left: 11px;
-  width: 29%;
   height: 100%;
+  margin-left: 11px;
   min-width: 85px;
   border-radius: 5px;
 }

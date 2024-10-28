@@ -22,7 +22,7 @@
 .search_box {
   padding: 10px;
   margin: auto;
-  border-bottom: 1px solid #1677bd;
+  /* border-bottom: 1px solid #1677bd; */
 }
 
 .search_box,
@@ -254,6 +254,6 @@
     padding: 18px 20px 28px 25px;
   }
   .walk_info_name {
-    padding: 20px 0 15px 0;
+    padding: 5px 0 15px 0;
   }
 }

@@ -1,19 +1,21 @@
 main {
   width: 100%;
-  height: 100%;
 }
 
 .mainContentsWrap {
   display: none;
-  width: 100%;
-  /* height: 876px; */
 }
+
+.mainContentsWrap,
 .mainContents {
   width: 100%;
-  /* height: 100%; */
-  background-image: url(../../img/shot.png);
-  background-size: cover;
-  background-repeat: round;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.mainContents {
+  display: flex;
+  align-content: end;
 }
 
 /* 모바일 */
@@ -116,7 +118,6 @@ main {
 }
 .sectionBottom {
   width: 90%;
-  /* height: 40%; */
 }
 .sectionBottomInnerWrap {
   width: 100%;
@@ -198,7 +199,6 @@ main {
   .sectionLine {
     width: 90%;
     height: 1px;
-
     margin: 53px auto;
   }
   .contentWrap {
@@ -262,11 +262,10 @@ main {
   }
 }
 @media (min-width: 1024px) {
-  .sectionLine {
-    display: none;
-  }
+  .sectionLine,
   .sectionTop,
-  .sectionBottom {
+  .sectionBottom,
+  .sectionBottomWrap {
     display: none;
   }
   .mainContentsWrap {
@@ -318,7 +317,6 @@ main {
     width: 60px;
   }
   .mainContentsWrap .mainContents img {
-    margin-top: 10px;
     width: 1200px;
   }
 
@@ -326,7 +324,7 @@ main {
     font-size: 25px;
   }
 }
-@media (min-width: 1300px) {
+@media (min-width: 1220px) {
   /*두류*/
   .mainContentsWrap .mainContetnsBtn a:nth-of-type(1) {
     top: 250px;
@@ -365,7 +363,7 @@ main {
   }
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1418px) {
   /*두류*/
   .mainContentsWrap .mainContetnsBtn a:nth-of-type(1) {
     top: 270px;
@@ -404,7 +402,7 @@ main {
   }
 }
 
-@media (min-width: 1700px) {
+@media (min-width: 1618px) {
   .mainContentsWrap {
     display: block;
     width: 100%;
@@ -454,7 +452,6 @@ main {
     width: 88px;
   }
   .mainContentsWrap .mainContents img {
-    margin-top: 10px;
     width: 1900px;
   }
 }
