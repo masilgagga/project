@@ -7,7 +7,7 @@
 }
 
 .social_login {
-  max-width: 430px;
+  width: 430px;
   text-align: center;
   color: #5c5c5c;
   font-size: 16px;
@@ -33,10 +33,6 @@
 /* 모바일*/
 @media (max-width: 500px) {
   .social_login {
-    width: 100%;
-  }
-
-  .social_login img {
     width: 100%;
   }
 }
