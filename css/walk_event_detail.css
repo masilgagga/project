@@ -4,14 +4,14 @@
 
 /* 타이틀 배경 */
 .title_bg {
-  background-color: #b2bbaf;
+  background-color: #efb660;
   max-width: 1200px;
   margin: auto;
 }
 
 .title {
   display: inline-block;
-  background-color: #454f41;
+  background-color: #c96000;
   padding: 25px 100px 25px 90px;
   font-size: 30px;
   color: #ffffff;

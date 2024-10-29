@@ -6,7 +6,7 @@ $memberNum = $_POST["memberNum"];
 $content = $_POST["content"];
 $regist_day = date("Y-m-d (H:i:s)");
 
-$insertSql = "insert into comment( member_num, content, regist_day,type) "; 
+$insertSql = "insert into comment( member_num, content, regist_day, event_num) "; 
 $insertSql .= "values( '$memberNum ', '$content', '$regist_day' , '$event_num')";
 
 $result = mysqli_query($DBCON, $insertSql);

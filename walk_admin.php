@@ -136,6 +136,7 @@
                 } 
             ?>
         </main>
+        <?php include "footer.php";?>
         <?php
     }
     else{

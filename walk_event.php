@@ -29,8 +29,8 @@
             </div>
         </section>
         <div class="e_tap">
-            <a href="./walk_event.php?event_ing=ing" class="<?=empty($_GET['event_ing']) || $_GET['event_ing'] == 'ing' ? 'active' : '' ?>" >진행중인 이벤트</a>
-            <a href="./walk_event.php?event_ing=end" class="<?=isset($_GET['event_ing']) && $_GET['event_ing'] == 'end' ? 'active' : '' ?>" >종료된 이벤트</a>
+            <a href="./walk_event.php?event_ing=ing" class="<?=$event_ing == 'ing' ? 'active' : '' ?>">진행중인 이벤트</a>
+            <a href="./walk_event.php?event_ing=end" class="<?=$event_ing == 'end' ? 'active' : '' ?>">종료된 이벤트</a>
         </div>
         <div class="e_banner_container">
             <?php
@@ -51,6 +51,7 @@
         ?>
         </div>
     </div>
+    <?php include "footer.php";?>
 </body>
 
 </html>
