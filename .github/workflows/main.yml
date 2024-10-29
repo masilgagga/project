@@ -4,9 +4,8 @@ name : ftp-deploy
 on:
 # 이벤트를 수동으로 실행
   workflow_dispatch:
-  push:
-    branches:
-      -main
+  pull_request:
+    types: [closed]
 
 # 워크플로우가 수행할 작업
 jobs:
