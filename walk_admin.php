@@ -100,7 +100,7 @@
                         if($commentRow['content']){
                 ?>
                     <!-- 댓글 확인 및 삭제 기능 -->
-                    <form action=" ./walk_comment_delete.php" method="post">
+                    <form action=" ./walk_a_comment_delete.php" method="post">
                         <table>
                             <tr>
                                 <td class="comment_title">댓글 번호 :</td>

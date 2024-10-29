@@ -31,7 +31,7 @@ $likeRow = mysqli_fetch_array($likeResult);
 // 이미 찜한 산책로인지 확인
 if ($likeRow) {
     echo ("<script>
-        alert('이미 찜한 산책로입니다.');
+        alert('이미 저장한 산책로입니다.');
         window.history.back();
         </script>");
 } else {
@@ -46,7 +46,7 @@ if ($likeRow) {
 
     if ($insertResult) {
         echo ("<script>
-        alert('산책로가 찜 목록에 추가되었습니다!');
+        alert('산책로가 내 산책길에 추가되었습니다!');
         window.history.back();
         </script>");
     } else {
