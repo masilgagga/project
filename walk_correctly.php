@@ -15,7 +15,7 @@
 
             <!-- 타이틀 -->
             <div class="title_bg">
-                <div class="title">산책길 찾기</div>
+                <div class="title">바르게 걷기</div>
             </div>
             <!-- 모바일 & 테블릿 -->
             <section class="walkText">
