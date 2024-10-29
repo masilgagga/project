@@ -74,6 +74,11 @@ main {
   border-radius: 5px;
   color: #000000;
 }
+
+.cardInnerWrap a {
+  color: #000000;
+}
+
 .cardLink:visited {
   color: #000000;
 }
