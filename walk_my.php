@@ -197,7 +197,7 @@
                 <?php
                     $index++;
                     }
-                }else{echo "<div class='wrap'>담아놓은 My 산책로가 없습니다.</div>";}
+                }else{echo "<div class='wrap'>담아놓은 My 산책길이 없습니다.</div>";}
                 ?>
             </div>
         </section>

@@ -133,10 +133,10 @@
                             <div>
                                 <select name="difficulty">
                                     <!-- sql에서 정렬이 잘 안 되서 직접 생성함 -->
-                                    <option value="">전체</option>
-                                    <option value="상">상</option>
-                                    <option value="중">중</option>
-                                    <option value="하">하</option>
+                                    <option value="" <?php echo $difficultyFilter === '' ? 'selected' : ''; ?>>전체</option>
+                                    <option value="상" <?php echo $difficultyFilter === '상' ? 'selected' : ''; ?>>상</option>
+                                    <option value="중" <?php echo $difficultyFilter === '중' ? 'selected' : ''; ?>>중</option>
+                                    <option value="하" <?php echo $difficultyFilter === '하' ? 'selected' : ''; ?>>하</option>
                                 </select>
                             </div>
                         </div>

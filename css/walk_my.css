@@ -4,12 +4,12 @@
 
 /* 타이틀 배경 */
 .title_bg {
-  background-color: #90d322;
+  background-color: #b0d93d;
 }
 
 .title {
   display: inline-block;
-  background-color: #4a7800;
+  background-color: #5ba300;
   padding: 25px 55px 25px 45px;
   font-size: 30px;
   color: #ffffff;
