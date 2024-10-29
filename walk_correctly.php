@@ -22,8 +22,7 @@
                 <div class="detail">
                     <div class="detailContents">
                         <div class="detailTitle">
-                            <img src="./image/walk_correctly/check.svg" alt="">
-                            올바른 자세
+                            <img src="./image/walk_correctly/check.svg" alt=""> 올바른 자세
                         </div>
                         <div class="detailText">
                             머리와 목을 곧게 세우고 척추를 곧게펴 일직선으로 앞으로
@@ -35,8 +34,7 @@
                 <div class="detail">
                     <div class="detailContents">
                         <div class="detailTitle">
-                            <img src="./image/walk_correctly/check.svg" alt="">
-                            호흡
+                            <img src="./image/walk_correctly/check.svg" alt=""> 호흡
                         </div>
                         <div class="detailText">
                             깊고 규칙적으로 호흡하여 산소를 공급해 줍니다.
@@ -47,8 +45,7 @@
                 <div class="detail">
                     <div class="detailContents">
                         <div class="detailTitle">
-                            <img src="./image/walk_correctly/check.svg" alt="">
-                            팔의 움직임
+                            <img src="./image/walk_correctly/check.svg" alt=""> 팔의 움직임
                         </div>
                         <div class="detailText">
                             팔꿈치를 약간 구부려 자연스럽게 흔들어 줍니다.
@@ -59,8 +56,7 @@
                 <div class="detail">
                     <div class="detailContents">
                         <div class="detailTitle">
-                            <img src="./image/walk_correctly/check.svg" alt="">
-                            보폭 조절
+                            <img src="./image/walk_correctly/check.svg" alt=""> 보폭 조절
                         </div>
                         <div class="detailText">
                             너무 크거나 작지 않게 일정히 편안한 보폭을 유지합니다.
@@ -71,8 +67,7 @@
                 <div class="detail">
                     <div class="detailContents">
                         <div class="detailTitle">
-                            <img src="./image/walk_correctly/check.svg" alt="">
-                            발의 착지
+                            <img src="./image/walk_correctly/check.svg" alt=""> 발의 착지
                         </div>
                         <div class="detailText">
                             뒤꿈치부터 착지 후 발바닥 전체로 체중을 옮깁니다.
