@@ -141,6 +141,7 @@
                     foreach ($likeWalk as $num) {
                         $locationName = $num['location_name'];
                         $dong = $num['dong'];
+                        $explanation = $num['explanation'];
                         $like_count = $num['like_count'];
                         $manage_num = $num['manage_num'];
                         
@@ -175,25 +176,27 @@
                         }
                 ?>
                 <!-- 각각 산책로 div -->
-
-                <div class="walk_post">
-                    <div class="walk_img"
-                        style="background: url('./image/park_photo/<?=$num['park_manage_num']?>.jpg') center no-repeat; background-size: cover;">
-                    </div>
-                    <div class="walk_info">
-                        <div class="walk_info_like"><?=$likeIcon?> <?=$like_count?></div>
-                        <form id="walkInfo<?=$index?>" action="./walk_info.php" method="get">
-                            <input type="hidden" value="<?= $manage_num ?>" name="manage_num">
-                            <button type="button" onclick="document.getElementById('walkInfo<?=$index?>').submit()">
-                                <div class="walk_info_name">
-                                    <div><?=$locationName?></div>
-                                    <span><?=$dong?></span>
-                                </div>
-                                <div class="walk_info_link">더 알아보기</div>
+                <form id="walkInfo<?=$index?>" action="./walk_info.php" method="get">
+                    <input type="hidden" value="<?= $manage_num ?>" name="manage_num">
+                    <div class="walk_post">
+                        <div class="walk_img" onclick="info(<?=$index?>)" title="산책길 정보보기"
+                            style="background: url('./image/park_photo/<?=$num['park_manage_num']?>.jpg') center no-repeat; background-size: cover;">
+                        </div>
+                        <div class="walk_info">
+                            <div class="walk_info_like"><?=$likeIcon?> <?=$like_count?></div>
+                            <div class="walk_info_name" onclick="info(<?=$index?>)" title="산책길 정보보기">
+                                <div><?=$locationName?></div>
+                                <span><?=$dong?></span>
+                            </div>
+                            <div class="walk_info_ex" onclick="info(<?=$index?>)" title="산책길 정보보기">
+                                <?= $explanation ?></div>
+                            <div class="walk_info_link" onclick="info(<?=$index?>)" title="산책길 정보보기">더 알아보기
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </div>
                             </button>
-                        </form>
+                        </div>
                     </div>
-                </div>
+                </form>
                 <?php
                     $index++;
                     }
@@ -207,6 +210,10 @@
     function login() {
         alert('로그인이 필요합니다.');
         window.location.href = './walk_login.php';
+    }
+
+    function info(index) {
+        document.getElementById('walkInfo' + index).submit();
     }
 
     function likeInsert(manage_num) {

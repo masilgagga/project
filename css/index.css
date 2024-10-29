@@ -82,19 +82,17 @@ main {
 .card {
   height: 100%;
   width: 100%;
-  padding-top: 13px;
+  align-content: center;
+  padding-bottom: 3px;
 }
 
 .cardTitle {
-  height: 50%;
   font-size: 17px;
-  font-weight: 400;
+  font-weight: bold;
   text-align: center;
 }
 .cardPlace {
-  height: 50%;
   font-size: 12px;
-  font-weight: 400;
   text-align: center;
 }
 
