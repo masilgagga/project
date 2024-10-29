@@ -59,9 +59,9 @@ function deleteLike($member_id, $manage_num){
         // 내 산책로 쿼리 질의를 실행
         mysqli_query($DBCON, $deleteQuery);
         
-        echo "alert('내 산책로에서 삭제를 성공하였습니다.');";
+        echo "alert('내 산책길에서 삭제를 성공하였습니다.');";
    } else {
-        echo "alert('내 산책로에서 삭제를 실패하였습니다.');";
+        echo "alert('내 산책길에서 삭제를 실패하였습니다.');";
    }
    echo "window.history.back();";
    echo "</script>";
