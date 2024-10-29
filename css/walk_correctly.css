@@ -36,7 +36,7 @@
 }
 
 .detail {
-  padding: 10px 0px;
+  padding: 10px;
   display: flex;
   border-bottom: 0.4px solid #189074;
   width: 100%;
@@ -53,6 +53,10 @@
   color: #189074;
   margin-bottom: 9px;
   display: flex;
+}
+
+.detailTitle img {
+  margin-right: 5px;
 }
 
 .detailText {

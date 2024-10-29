@@ -4,6 +4,7 @@
   list-style: none;
   box-sizing: border-box;
   text-decoration: none;
+  word-break: keep-all;
 }
 
 body {
@@ -13,8 +14,7 @@ body {
 /* gnb, 타이틀 폰트 */
 @font-face {
   font-family: "BMJUA";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff")
-    format("woff");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff") format("woff");
   font-weight: bold;
   font-style: normal;
 }
@@ -22,8 +22,7 @@ body {
 /* 컨텐츠 폰트 */
 @font-face {
   font-family: "Pretendard-Light";
-  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
-    format("woff");
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
   font-weight: 300;
 }
 

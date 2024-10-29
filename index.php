@@ -19,19 +19,19 @@
         <!-- PC모드 메인 -->
         <div class="mainContentsWrap">
             <div class="mainContetnsBtn">
-                <a href="">
+                <a href="./walk_info.php?manage_num=27290-00179-03-001">
                     <img src="./image/index/main_dulyu.png" alt="두류">
                 </a>
-                <a href="">
+                <a href="./walk_info.php?manage_num=27260-00072-03-001">
                     <img src="./image/index/main_beomeo.png" alt="범어">
                 </a>
-                <a href="">
+                <a href="./walk_info.php?manage_num=27200-00029-03-001">
                     <img src="./image/index/main_apsan.png" alt="앞산">
                 </a>
-                <a href="">
+                <a href="./walk_info.php?manage_num=27140-00001-03-001">
                     <img src="./image/index/main_sinam.png" alt="신암">
                 </a>
-                <a href="">
+                <a href="./walk_info.php?manage_num=27230-00001-03-001">
                     <img src="./image/index/main_chimsan.png" alt="침산">
                 </a>
             </div>
@@ -43,41 +43,40 @@
                 <!-- 산책로 나열 -->
                 <div class="contentInnerWrap">
                     <div class="recommend">
-
-                        <div>추천</div>
-                        <div>산책로</div>
+                        <div>추천&nbsp;</div>
+                        <div>산책길</div>
                     </div>
                     <div class="cardWrap">
                         <div class="cardInnerWrap">
-                            <a href="" class="cardLink">
+                            <a href="./walk_info.php?manage_num=27290-00179-03-001" class="cardLink">
                                 <div class="card">
-                                    <div class="cardTitle">어디공원</div>
-                                    <div class="cardPlace">어디동</div>
+                                    <div class="cardTitle">두류공원</div>
+                                    <div class="cardPlace">성당동</div>
                                 </div>
                             </a>
                         </div>
                         <div class="cardInnerWrap">
-                            <a href="" class="cardLink">
+                            <a href="./walk_info.php?manage_num=27260-00072-03-001" class="cardLink">
                                 <div class="card">
-                                    <div class="cardTitle">어디공원</div>
-                                    <div class="cardPlace">어디동</div>
+                                    <div class="cardTitle">범어공원</div>
+                                    <div class="cardPlace">황금1동</div>
                                 </div>
                             </a>
                         </div>
                         <div class="cardInnerWrap third">
-                            <a href="" class="cardLink">
+                            <a href="./walk_info.php?manage_num=27230-00001-03-001" class="cardLink">
                                 <div class="card">
-                                    <div class="cardTitle">어디공원</div>
-                                    <div class="cardPlace">어디동</div>
+                                    <div class="cardTitle">침산공원</div>
+                                    <div class="cardPlace">침산1동</div>
                                 </div>
                             </a>
                         </div>
 
                         <div class="cardInnerWrap last">
-                            <a href="" class="cardLink">
+                            <a href="./walk_info.php?manage_num=27200-00029-03-001" class="cardLink">
                                 <div class="card">
-                                    <div class="cardTitle">어디공원</div>
-                                    <div class="cardPlace">어디동</div>
+                                    <div class="cardTitle">앞산공원</div>
+                                    <div class="cardPlace">대명9동</div>
                                 </div>
                             </a>
                         </div>
@@ -104,6 +103,14 @@
                             <div class="infoImg"><img src="./image/index/walk2.png" alt=""></div>
                             <div class="infoText">
                                 <div>산책길 찾기</div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="./walk_my.php" class="infoWrap">
+                        <div class="info">
+                            <div class="infoImg"><img src="./image/index/walk4.png" alt=""></div>
+                            <div class="infoText">
+                                <div>산책길 Event</div>
                             </div>
                         </div>
                     </a>
