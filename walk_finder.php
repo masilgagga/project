@@ -133,10 +133,14 @@
                             <div>
                                 <select name="difficulty">
                                     <!-- sql에서 정렬이 잘 안 되서 직접 생성함 -->
-                                    <option value="" <?php echo $difficultyFilter === '' ? 'selected' : ''; ?>>전체</option>
-                                    <option value="상" <?php echo $difficultyFilter === '상' ? 'selected' : ''; ?>>상</option>
-                                    <option value="중" <?php echo $difficultyFilter === '중' ? 'selected' : ''; ?>>중</option>
-                                    <option value="하" <?php echo $difficultyFilter === '하' ? 'selected' : ''; ?>>하</option>
+                                    <option value="" <?php echo $difficultyFilter === '' ? 'selected' : ''; ?>>전체
+                                    </option>
+                                    <option value="상" <?php echo $difficultyFilter === '상' ? 'selected' : ''; ?>>상
+                                    </option>
+                                    <option value="중" <?php echo $difficultyFilter === '중' ? 'selected' : ''; ?>>중
+                                    </option>
+                                    <option value="하" <?php echo $difficultyFilter === '하' ? 'selected' : ''; ?>>하
+                                    </option>
                                 </select>
                             </div>
                         </div>
@@ -212,7 +216,7 @@
                         
                         // 비로그인 상태
                         if(!isset($_SESSION['memberNum'])){
-                            $likeIcon = "<i class='fa-regular fa-heart' onclick='login()'></i>";
+                            $likeIcon = "<i class='fa-regular fa-heart' onclick='login()' title='로그인이 필요합니다'></i>";
                         }else{ // 로그인 상태
                             // 회원번호
                             $_SESSION['memberNum'];
@@ -234,31 +238,34 @@
                     
                             // 내 산책로에 있다면
                             if($likeRow){
-                                $likeIcon = "<i class='fa-solid fa-heart' onclick='likeDelete(\"$manage_num\")'></i>";
+                                $likeIcon = "<i class='fa-solid fa-heart' onclick='likeDelete(\"$manage_num\")' title='내 산책길에서 삭제'></i>";
                             }else{ //내 산책로에 없다면
-                                $likeIcon = "<i class='fa-regular fa-heart' onclick='likeInsert(\"$manage_num\")'></i>";
+                                $likeIcon = "<i class='fa-regular fa-heart' onclick='likeInsert(\"$manage_num\")' title='내 산책길에 추가'></i>";
                             }
                         }
                     ?>
                 <!-- 각각 산책로 div -->
-                <div class="walk_post">
-                    <div class="walk_img"
-                        style="background: url('./image/park_photo/<?=$row['park_manage_num']?>.jpg') center no-repeat; background-size: cover;">
+                <form id="walkInfo<?=$index?>" action="./walk_info.php" method="get">
+                    <div class="walk_post">
+                        <input type="hidden" value="<?= $manage_num ?>" name="manage_num">
+                        <div class="walk_img" onclick="info(<?=$index?>)" title="산책길 정보보기"
+                            style="background: url('./image/park_photo/<?=$row['park_manage_num']?>.jpg') center no-repeat; background-size: cover;">
+                        </div>
+                        <div class="walk_info">
+                            <div class="walk_info_like"><?=$likeIcon?> <?= htmlspecialchars($row['like_count']) ?></div>
+                            <div class='walk_info_name' onclick="info(<?=$index?>)" title="산책길 정보보기">
+                                <div><?= htmlspecialchars($row['location_name']) ?></div>
+                                <span><?= htmlspecialchars($row['dong']) ?></span>
+                            </div>
+                            <div class="walk_info_ex" onclick="info(<?=$index?>)" title="산책길 정보보기">
+                                <?= htmlspecialchars($row['explanation']) ?></div>
+                            <div class="walk_info_link" onclick="info(<?=$index?>)" title="산책길 정보보기">더 알아보기
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="walk_info">
-                        <div class="walk_info_like"><?=$likeIcon?> <?= htmlspecialchars($row['like_count']) ?></div>
-                        <form id="walkInfo<?=$index?>" action="./walk_info.php" method="get">
-                            <input type="hidden" value="<?= $manage_num ?>" name="manage_num">
-                            <button type="button" onclick="document.getElementById('walkInfo<?=$index?>').submit()">
-                                <div class='walk_info_name'>
-                                    <div><?= htmlspecialchars($row['location_name']) ?></div>
-                                    <span><?= htmlspecialchars($row['dong']) ?></span>
-                                </div>
-                                <div class="walk_info_link">더 알아보기</div>
-                            </button>
-                        </form>
-                    </div>
-                </div>
+                </form>
                 <?php
                     $index++;
                     }
@@ -273,6 +280,10 @@
     function login() {
         alert('로그인이 필요합니다.');
         window.location.href = './walk_login.php';
+    }
+
+    function info(index) {
+        document.getElementById('walkInfo' + index).submit();
     }
 
     function likeInsert(manage_num) {
