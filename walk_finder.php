@@ -222,14 +222,14 @@
                             $_SESSION['memberNum'];
                             
                             // 세션에 저장된 회원번호로 해당하는 회원정보 쿼리 질의
-                            $memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
+                            // $memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
                     
                             // 회원정보 쿼리 질의를 실행
-                            $memberResult = mysqli_query($DBCON, $memberInfoQuery);
+                            // $memberResult = mysqli_query($DBCON, $memberInfoQuery);
                             // 실행한 결과값을 $member변수 값에 저장
-                            $member = mysqli_fetch_array($memberResult);
+                            // $member = mysqli_fetch_array($memberResult);
                             // 회원의 아이디
-                            $member_id = $member['id'];
+                            // $member_id = $member['id'];
                             
                             // 내 산책로에 정보가 있는지 확인
                             $likeSelectQuery = "SELECT * FROM like_list WHERE member_num = '{$_SESSION['memberNum']}' AND manage_num = '{$manage_num}'";
@@ -238,9 +238,9 @@
                     
                             // 내 산책로에 있다면
                             if($likeRow){
-                                $likeIcon = "<i class='fa-solid fa-heart' onclick='likeDelete(\"$manage_num\")' title='내 산책길에서 삭제'></i>";
+                                $likeIcon = "<span onclick='likeDelete(\"$manage_num\")'><i class='fa-solid fa-heart' title='내 산책길에서 삭제'></i> ".$row['like_count']."</span>";
                             }else{ //내 산책로에 없다면
-                                $likeIcon = "<i class='fa-regular fa-heart' onclick='likeInsert(\"$manage_num\")' title='내 산책길에 추가'></i>";
+                                $likeIcon = "<span onclick='likeInsert(\"$manage_num\")'><i class='fa-regular fa-heart' title='내 산책길에 추가'></i> ".$row['like_count']."</span>";
                             }
                         }
                     ?>
@@ -252,7 +252,7 @@
                             style="background: url('./image/park_photo/<?=$row['park_manage_num']?>.jpg') center no-repeat; background-size: cover;">
                         </div>
                         <div class="walk_info">
-                            <div class="walk_info_like"><?=$likeIcon?> <?= htmlspecialchars($row['like_count']) ?></div>
+                            <div class="walk_info_like"><?=$likeIcon?></div>
                             <div class='walk_info_name' onclick="info(<?=$index?>)" title="산책길 정보보기">
                                 <div><?= htmlspecialchars($row['location_name']) ?></div>
                                 <span><?= htmlspecialchars($row['dong']) ?></span>

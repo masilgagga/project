@@ -77,6 +77,10 @@
   font-size: 20px;
 }
 
+.walk_info_like span {
+  cursor: pointer;
+}
+
 .walk_info_name {
   font-size: 25px;
   font-weight: bold;
