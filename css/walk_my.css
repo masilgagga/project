@@ -28,6 +28,13 @@
   justify-content: center;
 }
 
+.page_num a {
+  color: black;
+}
+.page_num a:visited {
+  color: black;
+}
+
 .page_num span {
   padding: 0 5px;
   align-items: center;

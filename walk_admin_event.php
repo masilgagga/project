@@ -43,9 +43,10 @@
                     <h3>이벤트 등록</h3>
                     <div class="event_form">
                         <div><span>이벤트명</span><input type="text" name="event_name"></div>
-                        <div><span>썸네일 이미지(파일명)</span><input type="text" name="thumbnail"></div>
-                        <div><span>상세_1 이미지(파일명)</span><input type="text" name="detail_1"></div>
-                        <div><span>상세_2 이미지(파일명)</span><input type="text" name="detail_2"></div>
+                        <!-- <input type="text" name="thumbnail"><input type="text" name="detail_1"><input type="text" name="detail_2"> -->
+                        <div><span>썸네일 이미지(파일명)</span><input type="file" name="eventImg[]"></div>
+                        <div><span>상세_1 이미지(파일명)</span><input type="file" name="eventImg[]"></div>
+                        <div><span>상세_2 이미지(파일명)</span><input type="file" name="eventImg[]"></div>
                         <div><span>이벤트 시작날짜</span><input type="date" name="start_day"></div>
                         <div><span>이벤트 종료날짜</span><input type="date" name="end_day"></div>
                         <button type="submit" form="event_insert">이벤트 등록</button>
