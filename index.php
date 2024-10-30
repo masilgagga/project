@@ -106,7 +106,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="./walk_my.php" class="infoWrap">
+                    <a href="./walk_event.php" class="infoWrap">
                         <div class="info">
                             <div class="infoImg"><img src="./image/index/walk4.png" alt=""></div>
                             <div class="infoText">

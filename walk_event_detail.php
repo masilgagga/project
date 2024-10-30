@@ -65,7 +65,7 @@
                     // 로그인 상태 확인
                     if (isset($_SESSION['memberNum']) && $_SESSION['memberNum']) {
                     ?>
-                    <textarea name="content" placeholder="댓글을 작성하세요."></textarea>
+                    <textarea name="content" placeholder="댓글을 작성하세요." maxlength="250"></textarea>
                     <input type="hidden" name="memberNum" value="<?=$_SESSION['memberNum']?>">
                     <button type="submit">등록</button>
                     <?php 
