@@ -77,9 +77,14 @@
   flex: 1; /* textarea가 버튼을 제외한 공간을 차지 */
   height: 90px;
   resize: none;
-  border: 1px solid #EFB660;
+  border: 1px solid #efb660;
   padding: 10px;
 }
+
+.comment_write textarea:focus {
+  outline: none;
+}
+
 .comment_write button {
   height: 90px;
   width: 15%; /* 버튼의 너비를 적절히 조정 */
@@ -93,7 +98,6 @@
 .comment_write button:hover {
   background-color: #f5a020;
 }
-
 
 /*==================================*/
 
