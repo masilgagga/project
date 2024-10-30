@@ -32,10 +32,12 @@
 
 .select {
   font-size: 15px;
-  color: #003b66;
+  color: #1677bd;
   font-weight: bold;
 }
-
+.select:hover {
+  color: #003b66;
+}
 .select_box {
   display: flex;
 }
