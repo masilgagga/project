@@ -17,9 +17,11 @@
         $thumbnail = "";
         $query_str = ">=";
 
-        if(isset($_GET['event_ing']) && $_GET['event_ing'] == 'end') $event_ing = 'end';
-        
-        if($event_ing == 'end') $query_str = "<"; // 종료된 이벤트    
+        if(isset($_GET['event_ing']) && $_GET['event_ing'] == 'end') $event_ing = "end";
+
+        // 종료된 이벤트
+        if($event_ing == 'end') $query_str = "<"; 
+
     ?>
     <div class="content wrap">
         <section>
@@ -42,9 +44,17 @@
                 $event_num = $eListRow['event_num'];
                 $event_name = $eListRow['event_name'];
                 $thumbnail = $eListRow['thumbnail'];
+
+                $event_link = "<a href='./walk_event_detail.php?event_num=$event_num'>";
+                $event_link_a = "</a>";
+                if($event_ing == 'end') {
+                    $event_link = "";
+                    $event_link_a = "";
+                }
         ?>
-            <div><a href="./walk_event_detail.php?event_num=<?=$event_num?>">
-                    <img src="./image/walk_event/<?=$thumbnail?>" alt="<?=$event_name?>" /></a></div>
+            <div><?=$event_link?>
+                <img src="./image/walk_event/<?=$thumbnail?>" alt="<?=$event_name?>" /><?=$event_link_a?>
+            </div>
             <?php
             }
             mysqli_close($DBCON);
