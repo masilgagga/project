@@ -67,6 +67,11 @@
   cursor: pointer;
 }
 
+.info_name i:hover {
+  transition: transform 0.1s ease;
+  transform: scale(1.2);
+}
+
 .info_txt {
   padding: 20px 0;
   font-size: 16px;

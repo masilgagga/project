@@ -78,6 +78,12 @@
 .walk_info i {
   cursor: pointer;
 }
+
+.walk_info i:hover {
+  transition: transform 0.1s ease;
+  transform: scale(1.2);
+}
+
 .walk_info_like {
   text-align: right;
   color: #ff217e;
