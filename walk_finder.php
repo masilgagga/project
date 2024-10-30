@@ -216,7 +216,7 @@
                         
                         // 비로그인 상태
                         if(!isset($_SESSION['memberNum'])){
-                            $likeIcon = "<i class='fa-regular fa-heart' onclick='login()' title='로그인이 필요합니다'></i>";
+                            $likeIcon = "<span onclick='login()'><i class='fa-regular fa-heart' title='로그인이 필요합니다'></i> ".$row['like_count']."</span>";
                         }else{ // 로그인 상태
                             // 회원번호
                             $_SESSION['memberNum'];

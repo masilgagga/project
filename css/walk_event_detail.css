@@ -84,7 +84,7 @@
   height: 90px;
   width: 15%; /* 버튼의 너비를 적절히 조정 */
   min-width: 80px; /* 최소 너비 설정 */
-  background-color: #efb660;
+  background-color: #a7ae9e;
   color: white;
   font-size: 1.3em;
   border: none;
@@ -93,6 +93,8 @@
 .comment_write button:hover {
   background-color: #f5a020;
 }
+
+
 /*==================================*/
 
 .comment {

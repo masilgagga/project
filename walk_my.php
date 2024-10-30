@@ -169,9 +169,9 @@
                     
                             // 내 산책로에 있다면
                             if($likeRow){
-                                $likeIcon = "<span onclick='likeDelete(\"$manage_num\")'><i class='fa-solid fa-heart' title='내 산책길에서 삭제'></i> ".$row['like_count']."</span>";
+                                $likeIcon = "<span onclick='likeDelete(\"$manage_num\")'><i class='fa-solid fa-heart' title='내 산책길에서 삭제'></i> ".$num['like_count']."</span>";
                             }else{ //내 산책로에 없다면
-                                $likeIcon = "<span onclick='likeInsert(\"$manage_num\")'><i class='fa-regular fa-heart' title='내 산책길에 추가'></i> ".$row['like_count']."</span>";
+                                $likeIcon = "<span onclick='likeInsert(\"$manage_num\")'><i class='fa-regular fa-heart' title='내 산책길에 추가'></i> ".$num['like_count']."</span>";
                             }
                         }
                 ?>
