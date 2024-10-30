@@ -232,7 +232,7 @@
                             $member_id = $member['id'];
                             
                             // 내 산책로에 정보가 있는지 확인
-                            $likeSelectQuery = "SELECT * FROM like_list WHERE id = '{$member_id}' AND manage_num = '{$manage_num}'";
+                            $likeSelectQuery = "SELECT * FROM like_list WHERE member_num = '{$_SESSION['memberNum']}' AND manage_num = '{$manage_num}'";
                             $likeResult = mysqli_query($DBCON, $likeSelectQuery);
                             $likeRow = mysqli_fetch_assoc($likeResult);
                     

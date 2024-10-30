@@ -6,23 +6,23 @@ include "./config/const.php";
 include "./login/login_check.php";
 
 // 회원번호
-$_SESSION['memberNum'];
+$member_num = $_SESSION['memberNum'];
 
 // 세션에 저장된 회원번호로 해당하는 회원정보 쿼리 질의
-$memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
+// $memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
 
 // 회원정보 쿼리 질의를 실행
-$result = mysqli_query($DBCON, $memberInfoQuery);
+// $result = mysqli_query($DBCON, $memberInfoQuery);
 // 실행한 결과값을 $member변수 값에 저장
-$member = mysqli_fetch_array($result);
+// $member = mysqli_fetch_array($result);
 // 회원의 아이디
-$member_id = $member['id'];
+// $member_id = $member['id'];
 
 // 회원이 선택한 산책로 관리번호
 $manage_num = $_GET['manage_num'];
 
 // 내 산책로 리스트를 가져올 쿼리
-$likeQuery = "SELECT * FROM like_list WHERE id = '{$member_id}' AND manage_num = '{$manage_num}'";
+$likeQuery = "SELECT * FROM like_list WHERE member_num = '$member_num' AND manage_num = '{$manage_num}'";
 // 내 산책로 쿼리 질의를 실행
 $likeResult = mysqli_query($DBCON, $likeQuery);
 // 내 산책로 관리번호를 담을 배열
@@ -36,7 +36,7 @@ if ($likeRow) {
         </script>");
 } else {
     // 인서트 쿼리 작성
-    $listInsertQuery = "INSERT INTO like_list(`id`, `manage_num`) VALUES ('{$member_id}', '{$manage_num}')";
+    $listInsertQuery = "INSERT INTO like_list(`member_num`, `manage_num`) VALUES ('{$member_num}', '{$manage_num}')";
     // 인서트 쿼리문 실행
     $insertResult = mysqli_query($DBCON, $listInsertQuery);
     

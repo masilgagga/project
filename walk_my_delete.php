@@ -7,24 +7,24 @@ include "./config/const.php";
 include "./login/login_check.php";
 
 // 회원번호
-$_SESSION['memberNum'];
+$member_num = $_SESSION['memberNum'];
 
 // 세션에 저장된 회원번호로 해당하는 회원정보 쿼리 질의
-$memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
+// $memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
 
 // 회원정보 쿼리 질의를 실행
-$result = mysqli_query($DBCON, $memberInfoQuery);
+// $result = mysqli_query($DBCON, $memberInfoQuery);
 // 실행한 결과값을 $member변수 값에 저장
-$member = mysqli_fetch_array($result);
+// $member = mysqli_fetch_array($result);
 // 회원의 아이디
-$member_id = $member['id'];
+// $member_id = $member['id'];
 
 // 회원이 선택한 산책로 관리번호
 $manage_num = $_GET['manage_num'];
 
 // 삭제 요청 처리
-if (isset($member_id) && isset($manage_num)) {
-    deleteLike($member_id, $manage_num);
+if (isset($member_num) && isset($manage_num)) {
+    deleteLike($member_num, $manage_num);
 }else{
     echo "<script>";
     echo "window.history.back();";
@@ -32,11 +32,11 @@ if (isset($member_id) && isset($manage_num)) {
 }
 
 // like_list 테이블에서 아이디와 관리번호를 모두 만족하는 row를 찾아서 삭제
-function deleteLike($member_id, $manage_num){
+function deleteLike($member_num, $manage_num){
     global $DBCON;
     
     // 내 산책로에 정보가 있는지 확인
-    $selectQuery = "SELECT * FROM like_list WHERE id = '{$member_id}' AND manage_num = '{$manage_num}'";
+    $selectQuery = "SELECT * FROM like_list WHERE member_num = '{$member_num}' AND manage_num = '{$manage_num}'";
     $result = mysqli_query($DBCON, $selectQuery);
     $row = mysqli_fetch_assoc($result);
 
@@ -55,7 +55,7 @@ function deleteLike($member_id, $manage_num){
         }
 
         // 내 산책로 삭제 쿼리
-        $deleteQuery = "DELETE FROM like_list WHERE id = '{$member_id}' AND manage_num = '{$manage_num}';";
+        $deleteQuery = "DELETE FROM like_list WHERE member_num = '{$member_num}' AND manage_num = '{$manage_num}';";
         // 내 산책로 쿼리 질의를 실행
         mysqli_query($DBCON, $deleteQuery);
         

@@ -9,7 +9,7 @@ $deleteMemberQuery = "DELETE FROM member WHERE member_num = '{$userNum}';";
 // 댓글 삭제 쿼리
 $deleteCommentsQuery = "DELETE FROM comment WHERE member_num = '{$userNum}';";
 // 내산책길 삭제 쿼리
-$deleteLikeListQuery = "DELETE FROM member WHERE member_num = '{$userNum}';";
+$deleteLikeListQuery = "DELETE FROM like_list WHERE member_num = '{$userNum}';";
 
 // 데이터베이스에 쿼리 실행
 mysqli_query($DBCON, $deleteMemberQuery);

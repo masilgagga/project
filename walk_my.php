@@ -15,20 +15,20 @@
     include "./login/login_check.php";
     
     // 회원번호
-    $_SESSION['memberNum'];
+    $member_num = $_SESSION['memberNum'];
     $likeIcon = "";
 
     // 세션에 저장된 회원번호로 해당하는 회원정보 쿼리 질의
-    $memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
+    // $memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
     // 회원정보 쿼리 질의를 실행
-    $result = mysqli_query($DBCON, $memberInfoQuery);
+    // $result = mysqli_query($DBCON, $memberInfoQuery);
     // 실행한 결과값을 $member변수 값에 저장
-    $member = mysqli_fetch_array($result);
+    // $member = mysqli_fetch_array($result);
     // 회원의 아이디
-    $member_id = $member['id'];
+    // $member_id = $member['id'];
 
     // 내 산책로 리스트를 가져올 쿼리
-    $listQuery = "SELECT * FROM like_list WHERE id = '{$member_id}'";
+    $listQuery = "SELECT * FROM like_list WHERE member_num = '{$member_num}'";
     // 내 산책로 쿼리 질의를 실행
     $result = mysqli_query($DBCON, $listQuery);
     // 내 산책로 관리번호를 담을 배열
@@ -153,17 +153,17 @@
                             $_SESSION['memberNum'];
                             
                             // 세션에 저장된 회원번호로 해당하는 회원정보 쿼리 질의
-                            $memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
+                            // $memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
                     
                             // 회원정보 쿼리 질의를 실행
-                            $memberResult = mysqli_query($DBCON, $memberInfoQuery);
+                            // $memberResult = mysqli_query($DBCON, $memberInfoQuery);
                             // 실행한 결과값을 $member변수 값에 저장
-                            $member = mysqli_fetch_array($memberResult);
+                            // $member = mysqli_fetch_array($memberResult);
                             // 회원의 아이디
-                            $member_id = $member['id'];
+                            // $member_id = $member['id'];
                             
                             // 내 산책로에 정보가 있는지 확인
-                            $likeSelectQuery = "SELECT * FROM like_list WHERE id = '{$member_id}' AND manage_num = '{$manage_num}'";
+                            $likeSelectQuery = "SELECT * FROM like_list WHERE member_num = '{$member_num}' AND manage_num = '{$manage_num}'";
                             $likeResult = mysqli_query($DBCON, $likeSelectQuery);
                             $likeRow = mysqli_fetch_assoc($likeResult);
                     

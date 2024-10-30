@@ -30,20 +30,20 @@
         $like = "<i class='fa-regular fa-heart' onclick='login()'></i>";
     }else{ // 로그인 상태
         // 회원번호
-        $_SESSION['memberNum'];
+        $member_num = $_SESSION['memberNum'];
         
         // 세션에 저장된 회원번호로 해당하는 회원정보 쿼리 질의
-        $memberInfoQuery = "SELECT * FROM member WHERE member_num = {$_SESSION['memberNum']}";
+        // $memberInfoQuery = "SELECT * FROM member WHERE member_num = {$member_num}";
     
         // 회원정보 쿼리 질의를 실행
-        $result = mysqli_query($DBCON, $memberInfoQuery);
+        // $result = mysqli_query($DBCON, $memberInfoQuery);
         // 실행한 결과값을 $member변수 값에 저장
-        $member = mysqli_fetch_array($result);
+        // $member = mysqli_fetch_array($result);
         // 회원의 아이디
-        $member_id = $member['id'];
+        // $member_id = $member['id'];
         
         // 내 산책로에 정보가 있는지 확인
-        $likeSelectQuery = "SELECT * FROM like_list WHERE id = '{$member_id}' AND manage_num = '{$manage_num}'";
+        $likeSelectQuery = "SELECT * FROM like_list WHERE member_num = '{$member_num}' AND manage_num = '{$manage_num}'";
         $result = mysqli_query($DBCON, $likeSelectQuery);
         $row = mysqli_fetch_assoc($result);
 
