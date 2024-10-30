@@ -32,12 +32,10 @@
 
 .select {
   font-size: 15px;
-  color: #1677bd;
+  color: #003b66;
   font-weight: bold;
 }
-.select:hover {
-  color: #003b66;
-}
+
 .select_box {
   display: flex;
 }
@@ -65,11 +63,16 @@
 .find_btn button {
   width: 100%;
   padding: 7px;
-  background-color: #003b66;
+  background-color: #1677bd;
   color: #ffffff;
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
+  border: none;
+}
+
+.find_btn button:hover {
+  background-color: #0363a8;
 }
 
 /* 목록 페이지 번호 */

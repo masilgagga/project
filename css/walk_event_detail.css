@@ -91,7 +91,7 @@
   cursor: pointer;
 }
 .comment_write button:hover {
-  color: #c96000;
+  background-color: #f5a020;
 }
 /*==================================*/
 
