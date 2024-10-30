@@ -174,7 +174,10 @@
     }
 
     function likeDelete() {
-        window.location.href = './walk_my_delete.php?manage_num=<?=$manage_num?>';
+        if (confirm("내 산책길에서 삭제하시겠습니까?")) {
+            window.location.href = './walk_my_delete.php?manage_num=<?=$manage_num?>';
+        }
+
     }
     </script>
 </body>
