@@ -46,7 +46,7 @@ if ($likeRow) {
 
     if ($insertResult) {
         echo ("<script>
-        alert('산책로가 내 산책길에 추가되었습니다!');
+        alert('내 산책길에 추가되었습니다!');
         window.history.back();
         </script>");
     } else {
