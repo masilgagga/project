@@ -90,6 +90,10 @@
   border: none;
   cursor: pointer;
 }
+.comment_write button:hover {
+  background-color: #f5a020;
+}
+
 
 /*==================================*/
 
