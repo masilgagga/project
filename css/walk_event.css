@@ -40,8 +40,9 @@
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
-  width: 100%;
+  max-width: 1200px;
   justify-content: center;
+  margin: auto;
 }
 
 .content .e_banner_container div {
@@ -50,6 +51,7 @@
 
 .content .e_banner_container img {
   width: 500px;
+  height: 500px;
 }
 
 @media (max-width: 550px) {

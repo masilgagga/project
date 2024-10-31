@@ -38,7 +38,7 @@
         </section>
         <section><br>
             <a href="./walk_admin.php" style="font-size:20px;color:#555555;font-weight:bold">회원 관리</a>
-            <form id="event_insert" action="./walk_a_event_insert.php" method="post" enctype="multipart/form-data">
+            <form id="event_form" action="./walk_a_event_insert.php" method="post" enctype="multipart/form-data">
                 <div class="content e_tap">
                     <h3>이벤트 등록</h3>
                     <div class="event_form">
@@ -49,7 +49,7 @@
                         <div><span>상세_2 이미지(파일명)</span><input type="file" name="eventImg[]"></div>
                         <div><span>이벤트 시작날짜</span><input type="date" name="start_day"></div>
                         <div><span>이벤트 종료날짜</span><input type="date" name="end_day"></div>
-                        <button type="submit" form="event_insert">이벤트 등록</button>
+                        <button type="button" onclick="event_insert()">이벤트 등록</button>
                     </div>
                 </div>
             </form>
@@ -117,5 +117,45 @@
     include_once "./footer.php"
     ?>
 </body>
+<script>
+function event_insert() {
+    const form = document.getElementById("event_form");
+
+    if (form.event_name.value.trim() === "") {
+        alert("이벤트명을 입력하세요.");
+        form.event_name.value = "";
+        form.event_name.focus();
+        return;
+    }
+
+    const eventImgs = form.querySelectorAll("input[name='eventImg[]']");
+    let imgSelected = true;
+
+    eventImgs.forEach(img => {
+        if (img.files.length === 0) {
+            imgSelected = false;
+        }
+    });
+
+    if (!imgSelected) {
+        alert("모든 이미지를 선택하세요.");
+        return;
+    }
+
+    if (form.start_day.value === "") {
+        alert("이벤트 시작 날짜를 선택하세요.");
+        form.start_day.focus();
+        return;
+    }
+
+    if (form.end_day.value === "") {
+        alert("이벤트 종료 날짜를 선택하세요.");
+        form.end_day.focus();
+        return;
+    }
+
+    form.submit();
+}
+</script>
 
 </html>

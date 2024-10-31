@@ -96,7 +96,12 @@
                 </section>
                 <div class="comment_list">
                     <?php
+                    $isPrinted = false;
                     while ($commentRow = $mCommentResult->fetch_assoc()) {
+                        if (!$isPrinted) {
+                            echo "<div>{$commentRow['name']} <br>가입일자 : ({$commentRow['created_at']})<br><br></div>";
+                            $isPrinted = true;  // 메시지가 출력된 이후에는 true로 변경
+                        }
                         if($commentRow['content']){
                 ?>
                     <!-- 댓글 확인 및 삭제 기능 -->
@@ -123,9 +128,6 @@
                         </table>
                     </form>
                     <?php
-                        }else{
-                            echo "<div>{$commentRow['name']} <br>가입일자 : ({$commentRow['created_at']})</div>";
-                            // echo "<img src='{$commentRow['photo']}'></img>";
                         }
 
                     }

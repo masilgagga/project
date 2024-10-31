@@ -58,16 +58,17 @@
 
         <div class="comment_conteiner">
             <!-- 댓글 작성 영역  -->
-            <form action="./walk_comment_insert.php?event_num=<?=$event_num?>" method="post">
+            <form id="comment_form" action="./walk_comment_insert.php?event_num=<?=$event_num?>" method="post">
                 <div>댓글 총 <span style="color: red"><?=$contents[0]?></span>개</div>
                 <div class="comment_write">
                     <?php 
                     // 로그인 상태 확인
                     if (isset($_SESSION['memberNum']) && $_SESSION['memberNum']) {
                     ?>
-                    <textarea name="content" placeholder="댓글을 작성하세요.(250자까지 작성 가능합니다)" maxlength="250"></textarea>
+                    <textarea name="content" id="content" placeholder="댓글을 작성하세요.(250자까지 작성 가능합니다)"
+                        maxlength="250"></textarea>
                     <input type="hidden" name="memberNum" value="<?=$_SESSION['memberNum']?>">
-                    <button type="submit">등록</button>
+                    <button type="button" onclick="comment_insert()">등록</button>
                     <?php 
                     } else { 
                 ?>
@@ -135,5 +136,17 @@
         }
     ?>
 </body>
+<script>
+function comment_insert() {
+    if (comment_form.content.value.trim() == "") {
+        alert("글자를 입력하세요");
+        comment_form.content.focus();
+        comment_form.content.value = "";
+        return;
+    }
+
+    comment_form.submit();
+}
+</script>
 
 </html>
