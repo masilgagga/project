@@ -40,6 +40,12 @@
   display: flex;
 }
 
+.select_box,
+.select_btn {
+  width: 260px;
+  margin: 0 auto;
+}
+
 /* 셀렉트 박스 오른쪽 여백 */
 .select_box div {
   margin-right: 5px;
@@ -61,7 +67,8 @@
 }
 
 .find_btn button {
-  width: 100%;
+  width: 260px;
+  height: 40px;
   padding: 7px;
   background-color: #1677bd;
   color: #ffffff;
@@ -79,7 +86,7 @@
 .page_num {
   max-width: 500px;
   margin: auto;
-  padding: 30px;
+  padding: 30px 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,6 +94,15 @@
 .page_num a {
   color: black;
 }
+
+.page_num .left_btn {
+  padding-right: 20px;
+}
+
+.page_num .right_btn {
+  padding-left: 20px;
+}
+
 .page_num a:visited {
   color: black;
 }
@@ -192,18 +208,29 @@
   cursor: pointer;
 }
 
-/* 태블릿 모드 */
-@media screen and (min-width: 435px) {
+/* 모바일에서 400px 미만일때만 찾기버튼이 내려감*/
+@media screen and (min-width: 400px) {
+  .select_box,
+  .select_btn {
+    width: auto;
+    margin: 0;
+  }
+
   .select {
     display: flex;
     align-items: end;
+    padding: 20px 10px;
+  }
+  .find_btn button {
+    width: 100px;
+  }
+}
+
+/* 태블릿 모드 */
+@media screen and (min-width: 435px) {
+  .select {
     padding: 50px;
   }
-
-  .find_btn button {
-    width: 130px;
-  }
-
   .title {
     padding: 25px 100px 25px 90px;
   }

@@ -11,6 +11,18 @@ body {
   background: #ecf0eb;
 }
 
+/* 스크롤 색상 변경 */
+::-webkit-scrollbar {
+  display: block;
+}
+::-webkit-scrollbar-track {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #90a854;
+  border-radius: 10px;
+}
+
 /* gnb, 타이틀 폰트 */
 @font-face {
   font-family: "BMJUA";
@@ -155,4 +167,15 @@ header {
   .menu {
     display: none;
   }
+}
+
+/* 페이지 Top 부분 */
+#top_btn {
+  display: none; /* 스크롤 되기 전에는 Top 버튼 숨기기 */
+  width: 50px;
+  position: fixed;
+  /* 위치를 절대값으로 고정 */
+  right: 10px;
+  bottom: 150px;
+  z-index: 99;
 }

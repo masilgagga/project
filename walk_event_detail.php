@@ -96,20 +96,18 @@
                             <input type="hidden" name="comment_num" value="<?=$row['comment_num'];?>">
                         </div>
                         <div class="comment_detail">
-                            <p>
-                                <?=nl2br($row['content']);?>
-                            </p>
+                            <div class="comment_content"><?=nl2br($row['content']);?></div>
+                            <?php
+                            if (isset($_SESSION['memberNum']) && $_SESSION['memberNum'] == $row['member_num']) {
+                                echo ("<div class='comment_delete'>
+                                        <button type='submit' onclick='return confirm(\"정말 삭제하시겠습니까?\")'>삭제</button>
+                                    </div>");
+                            } else {
+                            echo "";
+                            }
+                            ?>
                         </div>
                     </div>
-                    <?php
-                if (isset($_SESSION['memberNum']) && $_SESSION['memberNum'] == $row['member_num']) {
-                     echo ("<div class='comment_delete'>
-                              <button type='submit' onclick='return confirm(\"정말 삭제하시겠습니까?\")'>삭제</button>
-                           </div>");
-                } else {
-                echo "";
-                }
-                ?>
                 </form>
                 <?php
                     }
@@ -139,7 +137,7 @@
 <script>
 function comment_insert() {
     if (comment_form.content.value.trim() == "") {
-        alert("글자를 입력하세요");
+        alert("댓글을 입력하세요");
         comment_form.content.focus();
         comment_form.content.value = "";
         return;

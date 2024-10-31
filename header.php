@@ -58,6 +58,17 @@ $(function() {
         $(".overlay").fadeOut();
     });
 });
+
+// scroll 이벤트에 대한 Top 버튼 제어
+$(window).scroll(function() {
+    if ($(window).scrollTop() > 100) {
+        //$("#top_btn").show();
+        $("#top_btn").fadeIn();
+    } else {
+        //$("#top_btn").hide();
+        $("#top_btn").fadeOut();
+    }
+});
 </script>
 <header class="content">
     <div class="head_wrap">
@@ -96,5 +107,8 @@ $(function() {
         </ul>
     </div>
 
-
+    <!-- 페이지 Top 버튼 -->
+    <nav id="top_btn">
+        <a id="top_a" href="#"><img src="./image/top.png" alt="top"></a>
+    </nav>
 </header>

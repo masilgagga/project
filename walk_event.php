@@ -16,11 +16,15 @@
         $event_num = "";
         $thumbnail = "";
         $query_str = ">=";
+        $gray = "";
 
         if(isset($_GET['event_ing']) && $_GET['event_ing'] == 'end') $event_ing = "end";
 
         // 종료된 이벤트
-        if($event_ing == 'end') $query_str = "<"; 
+        if($event_ing == 'end') {
+            $query_str = "<";
+            $gray = "style = 'filter: grayscale(100%)'";
+        } 
 
     ?>
     <div class="content wrap">
@@ -36,7 +40,7 @@
         </div>
         <div class="e_banner_container">
             <?php
-            $eventListQuery = "SELECT * FROM event WHERE end_day ".$query_str." CURRENT_DATE()";
+            $eventListQuery = "SELECT * FROM event WHERE end_day ".$query_str." CURRENT_DATE() ORDER BY event.event_num DESC";
             $eListResult = mysqli_query($DBCON, $eventListQuery);
         
             // 이벤트 숫자만큼 반복
@@ -53,7 +57,7 @@
                 }
         ?>
             <div><?=$event_link?>
-                <img src="./image/walk_event/<?=$thumbnail?>" alt="<?=$event_name?>" /><?=$event_link_a?>
+                <img src="./image/walk_event/<?=$thumbnail?>" alt="<?=$event_name?>" <?=$gray?> /><?=$event_link_a?>
             </div>
             <?php
             }

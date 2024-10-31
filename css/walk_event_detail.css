@@ -41,6 +41,7 @@
 .e_detail img {
   width: 500px;
 }
+
 @media (max-width: 1066px) {
   .e_detail {
     flex-wrap: wrap;
@@ -120,7 +121,7 @@
 }
 
 .comment_text {
-  width: 87%;
+  width: 100%;
   margin-bottom: 10px;
 }
 
@@ -141,14 +142,26 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  margin-left: 10px; /* 버튼과 댓글 간의 간격 추가 */
 }
 
 .comment_delete button {
-  padding: 5px 10px;
-  margin-bottom: 10px;
-  background: none;
+  width: 40px;
+  padding: 5px;
+  margin: 0 5px 10px 0;
+  background-color: #eeeeee;
   border: none;
-  color: red;
+  border-radius: 3px;
+  color: black;
   cursor: pointer;
+}
+
+@media screen and (min-width: 430px) {
+  .comment_detail {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .comment_content {
+    padding-right: 10px;
+  }
 }
