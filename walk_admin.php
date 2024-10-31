@@ -55,7 +55,7 @@
                         <input type="hidden" name="member_create" value="<?=$mListRow['created_at']?>">
                         <input type="hidden" name="member_photo" value="<?=$mListRow['photo']?>">
                         <div style="margin-right: 10px;"><?=$mListRow['member_num']?></div>
-                        <div><?=$mListRow['name']?></div>
+                        <div><?=$mListRow['name']?>_<?=substr($mListRow['social_type'],0,1)?></div>
                     </button>
                 </form>
                 <?php
@@ -129,7 +129,6 @@
                     </form>
                     <?php
                         }
-
                     }
                 ?>
                 </div>

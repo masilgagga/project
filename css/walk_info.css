@@ -95,7 +95,7 @@
 
 .b1,
 .b2 {
-  width: 100px;
+  width: 100%;
   line-height: 38px;
 }
 .b1 {
@@ -211,6 +211,11 @@
   .info_img {
     max-width: 600px;
     height: 420px;
+  }
+
+  .b1,
+  .b2 {
+    min-width: 100px;
   }
 
   .walk_location_txt .info_green {
