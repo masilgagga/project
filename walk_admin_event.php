@@ -101,12 +101,13 @@
                             삭제하기</button>
                     </div>
                 </div>
-            </div>
-            <?php
+                <?php
                 
             }
-        echo "</div>
-        </section>";
+        echo "
+            </div>
+        </section>
+    </div>";
     }
     else{
         echo ("<script>
