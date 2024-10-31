@@ -13,7 +13,7 @@
     <title>마실가까</title>
 </head>
 
-<body>
+<body style="overflow-x: hidden">
     <main>
         <?php include "header.php";?>
         <!-- PC모드 메인 -->

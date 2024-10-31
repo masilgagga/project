@@ -72,4 +72,7 @@ footer * {
 
 /* pc 모드 */
 @media screen and (min-width: 1025px) {
+  .footer_wrap {
+    max-width: 1900px;
+  }
 }
