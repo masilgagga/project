@@ -101,7 +101,8 @@
                             삭제하기</button>
                     </div>
                 </div>
-                <?php
+            </div>
+            <?php
                 
             }
         echo "</div>

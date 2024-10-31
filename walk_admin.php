@@ -138,8 +138,9 @@
                 } 
             ?>
         </main>
-        <?php include "footer.php";?>
-        <?php
+    </div>
+    <?php include "footer.php";?>
+    <?php
     }
     else{
         echo ("<script>
