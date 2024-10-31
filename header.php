@@ -30,7 +30,7 @@ if(isset($_SESSION['memberNum']) && $_SESSION['memberNum']){
     }
 
     $mvLogin = "<div class='userName'>$memberName 님</div><div>$admin <a href='./login/logout.php'>로그아웃</a></div>";
-    $pcLogin = "<span class='userName'>$memberName 님</span><span>$admin <a href='./login/logout.php'>로그아웃</a></span>";
+    $pcLogin = "<div class='userName_pc'>$memberName 님</div><div>$admin <a href='./login/logout.php'>로그아웃</a></div>";
 }
 ?>
 

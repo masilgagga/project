@@ -42,11 +42,6 @@
   margin-right: 16px; /* 텍스트와의 간격 */
 }
 
-.userName {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
 .logout {
   font-size: 14px;
   font-weight: 400;
