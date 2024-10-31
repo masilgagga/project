@@ -101,9 +101,9 @@
 
                 // 이전 페이지 링크 (5씩 감소)
                 if ($current_page > 5) {
-                    echo "<a href='?page=" . ($current_page - 5) . "'><span><img src='./image/walk_my/my_arrow_l.png' alt='앞 페이지' /></span></a>";
+                    echo "<a href='?page=" . ($current_page - 5) . "'><span class='left_btn'><img src='./image/walk_my/my_arrow_l.png' alt='앞 페이지' /></span></a>";
                 }else {
-                    echo "<a href='?page=1'><span><img src='./image/walk_my/my_arrow_l.png' alt='앞 페이지' /></span></a>";
+                    echo "<a href='?page=1'><span class='left_btn'><img src='./image/walk_my/my_arrow_l.png' alt='앞 페이지' /></span></a>";
                 }
 
                 echo "<div>";
@@ -122,10 +122,10 @@
             // 다음 페이지 링크 (5씩 증가)
             if ($current_page + 5 > $total_pages) {
             // 현재 페이지에서 5를 더한 값이 총 페이지 수를 초과하는 경우
-                echo "<a href='?page=" . $total_pages . "'><span><img src='./image/walk_my/my_arrow_r.png' alt='마지막 페이지로 이동' /></span></a>";
+                echo "<a href='?page=" . $total_pages . "'><span class='right_btn'><img src='./image/walk_my/my_arrow_r.png' alt='마지막 페이지로 이동' /></span></a>";
             } else {
             // 다음 페이지로 이동
-                echo "<a href='?page=" . ($current_page + 5) . "'><span><img src='./image/walk_my/my_arrow_r.png' alt='다음 페이지' /></span></a>";
+                echo "<a href='?page=" . ($current_page + 5) . "'><span class='right_btn'><img src='./image/walk_my/my_arrow_r.png' alt='다음 페이지' /></span></a>";
             }
             echo ("</div>
         </section>");

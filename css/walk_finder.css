@@ -95,6 +95,16 @@
   color: black;
 }
 
+.page_num a:visited {
+  color: black;
+}
+
+.page_num span {
+  padding: 0 5px;
+  align-items: center;
+  font-weight: 200;
+}
+
 .page_num .left_btn {
   padding-right: 20px;
 }
@@ -103,14 +113,6 @@
   padding-left: 20px;
 }
 
-.page_num a:visited {
-  color: black;
-}
-.page_num span {
-  padding: 0 5px;
-  align-items: center;
-  font-weight: 200;
-}
 .page_num .active {
   font-weight: 800;
 }
