@@ -1,19 +1,20 @@
-# 첫번째 프로젝트
+# 프로젝트 개요
 
-.
-.
-.
+### 프로젝트 제목
+마실가까
 
-### 10-19
+### 프로젝트 로고
+![logo](https://github.com/user-attachments/assets/7b0e80d1-bf14-4eba-8d33-d2bc2092df4b)
 
-페이지 작업 및 css 수정
+### 프로젝트 정보
+산책길 정보 검색 사이트
 
-### 10-21
+### PPT 및 배포 주소
+http://zinee.dothome.co.kr/
+https://docs.google.com/presentation/d/10hKS6EJjQPwZhumJOzukBhtuIsNGbDED/edit?usp=drive_link&ouid=105443513577226796679&rtpof=true&sd=true
 
-walk_list 리스트 출력 및 커서 css 추가
-페이지 숫자 연결됨 섹션페이징 버튼은 5개 씩 증감
-page_num 클래스에 기능 확인용으로 글자색 및 굵기 추가
+### 팀 소개
+![image](https://github.com/user-attachments/assets/ea2693c0-95be-4e0e-9e95-c7b4b242f06d)
 
-### 10-31
 
-프로젝트 마감!!
+
