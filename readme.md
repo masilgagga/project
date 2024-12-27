@@ -4,7 +4,8 @@
 ![image](https://github.com/user-attachments/assets/8264d257-0337-4633-9f34-53fb1aa1dfd2)
 
 * [배포 URL](http://zinee.dothome.co.kr/)
-* [PPT](https://docs.google.com/presentation/d/10hKS6EJjQPwZhumJOzukBhtuIsNGbDED/edit?usp=drive_link&ouid=105443513577226796679&rtpof=true&sd=true)
+* [PPT](https://drive.google.com/file/d/1ZZtaUS1Un3jGxFwaTw5lGB8HsvlvroDK/view?usp=sharing)
+* [시연영상](https://drive.google.com/file/d/1ZPOxPBT6r4dfSMvCgLknGzroWFO7AGvN/view?usp=sharing)
   
 <br>
 <br>
